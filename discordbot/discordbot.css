@@ -1,0 +1,175 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: rgb(25, 30, 35);
+}
+
+:root {
+  width: 100%;
+  margin: none;
+}
+
+.body {
+  text-align: center;
+}
+
+.nameCont {
+  display: flex;
+  padding: none;
+  height: 100vh;
+  align-items: center;
+}
+
+.name {
+  color: #0052ff;
+  font-size: 3em;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+h1 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.content {
+  display: flex;
+  padding-top: 5em;
+  padding-top: 0;
+  max-width: 50em;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.nav {
+  max-width: 10em;
+}
+
+.nav li {
+  text-align: right;
+  list-style: none;
+  margin: 0.5em;
+  font-size: 1em;
+}
+
+.sections {
+  max-width: 40em;
+  text-align: left;
+  padding: 1em;
+}
+
+h1#about,
+a.about {
+  color: green;
+  text-decoration: none;
+}
+
+.collapsible {
+  background-color: transparent;
+  color: white;
+  cursor: pointer;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 1.5em;
+  font-weight: bold;
+  flex: 1;
+  align-items: center;
+  padding-top: 10;
+  padding-bottom: 10;
+}
+
+.collapsible:after {
+  content: "\002B";
+  color: white;
+  font-weight: bold;
+  float: right;
+  margin-left: 5px;
+}
+
+.active:after {
+  content: "\2212";
+}
+
+.collaps-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  padding-left: 10;
+}
+
+h1#projects,
+a.projects {
+  color: red;
+  text-decoration: none;
+}
+
+h1#contact,
+a.contact {
+  color: orange;
+  text-decoration: none;
+}
+
+.projicon {
+  height: 1em;
+}
+
+.sections p {
+  color: white;
+}
+
+.sections p a {
+  color: white;
+}
+
+.nested {
+  display: none;
+}
+
+.nested.show {
+  display: block;
+}
+
+.footer {
+  margin-top: 3em;
+  margin-bottom: 3em;
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 40em;
+}
+
+.footer,
+.footer a {
+  color: grey;
+}
+
+.boldlink {
+  font-weight: bold;
+  text-decoration: none;
+}
+
+@media screen and (max-width: 768px) {
+  .nav {
+    overflow: visible;
+    width: 2em;
+  }
+
+  ul {
+    transform: rotate(90deg);
+  }
+
+  .nav li {
+    display: inline;
+    white-space: nowrap;
+  }
+
+  .nav li a {
+    display: inline-block;
+    transform: rotate(180deg);
+  }
+}
