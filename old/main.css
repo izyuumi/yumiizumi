@@ -6,14 +6,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: rgb(25, 30, 35);
-}
-
-:root {
-  width: 100%;
-  margin: none;
-}
-
-.body {
   text-align: center;
 }
 
@@ -22,6 +14,7 @@ body {
   padding: none;
   height: 100vh;
   align-items: center;
+  margin-bottom: 30px;
 }
 
 .name {
@@ -36,17 +29,31 @@ h1 {
   margin-bottom: 0;
 }
 
+.mission {
+  width: 100%;
+  justify-content: center;
+  margin: none;
+
+}
+
+.mission h1 {
+  color: #eee;
+}
+
 .content {
   display: flex;
-  padding-top: 5em;
-  padding-top: 0;
   max-width: 50em;
   margin-left: auto;
   margin-right: auto;
+  width: 100vw;
+}
+
+.navContainer {
+  margin-top: 20;
 }
 
 .nav {
-  max-width: 10em;
+  margin-top: 5px;
 }
 
 .nav li {
@@ -66,6 +73,11 @@ h1#about,
 a.about {
   color: green;
   text-decoration: none;
+}
+
+button {
+  border-style: hidden;
+  padding: 0;
 }
 
 .collapsible {
@@ -115,6 +127,16 @@ a.contact {
   text-decoration: none;
 }
 
+.dotted {
+  border-bottom-style: dotted;
+  border-bottom-width: 1.5px;
+}
+
+.solid {
+  border-bottom-style: solid;
+  border-bottom-width: 1.5px;
+}
+
 .projicon {
   height: 1em;
 }
@@ -133,6 +155,10 @@ a.contact {
 
 .nested.show {
   display: block;
+}
+
+.long-text {
+  word-break: break-all;
 }
 
 .footer {
@@ -154,22 +180,23 @@ a.contact {
 }
 
 @media screen and (max-width: 768px) {
-  .nav {
-    overflow: visible;
+  .navContainer {
+    position: relative;
     width: 2em;
   }
 
-  ul {
+  .nav {
+    overflow: visible;
+    width: 80vh;
     transform: rotate(90deg);
+    transform-origin: 7% 50%;
   }
 
   .nav li {
-    display: inline;
-    white-space: nowrap;
+    float: left;
   }
 
   .nav li a {
-    display: inline-block;
-    transform: rotate(180deg);
+    display: block;
   }
 }

@@ -1,202 +1,127 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background-color: rgb(25, 30, 35);
+  width: 100%;
+  height: 100%;
+  background-color: #f5f5e5;
+  font-family: Sans-Serif;
   text-align: center;
-}
-
-.nameCont {
+  color: #141414;
+  -webkit-transition-duration: 0.7s;
+          transition-duration: 0.7s;
+  padding-top: 24vh;
+  margin: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  padding: none;
-  height: 100vh;
-  align-items: center;
-  margin-bottom: 30px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
-.name {
-  color: #0052ff;
-  font-size: 3em;
-  margin-left: auto;
-  margin-right: auto;
+body p {
+  color: inherit;
+  font-size: 4em;
+  margin: 0.3em;
+  max-width: 70vw;
+  line-height: 1;
 }
 
-h1 {
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-.mission {
-  width: 100%;
-  justify-content: center;
-  margin: none;
-
-}
-
-.mission h1 {
-  color: #eee;
-}
-
-.content {
-  display: flex;
-  max-width: 50em;
-  margin-left: auto;
-  margin-right: auto;
-  width: 100vw;
-}
-
-.navContainer {
-  margin-top: 20;
-}
-
-.nav {
-  margin-top: 5px;
-}
-
-.nav li {
-  text-align: right;
-  list-style: none;
-  margin: 0.5em;
-  font-size: 1em;
-}
-
-.sections {
-  max-width: 40em;
-  text-align: left;
-  padding: 1em;
-}
-
-h1#about,
-a.about {
-  color: green;
+body p a {
+  color: inherit;
   text-decoration: none;
+  border-bottom: 3px solid currentColor;
+  display: inline-block;
+  line-height: 0.85;
+  text-shadow: 2px 2px #f5f5e5, 2px -2px #f5f5e5, -2px 2px #f5f5e5, -2px -2px #f5f5e5;
+  -webkit-transition-duration: 0.7s;
+          transition-duration: 0.7s;
 }
 
-button {
-  border-style: hidden;
-  padding: 0;
+body p a:hover {
+  border-bottom: 3px dashed currentColor;
 }
 
-.collapsible {
+body .bold {
+  font-weight: bold;
+}
+
+body footer {
+  color: #141414;
+  font-size: 0.3em;
+  margin-top: 6em;
+  margin-bottom: 9em;
+}
+
+.hide {
+  background-color: #141414;
+  -webkit-transition-duration: 0.3s;
+          transition-duration: 0.3s;
+  border-radius: 6px;
+  padding: 0 12px;
+}
+
+.hide:hover {
   background-color: transparent;
-  color: white;
+}
+
+.moon {
+  height: 32px;
+  width: 32px;
+  position: fixed;
+  top: 32px;
+  right: 32px;
   cursor: pointer;
-  width: 100%;
-  border: none;
-  text-align: left;
-  outline: none;
-  font-size: 1.5em;
-  font-weight: bold;
-  flex: 1;
-  align-items: center;
-  padding-top: 10;
-  padding-bottom: 10;
 }
 
-.collapsible:after {
-  content: "\002B";
-  color: white;
-  font-weight: bold;
-  float: right;
-  margin-left: 5px;
-}
-
-.active:after {
-  content: "\2212";
-}
-
-.collaps-content {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.2s ease-out;
-  padding-left: 10;
-}
-
-h1#projects,
-a.projects {
-  color: red;
-  text-decoration: none;
-}
-
-h1#contact,
-a.contact {
-  color: orange;
-  text-decoration: none;
-}
-
-.dotted {
-  border-bottom-style: dotted;
-  border-bottom-width: 1.5px;
-}
-
-.solid {
-  border-bottom-style: solid;
-  border-bottom-width: 1.5px;
-}
-
-.projicon {
-  height: 1em;
-}
-
-.sections p {
-  color: white;
-}
-
-.sections p a {
-  color: white;
-}
-
-.nested {
-  display: none;
-}
-
-.nested.show {
+.moon .light {
   display: block;
 }
 
-.long-text {
-  word-break: break-all;
+.moon .dark {
+  display: none;
 }
 
-.footer {
-  margin-top: 3em;
-  margin-bottom: 3em;
-  margin-right: auto;
-  margin-left: auto;
-  max-width: 40em;
+body.dark {
+  background-color: #141414;
+  color: #f5f5e5;
 }
 
-.footer,
-.footer a {
-  color: grey;
+body.dark p a {
+  text-shadow: 2px 2px #141414, 2px -2px #141414, -2px 2px #141414, -2px -2px #141414;
 }
 
-.boldlink {
-  font-weight: bold;
-  text-decoration: none;
+body.dark .hide {
+  background-color: #f5f5e5;
+}
+
+body.dark .hide:hover {
+  background-color: transparent;
+}
+
+body.dark .moon .light {
+  display: none;
+}
+
+body.dark .moon .dark {
+  display: block;
+}
+
+body.dark footer {
+  color: #f5f5e5;
 }
 
 @media screen and (max-width: 768px) {
-  .navContainer {
-    position: relative;
-    width: 2em;
+  body {
+    padding-top: 20vh;
   }
-
-  .nav {
-    overflow: visible;
-    width: 80vh;
-    transform: rotate(90deg);
-    transform-origin: 7% 50%;
-  }
-
-  .nav li {
-    float: left;
-  }
-
-  .nav li a {
-    display: block;
+  body p {
+    font-size: 2em;
   }
 }
+/*# sourceMappingURL=main.css.map */
