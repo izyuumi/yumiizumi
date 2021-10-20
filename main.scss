@@ -51,35 +51,49 @@ body {
     font-size: 0.3em;
     margin-top: 6em;
     margin-bottom: 9em;
-  }
-}
 
-.hide {
-  background-color: $black;
-  transition-duration: 0.3s;
-  border-radius: 6px;
-  padding: 0 12px;
-}
+    a {
+      color: inherit;
+      text-decoration: underline;
+      display: inline-block;
+      border: none;
+      line-height: 1;
+      text-shadow: none;
+    }
 
-.hide:hover {
-  background-color: transparent;
-}
-
-.moon {
-  height: 32px;
-  width: 32px;
-  position: fixed;
-  top: 32px;
-  right: 32px;
-  cursor: pointer;
-
-  .light {
-    display: block;
+    a:hover {
+      border: none;
+      text-decoration: none;
+    }
   }
 
-  .dark {
-    display: none;
+  .hide {
+    background-color: $black;
+    transition-duration: 0.3s;
+    border-radius: 6px;
+    padding: 0 12px;
+  }
 
+  .hide:hover {
+    background-color: transparent;
+  }
+
+  .moon {
+    height: 32px;
+    width: 32px;
+    position: fixed;
+    top: 32px;
+    right: 32px;
+    cursor: pointer;
+
+    .light {
+      display: block;
+    }
+
+    .dark {
+      display: none;
+
+    }
   }
 }
 

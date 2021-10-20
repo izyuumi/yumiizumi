@@ -58,7 +58,21 @@ body footer {
   margin-bottom: 9em;
 }
 
-.hide {
+body footer a {
+  color: inherit;
+  text-decoration: underline;
+  display: inline-block;
+  border: none;
+  line-height: 1;
+  text-shadow: none;
+}
+
+body footer a:hover {
+  border: none;
+  text-decoration: none;
+}
+
+body .hide {
   background-color: #141414;
   -webkit-transition-duration: 0.3s;
           transition-duration: 0.3s;
@@ -66,11 +80,11 @@ body footer {
   padding: 0 12px;
 }
 
-.hide:hover {
+body .hide:hover {
   background-color: transparent;
 }
 
-.moon {
+body .moon {
   height: 32px;
   width: 32px;
   position: fixed;
@@ -79,11 +93,11 @@ body footer {
   cursor: pointer;
 }
 
-.moon .light {
+body .moon .light {
   display: block;
 }
 
-.moon .dark {
+body .moon .dark {
   display: none;
 }
 
