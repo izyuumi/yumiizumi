@@ -140,6 +140,18 @@ body.dark {
 
     p {
       font-size: 2em;
+
+      a {
+        text-decoration: underline;
+        border-bottom: none;
+        line-height: 1;
+        text-shadow: none;
+      }
+
+      a:hover {
+        border-bottom: none;
+        text-decoration: none;
+      }
     }
   }
 }
