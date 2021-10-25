@@ -136,6 +136,7 @@ body.dark footer {
   }
   body p {
     font-size: 2em;
+    max-width: 95vw;
   }
   body p a {
     text-decoration: underline;
@@ -146,6 +147,9 @@ body.dark footer {
   body p a:hover {
     border-bottom: none;
     text-decoration: none;
+  }
+  body .hide {
+    background-color: #fafaea;
   }
 }
 /*# sourceMappingURL=main.css.map */

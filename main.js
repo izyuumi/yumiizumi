@@ -1,5 +1,10 @@
-$(".moon").on("click", function () {
-  $("body").toggleClass("dark");
+$(document).ready(function () {
+  $("body").append(
+    '<div class="moon"><img class="light" src="moon-outline.svg" /><img class="dark" src="moon.svg" /></div>'
+  );
+  $(".moon").on("click", function () {
+    $("body").toggleClass("dark");
+  });
 });
 
 var TxtRotate = function (el, toRotate, period) {

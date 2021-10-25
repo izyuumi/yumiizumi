@@ -140,6 +140,7 @@ body.dark {
 
     p {
       font-size: 2em;
+      max-width: 95vw;
 
       a {
         text-decoration: underline;
@@ -152,6 +153,10 @@ body.dark {
         border-bottom: none;
         text-decoration: none;
       }
+    }
+
+    .hide {
+      background-color: $white + 05;
     }
   }
 }
