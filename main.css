@@ -24,6 +24,28 @@ body {
           align-items: center;
 }
 
+body .main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  max-width: 80%;
+  text-align: left;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+body .cover {
+  min-height: 80vh;
+}
+
 body p {
   color: inherit;
   font-size: 4em;
@@ -49,6 +71,10 @@ body p a:hover {
 
 body .bold {
   font-weight: bold;
+}
+
+body .smaller {
+  font-size: 3em;
 }
 
 body footer {
