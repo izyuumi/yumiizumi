@@ -65,16 +65,12 @@ body p {
 body p a {
   color: inherit;
   text-decoration: none;
-  border-bottom: 3px solid currentColor;
   display: inline-block;
   line-height: 0.85;
-  text-shadow: 2px 2px #f5f5e5, 2px -2px #f5f5e5, -2px 2px #f5f5e5, -2px -2px #f5f5e5;
-  -webkit-transition-duration: 0.7s;
-          transition-duration: 0.7s;
 }
 
 body p a:hover {
-  border-bottom: 3px dashed currentColor;
+  color: #585858;
 }
 
 body .center {
@@ -110,11 +106,12 @@ body footer {
 
 body footer a {
   color: inherit;
-  text-decoration: underline;
+  text-decoration: none;
   display: inline-block;
   border: none;
   line-height: 1;
   text-shadow: none;
+  font-weight: bolder;
 }
 
 body footer a:hover {
@@ -156,8 +153,8 @@ body.dark {
   color: #f5f5e5;
 }
 
-body.dark p a {
-  text-shadow: 2px 2px #141414, 2px -2px #141414, -2px 2px #141414, -2px -2px #141414;
+body.dark p a:hover {
+  color: #afafaf;
 }
 
 body.dark .hide {
