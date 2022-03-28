@@ -75,6 +75,8 @@ body {
     margin-top: 6em;
     margin-bottom: 9em;
     width: 80vw;
+    display: flex;
+    justify-content: center;
 
     a {
       color: inherit;
@@ -95,7 +97,7 @@ body {
     background-color: $black;
     transition-duration: 0.3s;
     border-radius: 6px;
-    padding: 3px 10px;
+    padding: 4px 10px;
   }
 
   .hide:hover {

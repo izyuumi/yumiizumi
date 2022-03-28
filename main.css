@@ -100,6 +100,12 @@ body footer {
   margin-top: 6em;
   margin-bottom: 9em;
   width: 80vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 body footer a {
@@ -121,7 +127,7 @@ body .hide {
   -webkit-transition-duration: 0.3s;
           transition-duration: 0.3s;
   border-radius: 6px;
-  padding: 3px 10px;
+  padding: 4px 10px;
 }
 
 body .hide:hover {
