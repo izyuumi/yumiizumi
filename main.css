@@ -106,12 +106,12 @@ body footer {
 
 body footer a {
   color: inherit;
+  font-size: inherit;
   text-decoration: none;
   display: inline-block;
   border: none;
   line-height: 1;
   text-shadow: none;
-  font-weight: bolder;
 }
 
 body footer a:hover {
