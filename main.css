@@ -131,6 +131,16 @@ body .hide:hover {
   background-color: transparent;
 }
 
+body #hide-checkbox {
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+}
+
+body #hide-checkbox:checked ~ .hide {
+  background-color: transparent;
+}
+
 body .moon {
   height: 32px;
   width: 32px;

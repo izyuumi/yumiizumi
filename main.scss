@@ -98,6 +98,16 @@ body {
     background-color: transparent;
   }
 
+  #hide-checkbox {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+
+  #hide-checkbox:checked~.hide {
+    background-color: transparent;
+  }
+
   .moon {
     height: 32px;
     width: 32px;
