@@ -57,7 +57,7 @@ body .cover {
 body p {
   color: inherit;
   font-size: 4em;
-  margin: 0.3em;
+  margin: 0.3em 0 0 0;
   max-width: 70vw;
   line-height: 1;
 }
@@ -69,8 +69,27 @@ body p a {
   line-height: 0.85;
 }
 
-body p a:hover {
+body p a:hover,
+body p a:focus {
   color: #585858;
+}
+
+body .logos {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+}
+
+body .logos svg {
+  height: 3rem;
+  width: auto;
+  color: #141414;
 }
 
 body .center {
@@ -127,7 +146,8 @@ body .hide {
   padding: 4px 10px;
 }
 
-body .hide:hover {
+body .hide:hover,
+body .hide:focus {
   background-color: transparent;
 }
 
@@ -167,12 +187,12 @@ body.dark p a:hover {
   color: #afafaf;
 }
 
-body.dark .hide {
-  background-color: #f5f5e5;
+body.dark .logos svg {
+  color: #f5f5e5;
 }
 
-body.dark .hide:hover {
-  background-color: transparent;
+body.dark .hide {
+  background-color: #f5f5e5;
 }
 
 body.dark .moon .light {
@@ -192,15 +212,8 @@ body.dark footer {
     font-size: 2.5em;
     max-width: 95vw;
   }
-  body p a {
-    text-decoration: underline;
-    border-bottom: none;
-    line-height: 1;
-    text-shadow: none;
-  }
-  body p a:hover {
-    border-bottom: none;
-    text-decoration: none;
+  body .logos svg {
+    height: 2rem;
   }
   body .smaller {
     font-size: 2em;
