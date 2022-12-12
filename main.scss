@@ -1,40 +1,114 @@
 $white: #f5f5e5;
 $black: #141414;
+$whitehover: #585858;
+$blackhover: #afafaf;
+$navwhite: #dcdcce;
+$navblack: #2c2c2c;
+
+$skills: (ionic, react, js, ts, php, html, css);
+
+@font-face {
+  font-family: ForzanLight;
+  src: url(./assets/ForzanLight.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: Texgyrecursor;
+  src: url(./assets/Texgyrecursor.otf) format("truetype");
+}
+
+@font-face {
+  font-family: TexgyrecursorBold;
+  src: url(./assets/TexgyrecursorBold.otf) format("truetype");
+}
+
+html {
+  scroll-behavior: smooth;
+}
 
 body {
-  width: 100%;
+  width: 60%;
   height: 100%;
   background-color: $white;
-  font-family: Sans-Serif;
+  font-family: Texgyrecursor;
   text-align: left;
   color: $black;
   transition-duration: 0.7s;
-  margin: 0;
+  margin: 0 0 0 5em;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+
+  .navigation {
+    position: fixed;
+    top: 2em;
+    left: 5em;
+    color: $navblack;
+
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      width: 100%;
+      font-family: Texgyrecursor;
+      font-size: 1.5em;
+      text-align: center;
+      text-transform: uppercase;
+
+      li {
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+        margin-right: 1.5em;
+
+        &:last-child {
+          margin-right: 0;
+        }
+
+        a {
+          position: relative;
+          padding-bottom: 2px;
+          text-decoration: none;
+          color: inherit;
+
+          &:after {
+            border-radius: 1em;
+            border-top: .1em solid $black;
+            content: "";
+            position: absolute;
+            right: 100%;
+            bottom: .14em;
+            left: 0;
+            transition: right 0.3s cubic-bezier(0.46, 0.97, 0.33, 1.31);
+          }
+
+          &:hover:after {
+            right: 0;
+          }
+        }
+      }
+    }
+  }
 
   .main {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    max-width: 80%;
+    max-width: 90%;
     align-items: flex-start;
   }
 
   .cover {
-    min-height: 100vh;
+    // min-height: 70vh;
     display: flex;
-    justify-content: center;
     flex-direction: column;
+    padding: 30vh 0 0 0;
   }
 
   p {
     color: inherit;
-    font-size: 4em;
-    margin: 0.3em 0 0 0;
-    max-width: 70vw;
+    font-size: 2em;
+    margin: 1.3em 0 0 0;
+    max-width: 100%;
     line-height: 1;
 
     a {
@@ -42,24 +116,226 @@ body {
       text-decoration: none;
       display: inline-block;
       line-height: 0.85;
+
+      &:hover {
+        color: $whitehover;
+      }
+    }
+  }
+
+  .name {
+    font-size: 4em;
+    font-family: ForzanLight;
+    letter-spacing: 20px;
+  }
+
+  .type {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    height: 4em;
+
+    span {
+      display: flex;
+      justify-content: flex-start;
+      flex-grow: 0;
+      padding-right: 5px;
+
+      $typeList: (a developer, a student, a gamer, a musician 🎸);
+
+      $lengthUpToHere: 0;
+      $totalLength: 0;
+      $delayBetweenLines: 5;
+
+      @each $t in $typeList {
+        $totalLength: $totalLength+str-length(#{$t})+$delayBetweenLines;
+      }
+
+      @each $t in $typeList {
+        $i: index($typeList, $t);
+        $l: str-length(#{$t})+$delayBetweenLines;
+        $lengthUpToHere: $lengthUpToHere + $l;
+
+        &:nth-child(#{$i})::after {
+          content: "";
+          padding-right: 5px;
+          animation: type#{$i} linear 10s 1 normal forwards;
+          padding-right: 5px;
+        }
+
+        @keyframes type#{$i} {
+          $min: calc(($lengthUpToHere - $l) / $totalLength);
+
+          #{calc($min * 100%)} {
+            content: "";
+          }
+
+          @for $j from 1 through $l {
+            $percent: calc($j / $totalLength) + $min;
+            $keyframe: round($percent * 100);
+
+            #{$keyframe * 1%} {
+              content: quote(str-slice(#{$t}, 1, $j));
+
+              @if $i !=4 {
+                @if $keyframe % 5==0 {
+                  border-right: 0.08em solid transparent;
+                }
+
+                @else {
+                  border-right: 0.08em solid #666;
+                }
+              }
+
+              @if $j==$l or $j==1 {
+                border-right: 0.08em solid transparent;
+              }
+            }
+          }
+
+          100% {
+            content: quote(#{$t});
+            border-right: 0.08em solid transparent;
+          }
+        }
+      }
+
+      &:last-child {
+        border-right: 0.08em solid #666;
+        animation: tick 0.8s cubic-bezier(1, -0.51, 0, 1.23) infinite;
+      }
+
+      @keyframes tick {
+
+        0%,
+        50% {
+          border-right-color: #666;
+        }
+
+        100% {
+          border-right-color: transparent;
+        }
+      }
+    }
+  }
+
+  .message {
+    margin: 5em 0;
+
+    .hide {
+      background-color: $black;
+      transition-duration: 0.3s;
+      border-radius: 6px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: transparent;
+      }
     }
 
-    a:hover,
-    a:focus {
-      color: #585858;
+    #hide-checkbox {
+      position: absolute;
+      top: -9999px;
+      left: -9999px;
+
+      &:checked~.hide {
+        background-color: transparent;
+      }
     }
   }
 
   .logos {
     display: flex;
-    justify-content: space-around;
+    position: relative;
     align-items: center;
-    width: 100%;
+    overflow-x: visible;
+    height: 3rem;
+    margin: 1em 0;
 
-    svg {
-      height: 3rem;
-      width: auto;
-      color: $black;
+    #hide-checkbox {
+      position: absolute;
+      top: -9999px;
+      left: -9999px;
+    }
+
+    @each $skill in $skills {
+
+      &:has(.skill-#{$skill}:hover)~.smaller:has(.skill-#{$skill}) a,
+      &:has(.skill-#{$skill}:hover)~.smaller:has(.skill-#{$skill}) span {
+        display: flex;
+        color: #484848;
+        opacity: 1;
+      }
+
+      &:has(.skill-#{$skill}:hover)~.smaller span.skill-#{$skill} {
+        font-family: TexgyrecursorBold;
+      }
+    }
+
+    div {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      position: relative;
+      left: 0;
+      animation: slideOut 0.3s cubic-bezier(0, -0.01, 0, 1.17) 1;
+
+      span {
+        display: none;
+        position: relative;
+        color: inherit;
+        font-size: 2em;
+        margin-right: 0.5em;
+        z-index: 1;
+      }
+
+      a {
+        display: flex;
+        align-items: center;
+        margin-right: 1em;
+        color: inherit;
+        text-decoration: none;
+        z-index: 2;
+        background-color: inherit;
+
+        &:hover+span,
+        &:hover~div {
+          display: flex;
+          position: relative;
+          animation: slideIn 0.3s cubic-bezier(0, -0.01, 0, 1.17) 1;
+        }
+
+        @keyframes slideIn {
+          0% {
+            left: -100px;
+          }
+
+          100% {
+            left: 0;
+          }
+        }
+
+        @keyframes slideOut {
+          0% {
+            left: 30px;
+          }
+
+          100% {
+            left: 0;
+          }
+        }
+
+        svg {
+          height: 2rem;
+          width: auto;
+          color: inherit;
+        }
+
+        &:hover>svg {
+          height: 1.9rem;
+          color: #484848;
+        }
+      }
     }
   }
 
@@ -70,134 +346,222 @@ body {
 
   .bold {
     font-weight: bold;
-    margin-top: 1em;
+    font-size: 3em;
+    margin: 0;
   }
 
   .smaller {
     display: flex;
     flex-direction: column;
-    font-size: 3em;
-    margin: 0.5em 0 0 0.1em;
+    font-size: 2em;
+    margin: 0.2em 0 0 0.1em;
 
     span {
-      font-size: 0.5em;
+      display: none;
+      font-size: 0.7em;
       margin: 0.2em 0 0 0.1em;
+
+      span {
+        margin-right: 1em;
+
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+
+    a {
+      color: #484848;
+
+      &:hover {
+        color: $black;
+      }
+
+      &:hover~span,
+      &:hover~span>span {
+        display: flex;
+      }
     }
   }
 
-  .small {
-    font-size: 1.5em;
-    margin: 0.5em 0 0 0.1em;
+  .social-icons {
+    position: fixed;
+    top: 2em;
+    right: 5em;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
 
-    a {
-      margin: 0.4em 0 0 0.2em;
+    div {
+      display: flex;
+      flex-direction: row-reverse;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      margin-right: 2em;
+      padding: 0.2em 0;
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      span {
+        display: none;
+        position: absolute;
+        z-index: 1;
+        font-size: 1.2em;
+        margin-right: 0.7em;
+      }
+
+      a {
+        color: #484848;
+        text-decoration: none;
+        z-index: 2;
+
+        &:hover {
+          color: $black;
+        }
+
+        &:hover+span {
+          display: flex;
+          position: relative;
+          animation: slideIn 0.3s cubic-bezier(0, -0.01, 0, 1.17) 1;
+        }
+
+        @keyframes slideIn {
+          0% {
+            left: 100px;
+          }
+
+          100% {
+            left: 0;
+          }
+        }
+      }
+
+      svg {
+        height: 1.5rem;
+        width: auto;
+        cursor: pointer;
+      }
+
+      #moon-checkbox {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+      }
     }
   }
 
   footer {
-    color: $black;
-    font-size: 0.3em;
     margin-top: 10em;
-    margin-bottom: 9em;
-    width: 80vw;
-    display: flex;
-    justify-content: center;
+    margin-bottom: 4em;
+    width: 100%;
 
-    a {
+    p {
       color: inherit;
-      font-size: inherit;
-      text-decoration: none;
-      display: inline-block;
-      border: none;
-      line-height: 1;
-      text-shadow: none;
-    }
-
-    a:hover {
-      border: none;
-      text-decoration: none;
-    }
-  }
-
-  .hide {
-    background-color: $black;
-    transition-duration: 0.3s;
-    border-radius: 6px;
-    padding: 4px 10px;
-  }
-
-  .hide:hover,
-  .hide:focus {
-    background-color: transparent;
-  }
-
-  #hide-checkbox {
-    position: absolute;
-    top: -9999px;
-    left: -9999px;
-  }
-
-  #hide-checkbox:checked~.hide {
-    background-color: transparent;
-  }
-
-  .moon {
-    height: 32px;
-    width: 32px;
-    position: fixed;
-    top: 32px;
-    right: 32px;
-    cursor: pointer;
-
-    .light {
-      display: block;
-    }
-
-    .dark {
-      display: none;
-
+      font-size: 1.2em;
+      text-align: left;
+      margin: 0;
     }
   }
 }
 
-body.dark {
+body:has(#moon-checkbox:not(:checked)) {
   background-color: $black;
   color: $white;
 
+  .navigation {
+    color: $navwhite;
+
+    ul {
+      li {
+        a {
+          &:after {
+            border-color: $white;
+          }
+        }
+      }
+    }
+  }
+
+  .message {
+    .hide {
+      background-color: $white;
+
+      &:hover {
+        background-color: transparent;
+      }
+    }
+  }
+
   p {
+
     a:hover {
-      color: #afafaf;
+      color: $blackhover;
     }
   }
 
-  .logos svg {
-    color: $white;
-  }
+  .logos {
 
-  .hide {
-    background-color: $white;
-  }
+    @each $skill in $skills {
 
-  .moon {
-    .light {
-      display: none;
+      &:has(.skill-#{$skill}:hover)~.smaller:has(.skill-#{$skill}) a,
+      &:has(.skill-#{$skill}:hover)~.smaller:has(.skill-#{$skill}) span {
+        color: $blackhover;
+      }
     }
 
-    .dark {
-      display: block;
+    a {
+      color: $white;
+
+      &:hover {
+        color: $blackhover;
+      }
+
+      svg {
+        color: $white;
+      }
+
+      &:hover>svg,
+      &:hover~span {
+        color: $blackhover;
+      }
     }
   }
 
-  footer {
-    color: $white;
+  .smaller {
+    a {
+      color: $white;
+
+      &:hover {
+        color: $blackhover;
+      }
+    }
+  }
+
+  .social-icons {
+    a {
+      color: $blackhover;
+
+      &:hover {
+        color: $white;
+      }
+    }
   }
 }
 
 @media screen and (max-width: 768px) {
   body {
+    width: 80%;
+
     p {
-      font-size: 2.5em;
+      font-size: 2em;
       max-width: 98vw;
+    }
+
+    .name {
+      font-size: 4em;
     }
 
     .logos svg {
@@ -206,10 +570,10 @@ body.dark {
 
     .smaller {
       font-size: 2em;
-    }
 
-    .hide {
-      background-color: $white;
+      span {
+        font-size: 0.8em;
+      }
     }
   }
 }
