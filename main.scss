@@ -372,6 +372,7 @@ body {
 
     a {
       color: #484848;
+      width: fit-content;
 
       &:hover {
         color: $black;
@@ -459,10 +460,14 @@ body {
     width: 100%;
 
     p {
-      color: inherit;
       font-size: 1.2em;
-      text-align: left;
-      margin: 0;
+      margin: 1em 0;
+
+      &:last-child {
+        color: inherit;
+        font-size: 1em;
+        margin: 0;
+      }
     }
   }
 }
@@ -553,10 +558,20 @@ body:has(#moon-checkbox:not(:checked)) {
 
 @media screen and (max-width: 768px) {
   body {
-    width: 80%;
+    width: auto;
+    margin: 0 0 0 5vw;
+
+    .navigation {
+      top: 10px;
+      left: 5vw;
+    }
+
+    .main {
+      width: 100%;
+    }
 
     p {
-      font-size: 2em;
+      font-size: 1.5em;
       max-width: 98vw;
     }
 
@@ -564,16 +579,64 @@ body:has(#moon-checkbox:not(:checked)) {
       font-size: 4em;
     }
 
-    .logos svg {
-      height: 1.5rem;
+    .logos {
+      overflow-x: hidden;
+
+      div {
+        animation: none;
+
+        a {
+          svg {
+            height: 1.5rem;
+          }
+
+          &:hover>svg {
+            height: 1.3rem;
+          }
+
+          &:hover+span {
+            display: none;
+            animation: none;
+          }
+
+          &:hover~div {
+            animation: none;
+          }
+        }
+
+        span {
+          font-size: 1.4em;
+        }
+      }
     }
 
     .smaller {
-      font-size: 2em;
+      font-size: 1.5em;
 
       span {
         font-size: 0.8em;
       }
+    }
+
+    .social-icons {
+      bottom: 10px;
+      right: 10px;
+      top: unset;
+
+      div {
+        a:hover+span {
+          display: none;
+        }
+
+        span {
+          display: none;
+        }
+      }
+    }
+
+    footer {
+      margin-top: 10em;
+      margin-bottom: 5em;
     }
   }
 }

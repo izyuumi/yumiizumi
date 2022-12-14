@@ -881,6 +881,9 @@ body .smaller span span:last-child {
 }
 body .smaller a {
   color: #484848;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
 }
 body .smaller a:hover {
   color: #141414;
@@ -953,9 +956,12 @@ body footer {
   width: 100%;
 }
 body footer p {
-  color: inherit;
   font-size: 1.2em;
-  text-align: left;
+  margin: 1em 0;
+}
+body footer p:last-child {
+  color: inherit;
+  font-size: 1em;
   margin: 0;
 }
 
@@ -1026,22 +1032,67 @@ body:has(#moon-checkbox:not(:checked)) .social-icons a:hover {
 
 @media screen and (max-width: 768px) {
   body {
-    width: 80%;
+    width: auto;
+    margin: 0 0 0 5vw;
+  }
+  body .navigation {
+    top: 10px;
+    left: 5vw;
+  }
+  body .main {
+    width: 100%;
   }
   body p {
-    font-size: 2em;
+    font-size: 1.5em;
     max-width: 98vw;
   }
   body .name {
     font-size: 4em;
   }
-  body .logos svg {
+  body .logos {
+    overflow-x: hidden;
+  }
+  body .logos div {
+    -webkit-animation: none;
+            animation: none;
+  }
+  body .logos div a svg {
     height: 1.5rem;
   }
+  body .logos div a:hover > svg {
+    height: 1.3rem;
+  }
+  body .logos div a:hover + span {
+    display: none;
+    -webkit-animation: none;
+            animation: none;
+  }
+  body .logos div a:hover ~ div {
+    -webkit-animation: none;
+            animation: none;
+  }
+  body .logos div span {
+    font-size: 1.4em;
+  }
   body .smaller {
-    font-size: 2em;
+    font-size: 1.5em;
   }
   body .smaller span {
     font-size: 0.8em;
+  }
+  body .social-icons {
+    bottom: 10px;
+    right: 10px;
+    top: unset;
+  }
+  body .social-icons div a:hover + span {
+    display: none;
+  }
+  body .social-icons div span {
+    display: none;
+  }
+  body footer {
+    margin-top: 10em;
+    margin-bottom: 5em;
   }
 }/*# sourceMappingURL=main.css.map */
