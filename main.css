@@ -12,14 +12,19 @@
   src: url(./assets/TexgyrecursorBold.otf) format("truetype");
 }
 html {
-  scroll-behavior: smooth;
+  overflow-y: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+html::-webkit-scrollbar {
+  display: none;
 }
 
 body {
   width: 60%;
   height: 100%;
   background-color: #f5f5e5;
-  font-family: Texgyrecursor;
+  font-family: Texgyrecursor, sans-serif;
   text-align: left;
   color: #141414;
   transition-duration: 0.7s;
@@ -27,41 +32,44 @@ body {
   display: flex;
   flex-direction: column;
 }
-body .navigation {
+
+.navigation {
   position: fixed;
   top: 2em;
   left: 5em;
   color: #2c2c2c;
 }
-body .navigation ul {
+.navigation ul {
   list-style: none;
   margin: 0;
-  padding: 0;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   width: 100%;
-  font-family: Texgyrecursor;
+  font-family: Texgyrecursor, sans-serif;
   font-size: 1.5em;
   text-align: center;
   text-transform: uppercase;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 0 5px;
+  border-radius: 5px;
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
 }
-body .navigation ul li {
+.navigation ul li {
   width: 100%;
   height: 100%;
   cursor: pointer;
-  margin-right: 1.5em;
 }
-body .navigation ul li:last-child {
-  margin-right: 0;
+.navigation ul li:first-child {
+  margin-right: 1em;
 }
-body .navigation ul li a {
+.navigation ul li a {
   position: relative;
-  padding-bottom: 2px;
   text-decoration: none;
   color: inherit;
 }
-body .navigation ul li a:after {
+.navigation ul li a:after {
   border-radius: 1em;
   border-top: 0.1em solid #141414;
   content: "";
@@ -71,132 +79,60 @@ body .navigation ul li a:after {
   left: 0;
   transition: right 0.3s cubic-bezier(0.46, 0.97, 0.33, 1.31);
 }
-body .navigation ul li a:hover:after {
+.navigation ul li a:hover:after {
   right: 0;
 }
-body .main {
+
+.main {
   max-width: 90%;
   align-items: flex-start;
 }
-body .cover {
+
+.cover {
   display: flex;
   flex-direction: column;
   padding: 30vh 0 0 0;
 }
-body p {
+
+p {
   color: inherit;
   font-size: 2em;
   margin: 1.3em 0 0 0;
   max-width: 100%;
   line-height: 1;
 }
-body p a {
+p a {
   color: inherit;
   text-decoration: none;
   display: inline-block;
   line-height: 0.85;
 }
-body p a:hover {
+p a:hover {
   color: #585858;
 }
-body .name {
+
+.name {
   font-size: 4em;
-  font-family: ForzanLight;
+  font-family: ForzanLight, sans-serif;
   letter-spacing: 20px;
 }
-body .type {
+
+.type {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   height: 4em;
 }
-body .type span {
+.type span {
   display: flex;
   justify-content: flex-start;
   flex-grow: 0;
   padding-right: 5px;
 }
-body .type span:nth-child(1)::after {
+.type span:nth-child(1)::after {
   content: "";
   padding-right: 5px;
-  -webkit-animation: type1 linear 10s 1 normal forwards;
-          animation: type1 linear 10s 1 normal forwards;
-  padding-right: 5px;
-}
-@-webkit-keyframes type1 {
-  0% {
-    content: "";
-  }
-  2% {
-    content: "a";
-    border-right: 0.08em solid #666;
-    border-right: 0.08em solid transparent;
-  }
-  3% {
-    content: "a ";
-    border-right: 0.08em solid #666;
-  }
-  5% {
-    content: "a d";
-    border-right: 0.08em solid transparent;
-  }
-  7% {
-    content: "a de";
-    border-right: 0.08em solid #666;
-  }
-  8% {
-    content: "a dev";
-    border-right: 0.08em solid #666;
-  }
-  10% {
-    content: "a deve";
-    border-right: 0.08em solid transparent;
-  }
-  12% {
-    content: "a devel";
-    border-right: 0.08em solid #666;
-  }
-  14% {
-    content: "a develo";
-    border-right: 0.08em solid #666;
-  }
-  15% {
-    content: "a develop";
-    border-right: 0.08em solid transparent;
-  }
-  17% {
-    content: "a develope";
-    border-right: 0.08em solid #666;
-  }
-  19% {
-    content: "a developer";
-    border-right: 0.08em solid #666;
-  }
-  20% {
-    content: "a developer";
-    border-right: 0.08em solid transparent;
-  }
-  22% {
-    content: "a developer";
-    border-right: 0.08em solid #666;
-  }
-  24% {
-    content: "a developer";
-    border-right: 0.08em solid #666;
-  }
-  25% {
-    content: "a developer";
-    border-right: 0.08em solid transparent;
-  }
-  27% {
-    content: "a developer";
-    border-right: 0.08em solid #666;
-    border-right: 0.08em solid transparent;
-  }
-  100% {
-    content: "a developer";
-    border-right: 0.08em solid transparent;
-  }
+  animation: type1 linear 10s 1 normal forwards;
 }
 @keyframes type1 {
   0% {
@@ -273,79 +209,10 @@ body .type span:nth-child(1)::after {
     border-right: 0.08em solid transparent;
   }
 }
-body .type span:nth-child(2)::after {
+.type span:nth-child(2)::after {
   content: "";
   padding-right: 5px;
-  -webkit-animation: type2 linear 10s 1 normal forwards;
-          animation: type2 linear 10s 1 normal forwards;
-  padding-right: 5px;
-}
-@-webkit-keyframes type2 {
-  27.1186440678% {
-    content: "";
-  }
-  29% {
-    content: "a";
-    border-right: 0.08em solid #666;
-    border-right: 0.08em solid transparent;
-  }
-  31% {
-    content: "a ";
-    border-right: 0.08em solid #666;
-  }
-  32% {
-    content: "a s";
-    border-right: 0.08em solid #666;
-  }
-  34% {
-    content: "a st";
-    border-right: 0.08em solid #666;
-  }
-  36% {
-    content: "a stu";
-    border-right: 0.08em solid #666;
-  }
-  37% {
-    content: "a stud";
-    border-right: 0.08em solid #666;
-  }
-  39% {
-    content: "a stude";
-    border-right: 0.08em solid #666;
-  }
-  41% {
-    content: "a studen";
-    border-right: 0.08em solid #666;
-  }
-  42% {
-    content: "a student";
-    border-right: 0.08em solid #666;
-  }
-  44% {
-    content: "a student";
-    border-right: 0.08em solid #666;
-  }
-  46% {
-    content: "a student";
-    border-right: 0.08em solid #666;
-  }
-  47% {
-    content: "a student";
-    border-right: 0.08em solid #666;
-  }
-  49% {
-    content: "a student";
-    border-right: 0.08em solid #666;
-  }
-  51% {
-    content: "a student";
-    border-right: 0.08em solid #666;
-    border-right: 0.08em solid transparent;
-  }
-  100% {
-    content: "a student";
-    border-right: 0.08em solid transparent;
-  }
+  animation: type2 linear 10s 1 normal forwards;
 }
 @keyframes type2 {
   27.1186440678% {
@@ -414,71 +281,10 @@ body .type span:nth-child(2)::after {
     border-right: 0.08em solid transparent;
   }
 }
-body .type span:nth-child(3)::after {
+.type span:nth-child(3)::after {
   content: "";
   padding-right: 5px;
-  -webkit-animation: type3 linear 10s 1 normal forwards;
-          animation: type3 linear 10s 1 normal forwards;
-  padding-right: 5px;
-}
-@-webkit-keyframes type3 {
-  50.8474576271% {
-    content: "";
-  }
-  53% {
-    content: "a";
-    border-right: 0.08em solid #666;
-    border-right: 0.08em solid transparent;
-  }
-  54% {
-    content: "a ";
-    border-right: 0.08em solid #666;
-  }
-  56% {
-    content: "a g";
-    border-right: 0.08em solid #666;
-  }
-  58% {
-    content: "a ga";
-    border-right: 0.08em solid #666;
-  }
-  59% {
-    content: "a gam";
-    border-right: 0.08em solid #666;
-  }
-  61% {
-    content: "a game";
-    border-right: 0.08em solid #666;
-  }
-  63% {
-    content: "a gamer";
-    border-right: 0.08em solid #666;
-  }
-  64% {
-    content: "a gamer";
-    border-right: 0.08em solid #666;
-  }
-  66% {
-    content: "a gamer";
-    border-right: 0.08em solid #666;
-  }
-  68% {
-    content: "a gamer";
-    border-right: 0.08em solid #666;
-  }
-  69% {
-    content: "a gamer";
-    border-right: 0.08em solid #666;
-  }
-  71% {
-    content: "a gamer";
-    border-right: 0.08em solid #666;
-    border-right: 0.08em solid transparent;
-  }
-  100% {
-    content: "a gamer";
-    border-right: 0.08em solid transparent;
-  }
+  animation: type3 linear 10s 1 normal forwards;
 }
 @keyframes type3 {
   50.8474576271% {
@@ -539,74 +345,10 @@ body .type span:nth-child(3)::after {
     border-right: 0.08em solid transparent;
   }
 }
-body .type span:nth-child(4)::after {
+.type span:nth-child(4)::after {
   content: "";
   padding-right: 5px;
-  -webkit-animation: type4 linear 10s 1 normal forwards;
-          animation: type4 linear 10s 1 normal forwards;
-  padding-right: 5px;
-}
-@-webkit-keyframes type4 {
-  71.186440678% {
-    content: "";
-  }
-  73% {
-    content: "a";
-    border-right: 0.08em solid transparent;
-  }
-  75% {
-    content: "a ";
-  }
-  76% {
-    content: "a m";
-  }
-  78% {
-    content: "a mu";
-  }
-  80% {
-    content: "a mus";
-  }
-  81% {
-    content: "a musi";
-  }
-  83% {
-    content: "a music";
-  }
-  85% {
-    content: "a musici";
-  }
-  86% {
-    content: "a musicia";
-  }
-  88% {
-    content: "a musician";
-  }
-  90% {
-    content: "a musician ";
-  }
-  92% {
-    content: "a musician 🎸";
-  }
-  93% {
-    content: "a musician 🎸";
-  }
-  95% {
-    content: "a musician 🎸";
-  }
-  97% {
-    content: "a musician 🎸";
-  }
-  98% {
-    content: "a musician 🎸";
-  }
-  100% {
-    content: "a musician 🎸";
-    border-right: 0.08em solid transparent;
-  }
-  100% {
-    content: "a musician 🎸";
-    border-right: 0.08em solid transparent;
-  }
+  animation: type4 linear 10s 1 normal forwards;
 }
 @keyframes type4 {
   71.186440678% {
@@ -670,48 +412,50 @@ body .type span:nth-child(4)::after {
     border-right: 0.08em solid transparent;
   }
 }
-body .type span:last-child {
+.type span:last-child {
   border-right: 0.08em solid #666;
-  -webkit-animation: tick 0.8s cubic-bezier(1, -0.51, 0, 1.23) infinite;
-          animation: tick 0.8s cubic-bezier(1, -0.51, 0, 1.23) infinite;
-}
-@-webkit-keyframes tick {
-  0%, 50% {
-    border-right-color: #666;
-  }
-  100% {
-    border-right-color: transparent;
-  }
+  animation: tick 0.8s cubic-bezier(1, -0.51, 0, 1.23) infinite;
 }
 @keyframes tick {
-  0%, 50% {
+  0%,
+  50% {
     border-right-color: #666;
   }
   100% {
     border-right-color: transparent;
   }
 }
-body .message {
+
+.message {
   margin: 5em 0;
 }
-body .message .hide {
+.message .hide {
   background-color: #141414;
   transition-duration: 0.3s;
   border-radius: 6px;
   cursor: pointer;
 }
-body .message .hide:hover {
+.message .hide:hover {
   background-color: transparent;
 }
-body .message #hide-checkbox {
+.message #hide-checkbox {
   position: absolute;
   top: -9999px;
   left: -9999px;
 }
-body .message #hide-checkbox:checked ~ .hide {
+.message #hide-checkbox:checked ~ .hide {
   background-color: transparent;
 }
-body .logos {
+
+.skill-label-container span {
+  display: none;
+  position: relative;
+  color: inherit;
+  font-size: 4em;
+  z-index: 1;
+}
+
+.logos {
   display: flex;
   position: relative;
   align-items: center;
@@ -719,247 +463,240 @@ body .logos {
   height: 3rem;
   margin: 1em 0;
 }
-body .logos #hide-checkbox {
-  position: absolute;
-  top: -9999px;
-  left: -9999px;
-}
-body .logos:has(.skill-ionic:hover) ~ .smaller:has(.skill-ionic) a, body .logos:has(.skill-ionic:hover) ~ .smaller:has(.skill-ionic) span {
+.logos:has(.skill-ionic:hover) ~ .smaller:has(.skill-ionic) a,
+.logos:has(.skill-ionic:hover) ~ .smaller:has(.skill-ionic) span {
   display: flex;
   color: #484848;
   opacity: 1;
 }
-body .logos:has(.skill-ionic:hover) ~ .smaller span.skill-ionic {
-  font-family: TexgyrecursorBold;
+.logos:has(.skill-ionic:hover) ~ .smaller span.skill-ionic {
+  font-family: TexgyrecursorBold, sans-serif;
 }
-body .logos:has(.skill-react:hover) ~ .smaller:has(.skill-react) a, body .logos:has(.skill-react:hover) ~ .smaller:has(.skill-react) span {
+.logos:has(.skill-react:hover) ~ .smaller:has(.skill-react) a,
+.logos:has(.skill-react:hover) ~ .smaller:has(.skill-react) span {
   display: flex;
   color: #484848;
   opacity: 1;
 }
-body .logos:has(.skill-react:hover) ~ .smaller span.skill-react {
-  font-family: TexgyrecursorBold;
+.logos:has(.skill-react:hover) ~ .smaller span.skill-react {
+  font-family: TexgyrecursorBold, sans-serif;
 }
-body .logos:has(.skill-js:hover) ~ .smaller:has(.skill-js) a, body .logos:has(.skill-js:hover) ~ .smaller:has(.skill-js) span {
+.logos:has(.skill-js:hover) ~ .smaller:has(.skill-js) a,
+.logos:has(.skill-js:hover) ~ .smaller:has(.skill-js) span {
   display: flex;
   color: #484848;
   opacity: 1;
 }
-body .logos:has(.skill-js:hover) ~ .smaller span.skill-js {
-  font-family: TexgyrecursorBold;
+.logos:has(.skill-js:hover) ~ .smaller span.skill-js {
+  font-family: TexgyrecursorBold, sans-serif;
 }
-body .logos:has(.skill-ts:hover) ~ .smaller:has(.skill-ts) a, body .logos:has(.skill-ts:hover) ~ .smaller:has(.skill-ts) span {
+.logos:has(.skill-ts:hover) ~ .smaller:has(.skill-ts) a,
+.logos:has(.skill-ts:hover) ~ .smaller:has(.skill-ts) span {
   display: flex;
   color: #484848;
   opacity: 1;
 }
-body .logos:has(.skill-ts:hover) ~ .smaller span.skill-ts {
-  font-family: TexgyrecursorBold;
+.logos:has(.skill-ts:hover) ~ .smaller span.skill-ts {
+  font-family: TexgyrecursorBold, sans-serif;
 }
-body .logos:has(.skill-php:hover) ~ .smaller:has(.skill-php) a, body .logos:has(.skill-php:hover) ~ .smaller:has(.skill-php) span {
+.logos:has(.skill-php:hover) ~ .smaller:has(.skill-php) a,
+.logos:has(.skill-php:hover) ~ .smaller:has(.skill-php) span {
   display: flex;
   color: #484848;
   opacity: 1;
 }
-body .logos:has(.skill-php:hover) ~ .smaller span.skill-php {
-  font-family: TexgyrecursorBold;
+.logos:has(.skill-php:hover) ~ .smaller span.skill-php {
+  font-family: TexgyrecursorBold, sans-serif;
 }
-body .logos:has(.skill-html:hover) ~ .smaller:has(.skill-html) a, body .logos:has(.skill-html:hover) ~ .smaller:has(.skill-html) span {
+.logos:has(.skill-html:hover) ~ .smaller:has(.skill-html) a,
+.logos:has(.skill-html:hover) ~ .smaller:has(.skill-html) span {
   display: flex;
   color: #484848;
   opacity: 1;
 }
-body .logos:has(.skill-html:hover) ~ .smaller span.skill-html {
-  font-family: TexgyrecursorBold;
+.logos:has(.skill-html:hover) ~ .smaller span.skill-html {
+  font-family: TexgyrecursorBold, sans-serif;
 }
-body .logos:has(.skill-css:hover) ~ .smaller:has(.skill-css) a, body .logos:has(.skill-css:hover) ~ .smaller:has(.skill-css) span {
+.logos:has(.skill-css:hover) ~ .smaller:has(.skill-css) a,
+.logos:has(.skill-css:hover) ~ .smaller:has(.skill-css) span {
   display: flex;
   color: #484848;
   opacity: 1;
 }
-body .logos:has(.skill-css:hover) ~ .smaller span.skill-css {
-  font-family: TexgyrecursorBold;
+.logos:has(.skill-css:hover) ~ .smaller span.skill-css {
+  font-family: TexgyrecursorBold, sans-serif;
 }
-body .logos div {
+.logos:has(.skill-astro:hover) ~ .smaller:has(.skill-astro) a,
+.logos:has(.skill-astro:hover) ~ .smaller:has(.skill-astro) span {
+  display: flex;
+  color: #484848;
+  opacity: 1;
+}
+.logos:has(.skill-astro:hover) ~ .smaller span.skill-astro {
+  font-family: TexgyrecursorBold, sans-serif;
+}
+.logos:has(.skill-mysql:hover) ~ .smaller:has(.skill-mysql) a,
+.logos:has(.skill-mysql:hover) ~ .smaller:has(.skill-mysql) span {
+  display: flex;
+  color: #484848;
+  opacity: 1;
+}
+.logos:has(.skill-mysql:hover) ~ .smaller span.skill-mysql {
+  font-family: TexgyrecursorBold, sans-serif;
+}
+.logos div {
   display: flex;
   flex-direction: row;
   align-items: center;
-  position: relative;
   left: 0;
-  -webkit-animation: slideOut 0.3s cubic-bezier(0, -0.01, 0, 1.17) 1;
-          animation: slideOut 0.3s cubic-bezier(0, -0.01, 0, 1.17) 1;
+  margin-right: 1em;
 }
-body .logos div span {
+.logos div:last-child {
+  margin-right: 0;
+}
+.logos div span {
   display: none;
-  position: relative;
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  transform: translateY(-50%);
   color: inherit;
   font-size: 2em;
-  margin-right: 0.5em;
   z-index: 1;
 }
-body .logos div a {
+.logos div a {
   display: flex;
   align-items: center;
-  margin-right: 1em;
+  justify-content: center;
   color: inherit;
   text-decoration: none;
   z-index: 2;
   background-color: inherit;
+  height: 2rem;
+  width: 2rem;
 }
-body .logos div a:hover + span, body .logos div a:hover ~ div {
+.logos div a:hover + span,
+.logos div a:hover ~ div {
   display: flex;
-  position: relative;
-  -webkit-animation: slideIn 0.3s cubic-bezier(0, -0.01, 0, 1.17) 1;
-          animation: slideIn 0.3s cubic-bezier(0, -0.01, 0, 1.17) 1;
 }
-@-webkit-keyframes slideIn {
-  0% {
-    left: -100px;
-  }
-  100% {
-    left: 0;
-  }
-}
-@keyframes slideIn {
-  0% {
-    left: -100px;
-  }
-  100% {
-    left: 0;
-  }
-}
-@-webkit-keyframes slideOut {
-  0% {
-    left: 30px;
-  }
-  100% {
-    left: 0;
-  }
-}
-@keyframes slideOut {
-  0% {
-    left: 30px;
-  }
-  100% {
-    left: 0;
-  }
-}
-body .logos div a svg {
+.logos div a svg {
   height: 2rem;
   width: auto;
   color: inherit;
+  transform-origin: center;
 }
-body .logos div a:hover > svg {
+.logos div a:hover > svg {
   height: 1.9rem;
   color: #484848;
 }
-body .center {
+
+.center {
   display: flex;
   justify-content: center;
 }
-body .bold {
+
+.bold {
   font-weight: bold;
   font-size: 3em;
   margin: 0;
 }
-body .smaller {
+
+.smaller {
   display: flex;
   flex-direction: column;
   font-size: 2em;
-  margin: 0.2em 0 0 0.1em;
+  margin: 0.2em 0 1em 0.1em;
+  position: relative;
 }
-body .smaller span {
+.smaller span {
   display: none;
   font-size: 0.7em;
   margin: 0.2em 0 0 0.1em;
+  position: absolute;
+  top: 100%;
+  left: 0;
 }
-body .smaller span span {
+.smaller span span {
   margin-right: 1em;
+  position: relative;
 }
-body .smaller span span:last-child {
+.smaller span span:last-child {
   margin-right: 0;
 }
-body .smaller a {
+.smaller a {
   color: #484848;
-  width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
 }
-body .smaller a:hover {
+.smaller a:hover {
   color: #141414;
 }
-body .smaller a:hover ~ span, body .smaller a:hover ~ span > span {
+.smaller a:hover ~ span,
+.smaller a:hover ~ span > span {
   display: flex;
 }
-body .social-icons {
+
+.social-icons {
   position: fixed;
   top: 2em;
   right: 5em;
   display: flex;
   flex-direction: row;
   align-items: flex-end;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 2px 8px;
+  border-radius: 5px;
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
 }
-body .social-icons div {
+.social-icons div {
   display: flex;
   flex-direction: row-reverse;
-  align-items: center;
-  justify-content: center;
   position: relative;
   margin-right: 2em;
   padding: 0.2em 0;
 }
-body .social-icons div:last-child {
+.social-icons div:last-child {
   margin-right: 0;
 }
-body .social-icons div span {
-  display: none;
-  position: absolute;
-  z-index: 1;
-  font-size: 1.2em;
-  margin-right: 0.7em;
+.social-icons div a,
+.social-icons div label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-body .social-icons div a {
+.social-icons div a {
   color: #484848;
   text-decoration: none;
   z-index: 2;
 }
-body .social-icons div a:hover {
+.social-icons div a:hover {
   color: #141414;
 }
-body .social-icons div a:hover + span {
+.social-icons div a:hover + span {
   display: flex;
-  position: relative;
-  -webkit-animation: slideIn 0.3s cubic-bezier(0, -0.01, 0, 1.17) 1;
-          animation: slideIn 0.3s cubic-bezier(0, -0.01, 0, 1.17) 1;
 }
-@keyframes slideIn {
-  0% {
-    left: 100px;
-  }
-  100% {
-    left: 0;
-  }
-}
-body .social-icons div svg {
+.social-icons div svg {
   height: 1.5rem;
   width: auto;
   cursor: pointer;
 }
-body .social-icons div #moon-checkbox {
+.social-icons div #moon-checkbox {
   position: absolute;
   top: -9999px;
   left: -9999px;
 }
-body footer {
+
+footer {
   margin-top: 10em;
   margin-bottom: 4em;
   width: 100%;
 }
-body footer p {
+footer p {
   font-size: 1.2em;
   margin: 1em 0;
 }
-body footer p:last-child {
+footer p:last-child {
   color: inherit;
   font-size: 1em;
   margin: 0;
@@ -984,25 +721,94 @@ body:has(#moon-checkbox:not(:checked)) .message .hide:hover {
 body:has(#moon-checkbox:not(:checked)) p a:hover {
   color: #afafaf;
 }
-body:has(#moon-checkbox:not(:checked)) .logos:has(.skill-ionic:hover) ~ .smaller:has(.skill-ionic) a, body:has(#moon-checkbox:not(:checked)) .logos:has(.skill-ionic:hover) ~ .smaller:has(.skill-ionic) span {
+body:has(#moon-checkbox:not(:checked))
+  .logos:has(.skill-ionic:hover)
+  ~ .smaller:has(.skill-ionic)
+  a,
+body:has(#moon-checkbox:not(:checked))
+  .logos:has(.skill-ionic:hover)
+  ~ .smaller:has(.skill-ionic)
+  span {
   color: #afafaf;
 }
-body:has(#moon-checkbox:not(:checked)) .logos:has(.skill-react:hover) ~ .smaller:has(.skill-react) a, body:has(#moon-checkbox:not(:checked)) .logos:has(.skill-react:hover) ~ .smaller:has(.skill-react) span {
+body:has(#moon-checkbox:not(:checked))
+  .logos:has(.skill-react:hover)
+  ~ .smaller:has(.skill-react)
+  a,
+body:has(#moon-checkbox:not(:checked))
+  .logos:has(.skill-react:hover)
+  ~ .smaller:has(.skill-react)
+  span {
   color: #afafaf;
 }
-body:has(#moon-checkbox:not(:checked)) .logos:has(.skill-js:hover) ~ .smaller:has(.skill-js) a, body:has(#moon-checkbox:not(:checked)) .logos:has(.skill-js:hover) ~ .smaller:has(.skill-js) span {
+body:has(#moon-checkbox:not(:checked))
+  .logos:has(.skill-js:hover)
+  ~ .smaller:has(.skill-js)
+  a,
+body:has(#moon-checkbox:not(:checked))
+  .logos:has(.skill-js:hover)
+  ~ .smaller:has(.skill-js)
+  span {
   color: #afafaf;
 }
-body:has(#moon-checkbox:not(:checked)) .logos:has(.skill-ts:hover) ~ .smaller:has(.skill-ts) a, body:has(#moon-checkbox:not(:checked)) .logos:has(.skill-ts:hover) ~ .smaller:has(.skill-ts) span {
+body:has(#moon-checkbox:not(:checked))
+  .logos:has(.skill-ts:hover)
+  ~ .smaller:has(.skill-ts)
+  a,
+body:has(#moon-checkbox:not(:checked))
+  .logos:has(.skill-ts:hover)
+  ~ .smaller:has(.skill-ts)
+  span {
   color: #afafaf;
 }
-body:has(#moon-checkbox:not(:checked)) .logos:has(.skill-php:hover) ~ .smaller:has(.skill-php) a, body:has(#moon-checkbox:not(:checked)) .logos:has(.skill-php:hover) ~ .smaller:has(.skill-php) span {
+body:has(#moon-checkbox:not(:checked))
+  .logos:has(.skill-php:hover)
+  ~ .smaller:has(.skill-php)
+  a,
+body:has(#moon-checkbox:not(:checked))
+  .logos:has(.skill-php:hover)
+  ~ .smaller:has(.skill-php)
+  span {
   color: #afafaf;
 }
-body:has(#moon-checkbox:not(:checked)) .logos:has(.skill-html:hover) ~ .smaller:has(.skill-html) a, body:has(#moon-checkbox:not(:checked)) .logos:has(.skill-html:hover) ~ .smaller:has(.skill-html) span {
+body:has(#moon-checkbox:not(:checked))
+  .logos:has(.skill-html:hover)
+  ~ .smaller:has(.skill-html)
+  a,
+body:has(#moon-checkbox:not(:checked))
+  .logos:has(.skill-html:hover)
+  ~ .smaller:has(.skill-html)
+  span {
   color: #afafaf;
 }
-body:has(#moon-checkbox:not(:checked)) .logos:has(.skill-css:hover) ~ .smaller:has(.skill-css) a, body:has(#moon-checkbox:not(:checked)) .logos:has(.skill-css:hover) ~ .smaller:has(.skill-css) span {
+body:has(#moon-checkbox:not(:checked))
+  .logos:has(.skill-css:hover)
+  ~ .smaller:has(.skill-css)
+  a,
+body:has(#moon-checkbox:not(:checked))
+  .logos:has(.skill-css:hover)
+  ~ .smaller:has(.skill-css)
+  span {
+  color: #afafaf;
+}
+body:has(#moon-checkbox:not(:checked))
+  .logos:has(.skill-astro:hover)
+  ~ .smaller:has(.skill-astro)
+  a,
+body:has(#moon-checkbox:not(:checked))
+  .logos:has(.skill-astro:hover)
+  ~ .smaller:has(.skill-astro)
+  span {
+  color: #afafaf;
+}
+body:has(#moon-checkbox:not(:checked))
+  .logos:has(.skill-mysql:hover)
+  ~ .smaller:has(.skill-mysql)
+  a,
+body:has(#moon-checkbox:not(:checked))
+  .logos:has(.skill-mysql:hover)
+  ~ .smaller:has(.skill-mysql)
+  span {
   color: #afafaf;
 }
 body:has(#moon-checkbox:not(:checked)) .logos a {
@@ -1014,7 +820,8 @@ body:has(#moon-checkbox:not(:checked)) .logos a:hover {
 body:has(#moon-checkbox:not(:checked)) .logos a svg {
   color: #f5f5e5;
 }
-body:has(#moon-checkbox:not(:checked)) .logos a:hover > svg, body:has(#moon-checkbox:not(:checked)) .logos a:hover ~ span {
+body:has(#moon-checkbox:not(:checked)) .logos a:hover > svg,
+body:has(#moon-checkbox:not(:checked)) .logos a:hover ~ span {
   color: #afafaf;
 }
 body:has(#moon-checkbox:not(:checked)) .smaller a {
@@ -1035,64 +842,54 @@ body:has(#moon-checkbox:not(:checked)) .social-icons a:hover {
     width: auto;
     margin: 0 0 0 5vw;
   }
-  body .navigation {
+  .navigation {
     top: 10px;
     left: 5vw;
   }
-  body .main {
+  .main {
     width: 100%;
   }
-  body p {
+  p {
     font-size: 1.5em;
     max-width: 98vw;
   }
-  body .name {
+  .name {
     font-size: 4em;
   }
-  body .logos {
+  .logos {
     overflow-x: hidden;
   }
-  body .logos div {
-    -webkit-animation: none;
-            animation: none;
-  }
-  body .logos div a svg {
+  .logos div a svg {
     height: 1.5rem;
   }
-  body .logos div a:hover > svg {
+  .logos div a:hover > svg {
     height: 1.3rem;
   }
-  body .logos div a:hover + span {
+  .logos div a:hover + span {
     display: none;
-    -webkit-animation: none;
-            animation: none;
   }
-  body .logos div a:hover ~ div {
-    -webkit-animation: none;
-            animation: none;
-  }
-  body .logos div span {
+  .logos div span {
     font-size: 1.4em;
   }
-  body .smaller {
+  .smaller {
     font-size: 1.5em;
   }
-  body .smaller span {
+  .smaller span {
     font-size: 0.8em;
   }
-  body .social-icons {
+  .social-icons {
     bottom: 10px;
     right: 10px;
     top: unset;
   }
-  body .social-icons div a:hover + span {
+  .social-icons div a:hover + span {
     display: none;
   }
-  body .social-icons div span {
+  .social-icons div span {
     display: none;
   }
-  body footer {
+  footer {
     margin-top: 10em;
     margin-bottom: 5em;
   }
-}/*# sourceMappingURL=main.css.map */
+} /*# sourceMappingURL=main.css.map */
