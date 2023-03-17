@@ -1,0 +1,73 @@
+---
+import { skills } from "./WorkSection.astro";
+
+interface Props {
+	work: Work;
+}
+
+const { work } = Astro.props;
+---
+
+<div class="work-card">
+	<h3>
+		<a href={work.link}>{work.title}</a>
+	</h3>
+	<p>
+		{
+			work.skills.map((skill) => (
+				<span class={`skill-${skill}`}>
+					{skills.find((s) => s.value === skill)?.label}
+				</span>
+			))
+		}
+	</p>
+</div>
+
+<style lang="scss">
+	.work-card {
+		border-radius: 10px;
+		padding-top: 0.2em;
+		padding-bottom: 0.5em;
+		padding-left: 0.5em;
+		transform: translateX(-0.5em);
+		margin-bottom: 0.5em;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+
+		h3 {
+			font-size: 1.2em;
+		}
+
+		p {
+			opacity: 0;
+			font-size: 1.1em;
+		}
+
+		&:focus-within,
+		&:hover {
+			p {
+				opacity: 1;
+			}
+		}
+
+		&:focus-within {
+			outline: dashed;
+		}
+	}
+
+	a {
+		&:focus-visible {
+			outline: none;
+		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.work-card {
+			p {
+				opacity: 1;
+			}
+		}
+	}
+</style>
