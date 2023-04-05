@@ -1,10 +1,10 @@
 ---
-import Footer from "../components/Footer.astro";
-import Nav from "../components/Nav.astro";
-import SkipToContent from "../components/SkipToContent.astro";
-import Socials from "../components/Socials.astro";
+import Footer from "@components/Footer.astro";
+import Nav from "@components/Nav.astro";
+import SkipToContent from "@components/SkipToContent.astro";
+import Socials from "@components/Socials.astro";
 
-export interface Props {
+interface Props {
   title: string;
 }
 
@@ -23,6 +23,7 @@ const { title } = Astro.props;
     <meta property="og:description" content="Yumi Izumi's Portfolio" />
     <meta property="og:url" content="https://yumiizumi.com/" />
     <meta property="og:type" content="website" />
+    <meta name="color-scheme" content="dark" />
     <title>{title}</title>
   </head>
   <body>

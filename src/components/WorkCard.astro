@@ -1,6 +1,5 @@
 ---
-import { skills } from "./WorkSection.astro";
-
+import skills from "@data/skills";
 interface Props {
   work: Work;
 }
@@ -14,11 +13,12 @@ const { work } = Astro.props;
   </h3>
   <p>
     {
-      work.skills.map((skill) => (
-        <span class={`skill-${skill}`}>
-          {skills.find((s) => s.value === skill)?.label}
-        </span>
-      ))
+      work.skills &&
+        work.skills.map((skill) => (
+          <span class={`skill-${skill}`}>
+            {skills.find((s: Skill) => s.value === skill)?.label}
+          </span>
+        ))
     }
   </p>
 </div>
