@@ -1,126 +1,126 @@
 <div class="cover" id="top">
-	<h1>Yumi Izumi</h1>
-	<h2 class="type">
-		<span aria-live="polite"></span>
-		<span aria-live="polite"></span>
-		<span aria-live="polite"></span>
-		<span aria-live="polite"></span>
-	</h2>
-	<p>I advocate for digital privacy.</p>
+  <h1>Yumi Izumi</h1>
+  <p class="type">
+    <span aria-live="polite"></span>
+    <span aria-live="polite"></span>
+    <span aria-live="polite"></span>
+    <span aria-live="polite"></span>
+  </p>
+  <p>I advocate for digital privacy.</p>
 </div>
 <style lang="scss">
-	$typeList: (a developer, a student, a gamer, a musician 🎸);
+  $typeList: (a developer, a student, a gamer, a musician 🎸);
 
-	.cover {
-		font-family: Texgyrecursor, sans-serif;
-		min-height: 90vh;
-		padding-top: 45vh;
-	}
+  .cover {
+    font-family: Texgyrecursor, sans-serif;
+    min-height: 90vh;
+    padding-top: 45vh;
+  }
 
-	h1 {
-		font-family: ForzanLight, sans-serif;
-		text-transform: uppercase;
-		font-size: 4em;
-		letter-spacing: 20px;
-		margin-bottom: 30px;
-	}
+  h1 {
+    font-family: ForzanLight, sans-serif;
+    text-transform: uppercase;
+    font-size: 4em;
+    letter-spacing: 20px;
+    margin-bottom: 30px;
+  }
 
-	.type {
-		display: flex;
-		flex-direction: column;
-		align-items: flex-start;
-		height: 6em;
+  .type {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    height: 6em;
 
-		span {
-			display: flex;
-			justify-content: flex-start;
-			flex-grow: 0;
-			padding-right: 5px;
+    span {
+      display: flex;
+      justify-content: flex-start;
+      flex-grow: 0;
+      padding-right: 5px;
 
-			@for $i from 1 through 4 {
-				&:nth-child(#{$i})::after {
-					content: quote(#{nth($typeList, $i)});
-				}
-			}
+      @for $i from 1 through 4 {
+        &:nth-child(#{$i})::after {
+          content: quote(#{nth($typeList, $i)});
+        }
+      }
 
-			&:last-child {
-				border-right: 0.08em solid transparent;
-			}
-		}
-	}
+      &:last-child {
+        border-right: 0.08em solid transparent;
+      }
+    }
+  }
 
-	@media (prefers-reduced-motion: no-preference) {
-		.type {
-			span {
-				$lengthUpToHere: 0;
-				$totalLength: 0;
-				$delayBetweenLines: 5;
+  @media (prefers-reduced-motion: no-preference) {
+    .type {
+      span {
+        $lengthUpToHere: 0;
+        $totalLength: 0;
+        $delayBetweenLines: 5;
 
-				@each $t in $typeList {
-					$totalLength: $totalLength + str-length(#{$t}) + $delayBetweenLines;
-				}
+        @each $t in $typeList {
+          $totalLength: $totalLength + str-length(#{$t}) + $delayBetweenLines;
+        }
 
-				@each $t in $typeList {
-					$i: index($typeList, $t);
-					$l: str-length(#{$t}) + $delayBetweenLines;
-					$lengthUpToHere: $lengthUpToHere + $l;
+        @each $t in $typeList {
+          $i: index($typeList, $t);
+          $l: str-length(#{$t}) + $delayBetweenLines;
+          $lengthUpToHere: $lengthUpToHere + $l;
 
-					&:nth-child(#{$i})::after {
-						content: "";
-						animation: type#{$i} linear 10s 1 normal forwards;
-					}
+          &:nth-child(#{$i})::after {
+            content: "";
+            animation: type#{$i} linear 10s 1 normal forwards;
+          }
 
-					@keyframes type#{$i} {
-						$min: calc(($lengthUpToHere - $l) / $totalLength);
+          @keyframes type#{$i} {
+            $min: calc(($lengthUpToHere - $l) / $totalLength);
 
-						#{calc($min * 100%)} {
-							content: "";
-						}
+            #{calc($min * 100%)} {
+              content: "";
+            }
 
-						@for $j from 1 through $l {
-							$percent: calc($j / $totalLength) + $min;
-							$keyframe: round($percent * 100);
+            @for $j from 1 through $l {
+              $percent: calc($j / $totalLength) + $min;
+              $keyframe: round($percent * 100);
 
-							#{$keyframe * 1%} {
-								content: quote(str-slice(#{$t}, 1, $j));
+              #{$keyframe * 1%} {
+                content: quote(str-slice(#{$t}, 1, $j));
 
-								@if $i !=4 {
-									@if $keyframe % 5==0 {
-										border-right: 0.08em solid transparent;
-									} @else {
-										border-right: 0.08em solid #666;
-									}
-								}
+                @if $i !=4 {
+                  @if $keyframe % 5==0 {
+                    border-right: 0.08em solid transparent;
+                  } @else {
+                    border-right: 0.08em solid #666;
+                  }
+                }
 
-								@if $j==$l or $j==1 {
-									border-right: 0.08em solid transparent;
-								}
-							}
-						}
+                @if $j==$l or $j==1 {
+                  border-right: 0.08em solid transparent;
+                }
+              }
+            }
 
-						100% {
-							content: quote(#{$t});
-							border-right: 0.08em solid transparent;
-						}
-					}
-				}
+            100% {
+              content: quote(#{$t});
+              border-right: 0.08em solid transparent;
+            }
+          }
+        }
 
-				&:last-child {
-					border-right: 0.08em solid #666;
-					animation: tick 0.8s cubic-bezier(1, -0.51, 0, 1.23) infinite;
-				}
+        &:last-child {
+          border-right: 0.08em solid #666;
+          animation: tick 0.8s cubic-bezier(1, -0.51, 0, 1.23) infinite;
+        }
 
-				@keyframes tick {
-					0%,
-					50% {
-						border-right-color: #666;
-					}
+        @keyframes tick {
+          0%,
+          50% {
+            border-right-color: #666;
+          }
 
-					100% {
-						border-right-color: transparent;
-					}
-				}
-			}
-		}
-	}
+          100% {
+            border-right-color: transparent;
+          }
+        }
+      }
+    }
+  }
 </style>
