@@ -10,6 +10,11 @@ const works: Work[] = [
     skills: ["astro", "react", "ts", "php", "mysql"],
   },
   {
+    title: "GridSnap",
+    link: "https://gridsnap.vercel.app/",
+    skills: ["react", "ts"],
+  },
+  {
     title: "Why Privacy Matters - Ted Talk",
     link: "https://www.youtube.com/watch?v=cpK-XshFAms",
   },
