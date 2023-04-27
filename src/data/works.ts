@@ -6,6 +6,7 @@ const works: Work[] = [
   },
   {
     title: "World of Story",
+    role: "Full Stack Developer",
     link: "https://worldofstory.worldroad.org/",
     skills: ["astro", "react", "ts", "php", "mysql"],
   },
@@ -16,6 +17,7 @@ const works: Work[] = [
   },
   {
     title: "Why Privacy Matters - Ted Talk",
+    role: "Speaker",
     link: "https://www.youtube.com/watch?v=cpK-XshFAms",
   },
 ];

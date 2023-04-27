@@ -11,6 +11,7 @@ const { work } = Astro.props;
   <h3>
     <a href={work.link}>{work.title}</a>
   </h3>
+  <h2>{work.role}</h2>
   <p>
     {
       work.skills &&
@@ -38,6 +39,11 @@ const { work } = Astro.props;
 
     h3 {
       font-size: 1.2em;
+    }
+
+    h2 {
+      font-size: 0.8em;
+      margin: 0.2em 0;
     }
 
     p {
