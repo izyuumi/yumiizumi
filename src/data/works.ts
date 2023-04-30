@@ -12,7 +12,7 @@ const works: Work[] = [
   },
   {
     title: "GridSnap",
-    link: "https://gridsnap.vercel.app/",
+    link: "https://gridsnap.yumi.to/",
     skills: ["react", "ts"],
   },
   {
