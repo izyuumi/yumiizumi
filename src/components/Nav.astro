@@ -1,4 +1,4 @@
-<div
+<nav
   class="nav"
   role="navigation"
   aria-label="Navigation for various sections on this page"
@@ -6,19 +6,20 @@
   <a href="#top">Me</a>
   <a href="#about">About</a>
   <a href="#work">Work</a>
-</div>
+</nav>
 <style lang="scss">
   .nav {
     position: fixed;
     text-transform: uppercase;
     top: 2em;
     left: var(--margin-left);
-    gap: 1rem;
+    border-radius: 5px;
+    backdrop-filter: blur(3px);
 
     a {
       border-radius: 5px;
       backdrop-filter: blur(3px);
-      padding: 0.5em;
+      padding: 5px;
 
       &:focus-visible {
         outline: dashed;
