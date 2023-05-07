@@ -4,11 +4,13 @@ import socials from "@data/socials";
 
 <div class="socials">
   {
-    socials.map((social) => {
-      <a href={social.link} aria-label={social.ariaLabel}>
-        {social.svg}
-      </a>;
-    })
+    socials.map((social) => (
+      <a
+        href={social.link}
+        aria-label={social.ariaLabel}
+        set:html={social.svg}
+      />
+    ))
   }
 </div>
 <style lang="scss">
@@ -19,15 +21,18 @@ import socials from "@data/socials";
     position: fixed;
     bottom: 1rem;
     right: 1rem;
+    border-radius: 6px;
+    backdrop-filter: blur(2px);
 
     a {
       height: 32px;
       width: 32px;
+      padding: 4px;
       display: flex;
       align-items: center;
       justify-content: center;
       border-radius: 5px;
-      backdrop-filter: blur(3px);
+      backdrop-filter: blur(5px);
 
       &:focus-within {
         outline: dashed;
