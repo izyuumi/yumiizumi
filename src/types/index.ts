@@ -11,6 +11,7 @@ type Skill = Readonly<{
 type Work = Readonly<{
   title: string;
   role?: string;
+  period?: string;
   link?: string;
   skills?: SkillValue[];
   description?: string;
