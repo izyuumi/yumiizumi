@@ -6,13 +6,6 @@ const works: Work[] = [
     skills: ["ionic", "react", "ts"],
   },
   {
-    title: "World of Story",
-    role: "Full Stack Developer",
-    period: "2022 - 2023",
-    link: "https://worldofstory.worldroad.org/",
-    skills: ["astro", "react", "ts", "php", "mysql"],
-  },
-  {
     title: "GridSnap",
     period: "since 2023",
     link: "https://gridsnap.yumi.to/",
