@@ -1,5 +1,13 @@
 ---
 import socials from "@data/socials";
+
+interface Props {
+  size?: number;
+  color?: string;
+  tabindex?: number;
+}
+
+const { size = 32, color = "inherit", tabindex } = Astro.props;
 ---
 
 <div class="socials">
@@ -9,6 +17,8 @@ import socials from "@data/socials";
         href={social.link}
         aria-label={social.ariaLabel}
         set:html={social.svg}
+        style={{ "--size": `${size}px`, "--color": color }}
+        tabindex={tabindex}
       />
     ))
   }
@@ -23,24 +33,28 @@ import socials from "@data/socials";
     right: 1rem;
     border-radius: 6px;
     backdrop-filter: blur(2px);
-
     a {
-      height: 32px;
-      width: 32px;
+      height: var(--size);
+      width: var(--size);
       padding: 4px;
       display: flex;
       align-items: center;
       justify-content: center;
       border-radius: 5px;
       backdrop-filter: blur(5px);
+      color: var(--color);
+
+      &:hover {
+        filter: brightness(0.8);
+      }
 
       &:focus-within {
         outline: dashed;
       }
 
       svg {
-        height: 24px;
-        width: 24px;
+        height: calc(var(--size) - 8px);
+        width: calc(var(--size) - 8px);
       }
     }
   }
