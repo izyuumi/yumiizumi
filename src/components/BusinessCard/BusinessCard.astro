@@ -1,0 +1,131 @@
+---
+import Socials from "@components/Socials.astro";
+
+enum Language {
+  en = "en",
+  ja = "ja",
+}
+
+interface Translation {
+  name: string;
+  title: string;
+}
+
+const translation: Record<Language, Translation> = {
+  en: {
+    name: "Yumi",
+    title: "Student @ Penn State",
+  },
+  ja: {
+    name: "泉 優海",
+    title: "ペンシルベニア州立大学生",
+  },
+};
+---
+
+<div id="card">
+  <input type="checkbox" id="lang-switch" tabindex="-1" />
+  <label for="lang-switch">
+    <div id="card-inner">
+      {
+        Object.values(Language).map((key, index) => {
+          const t = translation[key];
+          return (
+            <div class="sides" id={key}>
+              <div class="content">
+                <h1>{t.name}</h1>
+                <h2>{t.title}</h2>
+                <Socials
+                  size={24}
+                  color="inherit"
+                  tabindex={index === 0 ? 0 : -1}
+                />
+              </div>
+            </div>
+          );
+        })
+      }
+    </div>
+  </label>
+</div>
+<style lang="scss">
+  #card {
+    perspective: 1000px;
+    color: #eee;
+    height: 300px;
+    width: 560px;
+    input[type="checkbox"] {
+      position: fixed;
+      top: -999px;
+      left: -999px;
+    }
+    #card-inner {
+      position: relative;
+      transition: transform 1s ease-out;
+      transform-style: preserve-3d;
+      background-color: gray;
+      color: #444;
+      box-shadow: 0 0 25px rgba(0, 0, 0, 1);
+      border-radius: 20px;
+      height: 100%;
+      width: 100%;
+      background-image: linear-gradient(
+        to right bottom,
+        rgb(237, 237, 237),
+        rgb(183, 183, 183)
+      );
+      cursor: pointer;
+      .sides {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        justify-content: start;
+        border-radius: 20px;
+        height: 100%;
+        width: 100%;
+        backface-visibility: hidden;
+        .content {
+          padding: 30px;
+        }
+        h1 {
+          font-size: 30px;
+          font-weight: bold;
+          margin: 0;
+        }
+        h2 {
+          font-size: 20px;
+          margin: 0;
+        }
+        &#ja {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: rotateY(180deg) translate(50%, -50%);
+        }
+      }
+    }
+    #lang-switch:checked ~ label #card-inner {
+      transform: rotateY(180deg);
+    }
+  }
+
+  @media (max-width: 560px) {
+    #card {
+      height: 200px;
+      width: 300px;
+      #card-inner {
+        height: 100%;
+        width: 100%;
+        .sides {
+          h1 {
+            font-size: 20px;
+          }
+          h2 {
+            font-size: 15px;
+          }
+        }
+      }
+    }
+  }
+</style>
