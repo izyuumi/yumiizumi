@@ -6,6 +6,8 @@ const socials: Social[] = [
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 248 204"
       aria-hidden="true"
+      height="100%"
+      width="100%"
     >
       <path
           d="M221.95,51.29c0.15,2.17,0.15,4.34,0.15,6.53c0,66.73-50.8,143.69-143.69,143.69v-0.04
@@ -27,6 +29,8 @@ const socials: Social[] = [
       xmlns="http://www.w3.org/2000/svg"
       style="transform: scale(1.08)"
       aria-hidden="true"
+      height="100%"
+      width="100%"
     >
       <path
         fill-rule="evenodd"
@@ -44,6 +48,8 @@ const socials: Social[] = [
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 512 512"
       aria-hidden="true"
+      height="100%"
+      width="100%"
     >
       <path
         fill="currentColor" 
@@ -58,6 +64,8 @@ const socials: Social[] = [
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 15 15"
       aria-hidden="true"
+      height="100%"
+      width="100%"
     >
       <path
         fill="currentColor"
@@ -75,6 +83,8 @@ const socials: Social[] = [
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 303.06 336.3"
       aria-hidden="true"
+      height="100%"
+      width="100%"
     >
       <path
         d="M255.67,170.86l-63.48-35.17h43.03c37.41,0,67.85-30.43,67.85-67.84S272.63,0,235.22,0H85C38.13,0,0,38.13,0,85

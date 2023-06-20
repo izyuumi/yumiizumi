@@ -4,10 +4,11 @@ import socials from "@data/socials";
 interface Props {
   size?: number;
   color?: string;
+  background?: boolean;
   tabindex?: number;
 }
 
-const { size = 32, color = "inherit", tabindex } = Astro.props;
+const { size = 32, color = "inherit", background, tabindex } = Astro.props;
 ---
 
 <div class="socials">
@@ -17,7 +18,11 @@ const { size = 32, color = "inherit", tabindex } = Astro.props;
         href={social.link}
         aria-label={social.ariaLabel}
         set:html={social.svg}
-        style={{ "--size": `${size}px`, "--color": color }}
+        style={{
+          "--size": `${size}px`,
+          "--color": color,
+          "--background": background ? "inherit" : "transparent",
+        }}
         tabindex={tabindex}
       />
     ))
@@ -50,11 +55,6 @@ const { size = 32, color = "inherit", tabindex } = Astro.props;
 
       &:focus-within {
         outline: dashed;
-      }
-
-      svg {
-        height: calc(var(--size) - 8px);
-        width: calc(var(--size) - 8px);
       }
     }
   }
