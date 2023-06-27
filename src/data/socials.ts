@@ -1,5 +1,6 @@
 const socials: Social[] = [
   {
+    for: "twitter",
     link: "https://twitter.com/aapl_yumi",
     svg: `
     <svg
@@ -22,6 +23,7 @@ const socials: Social[] = [
     ariaLabel: "Visit my Twitter profile",
   },
   {
+    for: "github",
     link: "https://github.com/aapl-yumi",
     svg: `
     <svg
@@ -42,6 +44,7 @@ const socials: Social[] = [
     ariaLabel: "Visit my GitHub profile",
   },
   {
+    for: "mail",
     link: "mailto:me@yumiizumi.com",
     svg: `
     <svg
@@ -58,6 +61,7 @@ const socials: Social[] = [
     ariaLabel: "Send me an emai",
   },
   {
+    for: "linkedin",
     link: "https://www.linkedin.com/in/yumi-izumi-b79bb7265/",
     svg: `
     <svg
@@ -77,6 +81,7 @@ const socials: Social[] = [
     ariaLabel: "Connect with me on LinkedIn",
   },
   {
+    for: "session",
     link: "https://yumi.to/session",
     svg: `
     <svg

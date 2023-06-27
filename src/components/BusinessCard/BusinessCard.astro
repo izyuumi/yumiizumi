@@ -1,5 +1,6 @@
 ---
 import Socials from "@components/Socials.astro";
+import socials from "@data/socials";
 
 enum Language {
   en = "en",
@@ -24,7 +25,11 @@ const translation: Record<Language, Translation> = {
 ---
 
 <div id="card">
-  <input type="checkbox" id="lang-switch" tabindex="-1" />
+  <input
+    type="checkbox"
+    id="lang-switch"
+    aria-label="Change language / 言語変更"
+  />
   <label for="lang-switch">
     <div id="card-inner">
       {
@@ -60,6 +65,9 @@ const translation: Record<Language, Translation> = {
       position: fixed;
       top: -999px;
       left: -999px;
+      &:focus ~ label #card-inner {
+        outline: 5px solid #0052ff;
+      }
     }
     #card-inner {
       position: relative;
@@ -137,3 +145,10 @@ const translation: Record<Language, Translation> = {
     }
   }
 </style>
+<style
+  lang="scss"
+  is:global
+  set:html={socials
+    .map((social) => `.sides:has(.${social.for}:focus) ~ .sides .${social.for}`)
+    .join(",") + "{ outline: dashed; }"}
+></style>
