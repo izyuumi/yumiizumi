@@ -1,5 +1,11 @@
 const works: Work[] = [
   {
+    title: "One Kiji",
+    link: "https://onekiji.com",
+    period: "since 2023",
+    skills: ["ts", "astro"],
+  },
+  {
     title: "Subscription Manager",
     link: "https://github.com/bluelockorg/subscription-manager",
     period: "2022",
