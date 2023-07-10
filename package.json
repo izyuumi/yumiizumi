@@ -15,5 +15,9 @@
     "markdown-it": "^13.0.1",
     "sanitize-html": "^2.11.0",
     "sass": "^1.59.3"
+  },
+  "devDependencies": {
+    "@types/markdown-it": "^12.2.3",
+    "@types/sanitize-html": "^2.9.0"
   }
 }
