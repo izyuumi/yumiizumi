@@ -1,0 +1,45 @@
+---
+import ListItem from "@/components/blog/ListItem.astro";
+import PostList from "@/components/blog/PostList.astro";
+import BlogLayout from "@/layouts/BlogLayout.astro";
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+  const tags: string[] = await getCollection(
+    "blog",
+    ({ data }) => data.tags
+  ).then((posts) =>
+    posts.reduce((acc, post) => {
+      post.data.tags!.forEach((tag) => {
+        if (!acc.includes(tag)) acc.push(tag);
+      });
+      return acc;
+    }, [] as string[])
+  );
+  return tags.map((tag) => ({ params: { tag }, props: { tag } }));
+}
+
+const { tag } = Astro.params;
+if (!tag) throw new Error("No tag provided");
+
+function capFirst(str: string) {
+  return str.charAt(0).toUpperCase() + str.slice(1);
+}
+
+const posts = await getCollection("blog", ({ data }) =>
+  data.tags?.includes(tag)
+);
+---
+
+<BlogLayout
+  title={capFirst(tag) + " - Yumi Izumi's Blog"}
+  description={`Blog posts about ${tag}`}
+>
+  <p>
+    <a href="/blog">Blog</a>&nbsp;&#x2F;&nbsp;Tag&nbsp;&#x2F;&nbsp;{
+      capFirst(tag)
+    }
+  </p>
+  <h1>{capFirst(tag)}</h1>
+  <PostList posts={posts} />
+</BlogLayout>

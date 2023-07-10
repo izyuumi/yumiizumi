@@ -7,17 +7,7 @@ const blog = defineCollection({
     pubDate: z.date(),
     updatedDate: z.date().optional(),
     heroImage: z.string().url().optional(),
-    tags: z
-      .array(
-        z.union([
-          z.literal("tech"),
-          z.literal("music"),
-          z.literal("math"),
-          z.literal("science"),
-          z.literal("programming"),
-        ])
-      )
-      .optional(),
+    tags: z.array(z.string()).optional(),
   }),
 });
 
