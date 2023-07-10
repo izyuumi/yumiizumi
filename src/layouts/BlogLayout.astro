@@ -1,0 +1,95 @@
+---
+import "@styles/color.scss";
+import Footer from "@components/Footer.astro";
+import Head from "@components/blog/Head.astro";
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <Head title={title} description={description} />
+  </head>
+  <body>
+    <main>
+      <slot />
+    </main>
+    <Footer />
+    <style lang="scss" is:global>
+      @font-face {
+        font-family: AtkinsonHyperlegible;
+        src: url(/assets/AtkinsonHyperlegible.ttf) format("truetype");
+        font-display: swap;
+      }
+      @font-face {
+        font-family: AtkinsonHyperlegibleBold;
+        src: url(/assets/AtkinsonHyperlegibleBold.ttf) format("truetype");
+        font-display: swap;
+      }
+      @font-face {
+        font-family: AtkinsonHyperlegibleItalic;
+        src: url(/assets/AtkinsonHyperlegibleItalic.ttf) format("truetype");
+        font-display: swap;
+      }
+      @font-face {
+        font-family: AtkinsonHyperlegibleBoldItalic;
+        src: url(/assets/AtkinsonHyperlegibleBoldItalic.ttf) format("truetype");
+        font-display: swap;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html {
+        font-family: AtkinsonHyperlegible, sans-serif;
+        height: 100vh;
+        font-size: large;
+        line-height: 1.5;
+        color: var(--text-color);
+        background-color: var(--bg-color);
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+      }
+      body {
+        display: flex;
+        flex-direction: column;
+        width: 61.8vw;
+        min-height: 100%;
+        padding-top: 78px;
+      }
+      main {
+        flex: 1;
+      }
+      strong {
+        font-family: AtkinsonHyperlegibleBold, sans-serif;
+      }
+      a,
+      a:visited {
+        color: var(--text-color);
+      }
+      a:hover {
+        color: var(--text-hover-color);
+      }
+      h1 {
+        font-size: 2.5rem;
+        font-family: AtkinsonHyperlegibleBold, sans-serif;
+        margin-bottom: 1rem;
+      }
+      @media screen and (max-width: 768px) {
+        main {
+          width: 100%;
+          padding-left: var(--mobile-margin);
+          padding-right: var(--mobile-margin);
+        }
+      }
+    </style>
+  </body>
+</html>

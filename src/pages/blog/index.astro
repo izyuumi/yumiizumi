@@ -1,0 +1,67 @@
+---
+import BlogLayout from "@layouts/BlogLayout.astro";
+import { getCollection } from "astro:content";
+
+const posts = await getCollection("blog").then((collection) => {
+  return collection.sort((a, b) => {
+    return new Date(b.data.pubDate) > new Date(a.data.pubDate) ? 1 : -1;
+  });
+});
+---
+
+<BlogLayout
+  title="Yumi Izumi's Blog"
+  description="Yumi Izumi's periodical blog"
+>
+  <h1>Yumi Izumi's Blog</h1>
+  <ul>
+    {
+      posts.map((post) => (
+        <li>
+          <a href={`/blog/${post.slug}`}>
+            <header>
+              <h3>{post.data.title}</h3>
+              <p>
+                <time datetime={new Date(post.data.pubDate).toISOString()}>
+                  {new Date(post.data.pubDate).toLocaleDateString("en-US", {
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
+                  })}
+                </time>
+              </p>
+            </header>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+  <style lang="scss">
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      width: 100%;
+    }
+    li {
+      margin-bottom: 1rem;
+      padding: 1rem;
+      backdrop-filter: blur(10px);
+      background-color: rgba(var(--text-color-rgb), 0.1);
+      border-radius: 4px;
+
+      &:has(a:hover, a:focus) {
+        background-color: rgba(var(--text-color-rgb), 0.2);
+      }
+    }
+    a {
+      text-decoration: none;
+      &:hover {
+        color: inherit;
+      }
+      &:focus {
+        outline: none;
+      }
+    }
+  </style>
+</BlogLayout>

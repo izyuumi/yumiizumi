@@ -1,0 +1,15 @@
+@function hexToRgb($value) {
+  @return (red($value), green($value), blue($value));
+}
+
+$text-color: #f5f5e5;
+$text-color-rgb: #{hexToRgb($text-color)};
+$text-hover-color: #a1a0a0;
+$bg-color: #0f0f0f;
+
+:root {
+  --text-color: #{$text-color};
+  --text-color-rgb: #{$text-color-rgb};
+  --text-hover-color: #{$text-hover-color};
+  --bg-color: #{$bg-color};
+}
