@@ -57,6 +57,7 @@ const { title, description } = Astro.props;
         display: flex;
         align-items: center;
         flex-direction: column;
+        --mobile-margin: 24px;
       }
       body {
         display: flex;
@@ -84,7 +85,7 @@ const { title, description } = Astro.props;
         margin-bottom: 1rem;
       }
       @media screen and (max-width: 768px) {
-        main {
+        body {
           width: 100%;
           padding-left: var(--mobile-margin);
           padding-right: var(--mobile-margin);
