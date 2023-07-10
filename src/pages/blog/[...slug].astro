@@ -20,6 +20,34 @@ const { Content } = await post.render();
 
 <BlogLayout title={data.title} description={data.description}>
   <article>
+    <header>
+      <p>
+        <time>
+          {
+            new Date(data.pubDate).toLocaleDateString("en-US", {
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+            })
+          }
+        </time>
+      </p>
+      <div class="tag">
+        {
+          data.tags?.map((tag) => (
+            <a href={`/blog/tags/${tag}`} aria-label={`Posts about ${tag}`}>
+              {tag}
+            </a>
+          ))
+        }
+      </div>
+    </header>
     <Content />
   </article>
+  <style lang="scss">
+    .tag {
+      a {
+      }
+    }
+  </style>
 </BlogLayout>
