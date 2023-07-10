@@ -1,7 +1,5 @@
 import { defineCollection, z } from "astro:content";
 
-const tags = ["tech", "music", "math", "science", "programming"];
-
 const blog = defineCollection({
   schema: z.object({
     title: z.string(),
@@ -11,10 +9,13 @@ const blog = defineCollection({
     heroImage: z.string().url().optional(),
     tags: z
       .array(
-        z.string().refine((tag) => tags.includes(tag), {
-          params: (tag: string) => ({ tag }),
-          message: "Invalid tag: $tag",
-        })
+        z.union([
+          z.literal("tech"),
+          z.literal("music"),
+          z.literal("math"),
+          z.literal("science"),
+          z.literal("programming"),
+        ])
       )
       .optional(),
   }),
