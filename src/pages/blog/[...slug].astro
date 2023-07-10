@@ -38,16 +38,18 @@ const { Content } = await post.render();
       </p>
     </header>
     <Content />
-    <div class="tag">
-      tags:
-      {
-        data.tags?.map((tag) => (
-          <a href={`/blog/tag/${tag}`} aria-label={`Posts about ${tag}`}>
-            {tag}
-          </a>
-        ))
-      }
-    </div>
+    {
+      data.tags && (
+        <div class="tag">
+          tags:
+          {data.tags.map((tag) => (
+            <a href={`/blog/tag/${tag}`} aria-label={`Posts about ${tag}`}>
+              {tag}
+            </a>
+          ))}
+        </div>
+      )
+    }
   </article>
   <style lang="scss">
     .tag {
