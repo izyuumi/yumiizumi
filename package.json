@@ -13,6 +13,9 @@
     "@astrojs/rss": "^2.4.3",
     "astro": "^2.0.18",
     "markdown-it": "^13.0.1",
+    "rehype-autolink-headings": "^6.1.1",
+    "rehype-slug": "^5.1.0",
+    "remark-toc": "^8.0.1",
     "sanitize-html": "^2.11.0",
     "sass": "^1.59.3"
   },

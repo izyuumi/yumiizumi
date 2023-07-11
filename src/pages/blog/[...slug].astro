@@ -22,7 +22,8 @@ const { Content } = await post.render();
   <article>
     <header>
       <p>
-        <a href="/blog" aria-label="Go back to blog home">Blog</a
+        <a href="/blog" aria-label="Go back to blog home"
+          ><strong>Blog</strong></a
         >&nbsp;&#x2F;&nbsp;{data.title}
       </p>
       <p>
@@ -52,6 +53,11 @@ const { Content } = await post.render();
     }
   </article>
   <style lang="scss">
+    header {
+      a {
+        text-decoration: none;
+      }
+    }
     .tag {
       margin-top: 2rem;
       display: flex;
@@ -59,6 +65,24 @@ const { Content } = await post.render();
       align-items: center;
       flex-wrap: wrap;
       gap: 0.5rem;
+    }
+  </style>
+  <style lang="scss" is:global>
+    h1,
+    h2,
+    h3 {
+      a {
+        position: relative;
+        text-decoration: none;
+        &:hover {
+          color: var(--text-color);
+          &:before {
+            content: "#";
+            position: absolute;
+            transform: translateX(-125%);
+          }
+        }
+      }
     }
   </style>
 </BlogLayout>
