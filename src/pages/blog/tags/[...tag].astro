@@ -36,9 +36,9 @@ const posts = await getCollection("blog", ({ data }) =>
   description={`Blog posts about ${tag}`}
 >
   <p>
-    <a href="/blog">Blog</a>&nbsp;&#x2F;&nbsp;Tag&nbsp;&#x2F;&nbsp;{
-      capFirst(tag)
-    }
+    <a href="/blog"><strong>Blog</strong></a>&nbsp;&#x2F;&nbsp;<a
+      href="/blog/tags/"><strong>Tags</strong></a
+    >&nbsp;&#x2F;&nbsp;{capFirst(tag)}
   </p>
   <h1>{capFirst(tag)}</h1>
   <PostList posts={posts} />

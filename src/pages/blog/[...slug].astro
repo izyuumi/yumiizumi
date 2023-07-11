@@ -18,7 +18,10 @@ const data = post.data;
 const { Content } = await post.render();
 ---
 
-<BlogLayout title={data.title} description={data.description}>
+<BlogLayout
+  title={`${data.title} - Yumi's Blog`}
+  description={data.description}
+>
   <article>
     <header>
       <p>
@@ -44,7 +47,7 @@ const { Content } = await post.render();
         <div class="tag">
           tags:
           {data.tags.map((tag) => (
-            <a href={`/blog/tag/${tag}`} aria-label={`Posts about ${tag}`}>
+            <a href={`/blog/tags/${tag}/`} aria-label={`Posts about ${tag}`}>
               {tag}
             </a>
           ))}
@@ -53,11 +56,6 @@ const { Content } = await post.render();
     }
   </article>
   <style lang="scss">
-    header {
-      a {
-        text-decoration: none;
-      }
-    }
     .tag {
       margin-top: 2rem;
       display: flex;

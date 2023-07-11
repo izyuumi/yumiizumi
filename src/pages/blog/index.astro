@@ -14,6 +14,8 @@ const posts = await getCollection("blog").then((collection) => {
   title="Yumi Izumi's Blog"
   description="Yumi Izumi's periodical blog"
 >
-  <h1>Yumi Izumi's Blog</h1>
+  <h1>
+    <strong>Yumi's Blog</strong>
+  </h1>
   <PostList posts={posts} />
 </BlogLayout>

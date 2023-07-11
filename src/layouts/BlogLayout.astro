@@ -6,15 +6,16 @@ import Head from "@/components/blog/Head.astro";
 interface Props {
   title: string;
   description: string;
+  isNotBlog?: boolean;
 }
 
-const { title, description } = Astro.props;
+const { title, description, isNotBlog = false } = Astro.props;
 ---
 
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <Head title={title} description={description} />
+    <Head title={title} description={description} isBlog={!isNotBlog} />
   </head>
   <body>
     <main>
@@ -78,6 +79,15 @@ const { title, description } = Astro.props;
       }
       a:hover {
         color: var(--text-hover-color);
+      }
+      a:focus {
+        outline: none;
+        color: var(--text-hover-color);
+      }
+      header {
+        a {
+          text-decoration: none;
+        }
       }
       article {
         h1 {
