@@ -21,5 +21,10 @@ const recentPosts = await getCollection("blog").then((collection) => {
     h2 {
       margin-bottom: 1rem;
     }
+    @media screen and (max-width: 768px) {
+      #blog {
+        padding-right: 1rem;
+      }
+    }
   </style>
 </section>
