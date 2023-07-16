@@ -21,6 +21,7 @@ const { Content } = await post.render();
 <BlogLayout
   title={`${data.title} - Yumi's Blog`}
   description={data.description}
+  slug={post.slug}
 >
   <article>
     <header>

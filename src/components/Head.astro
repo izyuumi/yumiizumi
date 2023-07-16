@@ -3,17 +3,23 @@ export interface Props {
   title: string;
   description: string;
   image?: string;
+  slug?: string;
   isBlog?: boolean;
 }
 
 // const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
-const {
+let {
   title,
   description,
-  image = "/placeholder-social.png",
+  image = "/placeholder-social.png" ,
+  slug,
   isBlog = true,
 } = Astro.props;
+
+if (slug) {
+  image = `/og/${slug}.png`
+}
 ---
 
 <!-- Global Metadata -->

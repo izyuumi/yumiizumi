@@ -6,16 +6,22 @@ import Head from "@/components/Head.astro";
 interface Props {
   title: string;
   description: string;
+  slug?: string;
   isNotBlog?: boolean;
 }
 
-const { title, description, isNotBlog = false } = Astro.props;
+const { title, description, slug, isNotBlog = false } = Astro.props;
 ---
 
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <Head title={title} description={description} isBlog={!isNotBlog} />
+    <Head
+      title={title}
+      description={description}
+      slug={slug}
+      isBlog={!isNotBlog}
+    />
   </head>
   <body>
     <main>
