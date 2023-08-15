@@ -17,6 +17,9 @@ const recentPosts = await getCollection("blog").then((collection) => {
     <a href="/blog">Blog</a>
   </h2>
   <PostList posts={recentPosts} />
+  <p>
+    <a href="/blog">Read more posts</a>
+  </p>
   <style>
     h2 {
       margin-bottom: 1rem;
