@@ -12,19 +12,20 @@ const { work } = Astro.props;
     <h3>
       <a href={work.link}>{work.title}</a>
     </h3>
-    <p>{work.period}</p>
+    {work.period && <p>{work.period}</p>}
   </div>
-  <h4>{work.role}</h4>
-  <p>
-    {
-      work.skills &&
-        work.skills.map((skill) => (
+  {work.role && <h4>{work.role}</h4>}
+  {
+    work.skills && (
+      <p>
+        {work.skills.map((skill) => (
           <span class={`skill-${skill}`}>
             {skills.find((s: Skill) => s.value === skill)?.label}
           </span>
-        ))
-    }
-  </p>
+        ))}
+      </p>
+    )
+  }
 </div>
 
 <style lang="scss">
