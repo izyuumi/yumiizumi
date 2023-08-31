@@ -11,7 +11,7 @@ const { post } = Astro.props;
 <li>
   <a href={`/blog/${post.slug}`}>
     <header>
-      <h3>{post.data.title}</h3>
+      <h2>{post.data.title}</h2>
       <p>
         <time datetime={new Date(post.data.pubDate).toISOString()}>
           {
