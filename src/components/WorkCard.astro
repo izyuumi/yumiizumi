@@ -1,87 +1,77 @@
 ---
-import skills from "@/data/skills";
 interface Props {
-  work: Work;
+  title: string;
+  description?: string;
+  period?: string;
+  skills?: string[];
+  link?: string;
 }
 
-const { work } = Astro.props;
+const { title, description, period, skills, link } = Astro.props;
 ---
 
-<div class="work-card">
-  <div class="header">
-    <h3>
-      <a href={work.link}>{work.title}</a>
-    </h3>
-    {work.period && <p>{work.period}</p>}
-  </div>
-  {work.role && <h4>{work.role}</h4>}
-  {
-    work.skills && (
-      <p>
-        {work.skills.map((skill) => (
-          <span class={`skill-${skill}`}>
-            {skills.find((s: Skill) => s.value === skill)?.label}
-          </span>
-        ))}
-      </p>
-    )
-  }
-</div>
-
+<section>
+  <details>
+    <summary>
+      <h2>{title}</h2>
+      {description && <p>{description}</p>}
+      {period && <p class="period">{period}</p>}
+    </summary>
+    <div>
+      {skills && <p>{skills.join(", ")}</p>}
+      {link && <a href={link}>{link}</a>}
+    </div>
+  </details>
+</section>
 <style lang="scss">
-  .work-card {
-    border-radius: 10px;
-    padding: 0.2em 0.5em 0.5em 0.5em;
-    transform: translateX(-0.5em);
-    margin-bottom: 0.5em;
+  section {
+    width: 100%;
+    text-align: left;
+    border-radius: 20px;
+    background-color: rgba(0, 0, 0, 0.2);
+    margin-bottom: 1rem;
+    transition: transform 0.1s ease-in-out;
 
     &:last-child {
       margin-bottom: 0;
     }
 
-    .header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-
-      p {
-        opacity: 1;
-        font-size: 1.1em;
-      }
-    }
-
-    h4 {
-      font-size: 0.8em;
-      margin: 0.5em 0;
-    }
-
-    p {
-      opacity: 0;
-      font-size: 1.1em;
-    }
-
-    &:focus-within,
-    &:hover {
-      p {
-        opacity: 1;
-      }
-    }
-
+    &:hover,
     &:focus-within {
-      outline: dashed;
+      transform: scale(1.03);
     }
   }
+  summary {
+    position: relative;
+    padding: 30px;
+    cursor: pointer;
 
-  a {
-    &:focus-visible {
+    &:focus {
       outline: none;
     }
-  }
 
-  @media (prefers-reduced-motion: reduce) {
-    .work-card {
-      p {
-        opacity: 1;
+    &::marker {
+      content: "";
+    }
+
+    .period {
+      position: absolute;
+      right: 30px;
+      top: 30px;
+      font-size: 20px;
+    }
+  }
+  div {
+    padding: 0 30px 30px 30px;
+
+    p {
+      color: #ddd;
+    }
+    a {
+      font-size: 1.5rem;
+
+      &:hover {
+        text-decoration: underline;
       }
     }
   }

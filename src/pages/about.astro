@@ -1,0 +1,26 @@
+---
+import GradientDiv from "@/components/GradientDiv.astro";
+import Layout from "@/layouts/Layout.astro";
+---
+
+<Layout title="About - Yumi Izumi">
+  <GradientDiv vertical="start">
+    <div>
+      <h1>About me</h1>
+      <p>
+        Hey, I'm Yumi. A student at Penn State studying Cybersecurity, coding
+        for fun. I believe that privacy is a fundamental human right, and I
+        advocate for it.
+      </p>
+    </div>
+  </GradientDiv>
+</Layout>
+<style>
+  div {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-evenly;
+    width: var(--content-width);
+  }
+</style>

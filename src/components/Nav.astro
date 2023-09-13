@@ -1,33 +1,62 @@
-<nav
-  role="navigation"
-  aria-label="Navigation for various sections on this page"
->
-  <a href="/#top" aria-label="Go to top">Me</a>
-  <a href="/#about" aria-label="About me">About</a>
-  <a href="/#work" aria-label="My work">Work</a>
-  <a href="/#blog" aria-label="My personal periodical blog">Blog</a>
-  <a href="/card" aria-label="My virtual business card">Card</a>
+---
+const currentPath = new URL(Astro.url).pathname;
+
+const paths = [
+  { path: "/about", label: "About" },
+  { path: "/work", label: "Work" },
+  { path: "/blog", label: "Blog" },
+  { path: "/now", label: "Now" },
+];
+---
+
+<nav>
+  <div>
+    <a href="/">Yumi</a>
+  </div>
+  <div>
+    {
+      paths.map(({ path, label }) => (
+        <a
+          href={path}
+          class={currentPath === path ? "active" : ""}
+          set:html={label}
+        />
+      ))
+    }
+  </div>
 </nav>
 <style lang="scss">
   nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: var(--content-width);
+    background: transparent;
     z-index: 100;
-    text-transform: uppercase;
-    top: 2em;
-    left: var(--margin-left);
-    border-radius: 5px;
-    backdrop-filter: blur(3px);
-    -webkit-backdrop-filter: blur(3px);
+    padding: 3rem;
+  }
+  div:first-child a {
+    font-weight: bold;
+  }
+  a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 24px;
+    padding: 0.1rem 0.5rem;
+    border-radius: 0.3rem;
 
-    a {
-      border-radius: 5px;
-      backdrop-filter: blur(3px);
-      -webkit-backdrop-filter: blur(3px);
-      padding: 5px;
+    &:hover,
+    &:focus {
+      outline: none;
+      color: #999;
+    }
 
-      &:focus-visible {
-        outline: dashed;
-      }
+    &.active {
+      text-decoration: underline;
     }
   }
 </style>

@@ -1,0 +1,51 @@
+---
+import GradientDiv from "@/components/GradientDiv.astro";
+import WorkCard from "@/components/WorkCard.astro";
+import Layout from "@/layouts/Layout.astro";
+
+const works = [
+  {
+    title: "One Kiji",
+    description: "Daily summary of the most important news",
+    period: "since June 2023",
+    skills: ["Astro", "TypeScript", "React"],
+    link: "https://onekiji.com",
+  },
+  {
+    title: "Subscription Manager",
+    description: "Manage your subscriptions",
+    period: "2022",
+    skills: ["Ionic", "TypeScript", "React"],
+  },
+  {
+    title: "Why Privacy Matters",
+    description: "Ted Talk about the important privacy",
+    period: "2020",
+    link: "https://youtube.com/watch?v=cpK-XshFAms",
+  },
+];
+---
+
+<Layout title="Now - Yumi Izumi">
+  <GradientDiv vertical="start">
+    <h1>My Work</h1>
+    <div>
+      {works.map((work) => <WorkCard {...work} />)}
+    </div>
+  </GradientDiv>
+</Layout>
+<style lang="scss">
+  div {
+    width: var(--content-width);
+    padding: 2rem 2rem;
+
+    overflow: visible;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+</style>

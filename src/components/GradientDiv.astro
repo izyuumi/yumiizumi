@@ -1,6 +1,14 @@
+---
+interface Props {
+  vertical?: "start" | "center" | "end";
+}
+
+const { vertical } = Astro.props;
+---
+
 <div class="container">
   <div class="overlay">
-    <p>I'm Yumi Izumi, a developer and student advocating for privacy.</p>
+    <slot />
   </div>
 </div>
 <style>
@@ -29,8 +37,9 @@
   }
   .overlay {
     display: flex;
-    align-items: flex-end;
-    justify-content: center;
+    align-items: center;
+    justify-content: end;
+    flex-direction: column;
     position: absolute;
     top: 0;
     left: 0;
@@ -51,7 +60,13 @@
     color: #fff;
     text-align: center;
   }
-  p {
-    padding: 3rem;
-  }
 </style>
+{
+  vertical && (
+    <style
+      set:html={`.overlay { justify-content: ${vertical}; ${
+        vertical === "start" && "padding-top: 7rem;"
+      } }`}
+    />
+  )
+}
