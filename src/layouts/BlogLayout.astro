@@ -9,9 +9,10 @@ interface Props {
   description: string;
   slug?: string;
   isNotBlog?: boolean;
+  image?: string;
 }
 
-const { title, description, slug, isNotBlog = false } = Astro.props;
+const { title, description, slug, isNotBlog = false, image } = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -22,6 +23,7 @@ const { title, description, slug, isNotBlog = false } = Astro.props;
       description={description}
       slug={slug}
       isBlog={!isNotBlog}
+      image={image}
     />
   </head>
   <body>
