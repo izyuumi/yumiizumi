@@ -10,7 +10,7 @@ const paths = [
 ---
 
 <nav>
-  <div>
+  <div class={currentPath === "/" ? "m-active" : ""}>
     <a href="/">Yumi</a>
   </div>
   <div>
@@ -45,7 +45,7 @@ const paths = [
   a {
     color: #fff;
     text-decoration: none;
-    font-size: 24px;
+    font-size: 1.4em;
     padding: 0.1rem 0.5rem;
     border-radius: 0.3rem;
 
@@ -61,8 +61,12 @@ const paths = [
   }
   @media screen and (max-width: 768px) {
     nav {
-      justify-content: space-between;
-      padding: 2rem 1rem;
+      justify-content: center;
+      padding: 1rem 1rem;
+    }
+    .active,
+    .m-active {
+      display: none;
     }
   }
 </style>

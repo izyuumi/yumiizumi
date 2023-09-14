@@ -60,6 +60,11 @@ const { vertical } = Astro.props;
     color: #fff;
     text-align: center;
   }
+  @media screen and (max-width: 768px) {
+    .overlay {
+      padding-top: 4rem !important;
+    }
+  }
 </style>
 {
   vertical && (
