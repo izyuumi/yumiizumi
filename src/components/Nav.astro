@@ -18,7 +18,7 @@ const paths = [
       paths.map(({ path, label }) => (
         <a
           href={path}
-          class={currentPath === path ? "active" : ""}
+          class={currentPath.startsWith(path) ? "active" : ""}
           set:html={label}
         />
       ))
@@ -70,3 +70,8 @@ const paths = [
     }
   }
 </style>
+{
+  currentPath.startsWith("/blog") && (
+    <style set:html={`nav { position: relative; padding-bottom: 2rem; }`} />
+  )
+}
