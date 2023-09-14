@@ -67,13 +67,14 @@ const { title, description, slug, isNotBlog = false } = Astro.props;
         align-items: center;
         flex-direction: column;
         --mobile-margin: 24px;
+        --content-width: 61.8vw;
       }
       body {
         display: flex;
         flex-direction: column;
         width: 61.8vw;
         min-height: 100%;
-        padding-top: 78px;
+        padding-top: 120px;
       }
       main {
         flex: 1;
@@ -125,6 +126,7 @@ const { title, description, slug, isNotBlog = false } = Astro.props;
           width: 100%;
           padding-left: var(--mobile-margin);
           padding-right: var(--mobile-margin);
+          --cotent-width: 100%;
         }
       }
     </style>
