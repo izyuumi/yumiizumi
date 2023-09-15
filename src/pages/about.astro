@@ -1,6 +1,10 @@
 ---
 import GradientDiv from "@/components/GradientDiv.astro";
 import Layout from "@/layouts/Layout.astro";
+
+const site = {
+  email: "me@yumiizumi.com",
+};
 ---
 
 <Layout title="About - Yumi Izumi">
@@ -12,6 +16,12 @@ import Layout from "@/layouts/Layout.astro";
         for fun. I believe that privacy is a fundamental human right, and I
         advocate for it.
       </p>
+      <p>
+        Feel free to contact me via{" "}
+        <a href=`mailto:${site.email}`>email</a> or check my <a href="/card"
+          >card</a
+        >.
+      </p>
     </div>
   </GradientDiv>
 </Layout>
@@ -22,5 +32,8 @@ import Layout from "@/layouts/Layout.astro";
     height: 100%;
     justify-content: space-evenly;
     width: var(--content-width);
+  }
+  a {
+    text-decoration: underline !important;
   }
 </style>
