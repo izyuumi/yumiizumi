@@ -3,7 +3,15 @@ import GradientDiv from "@/components/GradientDiv.astro";
 import WorkCard from "@/components/WorkCard.astro";
 import Layout from "@/layouts/Layout.astro";
 
-const works = [
+type Work = {
+  title: string;
+  description: string;
+  period: string;
+  skills?: string[];
+  link?: string;
+};
+
+const works: Work[] = [
   {
     title: "One Kiji",
     description: "Daily summary of the most important news",
@@ -16,6 +24,7 @@ const works = [
     description: "Manage your subscriptions",
     period: "2022",
     skills: ["Ionic", "TypeScript", "React"],
+    link: "https://github.com/bluelockorg/subscription-manager",
   },
   {
     title: "Why Privacy Matters",
