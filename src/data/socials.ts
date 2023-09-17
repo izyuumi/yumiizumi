@@ -1,7 +1,7 @@
 const socials: Social[] = [
   {
     for: "twitter",
-    link: "https://twitter.com/aapl_yumi",
+    link: "https://twitter.com/izyumidev",
     svg: `
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -24,7 +24,7 @@ const socials: Social[] = [
   },
   {
     for: "github",
-    link: "https://github.com/aapl-yumi",
+    link: "https://github.com/izyumidev",
     svg: `
     <svg
       viewBox="0 0 98 96"
