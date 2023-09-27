@@ -1,0 +1,69 @@
+---
+const skills = [
+  "Astro",
+  "TypeScript",
+  "Vim",
+  "React",
+  "JavaScript",
+  "SQL",
+  "Git",
+  "Node.js",
+  "Rust",
+  "Japanese",
+  "Swift",
+  "GitHub",
+  "Supabase",
+  "Ionic",
+  "Guitar",
+  "CSS",
+  "English",
+  "Linux",
+  "PHP",
+  "HTML",
+  "SASS",
+  "C++",
+  "TailwindCSS",
+  "Browser Extension",
+];
+---
+
+<div class="container">
+  <div class="parent">
+    <div class="child">
+      {skills.map((skill) => <span>{skill}</span>)}
+    </div>
+    <div class="child">
+      {skills.map((skill) => <span>{skill}</span>)}
+    </div>
+  </div>
+</div>
+<style>
+  .container {
+    padding: 0.4em;
+    width: 100%;
+    overflow-x: hidden;
+  }
+  .parent {
+    display: flex;
+    animation-name: loop;
+    animation-duration: 50s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+  }
+  .child {
+    white-space: nowrap;
+  }
+  span {
+    color: #b4b4b4;
+    font-size: 0.8em;
+    margin-right: 0.8em;
+  }
+  @keyframes loop {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-140%);
+    }
+  }
+</style>

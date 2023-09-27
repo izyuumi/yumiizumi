@@ -1,5 +1,6 @@
 ---
 import GradientDiv from "@/components/GradientDiv.astro";
+import Skills from "@/components/Skills.astro";
 import WorkCard from "@/components/WorkCard.astro";
 import Layout from "@/layouts/Layout.astro";
 
@@ -38,6 +39,7 @@ const works: Work[] = [
 <Layout title="Now - Yumi Izumi">
   <GradientDiv vertical="start">
     <h1>My Work</h1>
+    <Skills />
     <div>
       {works.map((work) => <WorkCard {...work} />)}
     </div>
