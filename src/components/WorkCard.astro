@@ -51,7 +51,9 @@ const { title, description, period, skills, link } = Astro.props;
       outline: none;
     }
 
-    &::marker {
+    &::marker,
+    &::-webkit-details-marker {
+      display: none;
       content: "";
     }
 
