@@ -3,6 +3,7 @@ title: The Power of Statically Typing
 description: Why you should start typing your code.
 pubDate: 2023-08-21
 tags: [programming]
+blogShort: power-of-statically-typing
 ---
 
 # The Power of Statically Typing
@@ -11,7 +12,7 @@ There are a few languages I’ve been working on and learning recently because I
 
 ## What is typing?
 
-If you’ve ever had an opportunity to code, you may have heard terms such as *string*, *int*, and *array*. These are the ***types*** you can assign to variables. Thus, typing is the act of assigning types to variables.
+If you’ve ever had an opportunity to code, you may have heard terms such as _string_, _int_, and _array_. These are the **_types_** you can assign to variables. Thus, typing is the act of assigning types to variables.
 
 ## Why type?
 
@@ -23,7 +24,7 @@ Another merit of typing is that you can, most of the time, guarantee that you ar
 
 ## For correctness
 
-Dynamically typed languages like JavaScript and Python are amazing, in the sense that programmers, especially beginners, don’t have to think too much about types. However, it comes at the cost of runtime errors, which are errors that the users will experience. Being “correct” and making sure that types are correct, makes many runtime errors to disappear like magic. 
+Dynamically typed languages like JavaScript and Python are amazing, in the sense that programmers, especially beginners, don’t have to think too much about types. However, it comes at the cost of runtime errors, which are errors that the users will experience. Being “correct” and making sure that types are correct, makes many runtime errors to disappear like magic.
 
 ## Conclusion
 

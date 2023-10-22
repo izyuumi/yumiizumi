@@ -3,6 +3,7 @@ title: The zero-inbox philosophy
 description: My way of organizing emails
 pubDate: 2023-10-21
 tags: [life, productivity]
+blogShort: zero-inbox-philosophy
 ---
 
 # The zero-inbox philosophy
