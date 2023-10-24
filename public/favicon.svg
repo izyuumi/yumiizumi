@@ -1,6 +1,10 @@
-<svg width="1024" height="1024" viewBox="0 0 1024 1024" fill="none"
-  xmlns="http://www.w3.org/2000/svg">
-  <rect width="1024" height="1024" fill="#1E1E1E" />
-  <rect width="1024" height="1024" fill="#0F0F0F" />
-  <circle cx="511.5" cy="511.5" r="316.5" fill="#0052FF" />
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="1024" height="1024" fill="#0F0F0F"/>
+<circle cx="511.5" cy="511.5" r="316.5" fill="url(#paint0_angular_4_3)"/>
+<defs>
+<radialGradient id="paint0_angular_4_3" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(511.5 511.5) rotate(90) scale(316.5)">
+<stop stop-color="#0052FF"/>
+<stop offset="1" stop-color="#0052FF" stop-opacity="0"/>
+</radialGradient>
+</defs>
 </svg>
