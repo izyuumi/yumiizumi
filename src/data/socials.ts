@@ -45,7 +45,7 @@ const socials: Social[] = [
   },
   {
     for: "mail",
-    link: "mailto:me@yumiizumi.com",
+    link: "mailto:mail@yumi.to",
     svg: `
     <svg
       xmlns="http://www.w3.org/2000/svg"
