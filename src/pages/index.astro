@@ -135,7 +135,7 @@ const stacks: Stack[] = [
       {
         blogs.map((post) => (
           <li>
-            <a href={post.slug}>
+            <a href={`/blog/${post.slug}`}>
               <span>
                 {new Date(post.data.pubDate).toISOString().split("T")[0]}
               </span>
