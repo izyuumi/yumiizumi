@@ -117,7 +117,10 @@ const stacks: Stack[] = [
       {
         projects.map((project) => (
           <li>
-            <a href={project.url} aria-label={`link to ${project.title}`}>
+            <a
+              href={project.url}
+              aria-label={`${project.title} ${project.period}`}
+            >
               <u>{project.title}</u>
               <span>{project.period}</span>
             </a>
