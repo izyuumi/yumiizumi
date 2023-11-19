@@ -1,4 +1,4 @@
-![Preview of the website](/readme/preview.png)
+![Preview of the website](/public/placeholder-social.png)
 
 # My portfolio
 
