@@ -1,0 +1,23 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --content-width: 700px;
+  --mobile-margin: 24px;
+  --white: #d5d2c5;
+  --black: #1e1e1b;
+  --green: #b0dc96;
+  --blue: #4a75eb;
+}
+html {
+  scroll-behavior: smooth;
+
+  overflow-y: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
