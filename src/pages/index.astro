@@ -1,17 +1,125 @@
 ---
-import GradientDiv from "@/components/GradientDiv.astro";
 import Layout from "@/layouts/Layout.astro";
+import { getCollection } from "astro:content";
+
+const blogs = await getCollection("blog").then((collection) => {
+  return collection
+    .sort((a, b) => {
+      return new Date(b.data.pubDate) > new Date(a.data.pubDate) ? 1 : -1;
+    })
+    .splice(0, 5);
+});
+interface Project {
+  title: string;
+  url: string;
+  period: string;
+}
+const projects: Project[] = [
+  {
+    title: "onekiji",
+    url: "https://onekiji.com",
+    period: "since june 2023",
+  },
+  {
+    title: "yumi.to",
+    url: "https://yumi.to/_q",
+    period: "october 2023",
+  },
+  {
+    title: "xcode-discord-rpc",
+    url: "https://yumi.to/xcode-discord-rpc",
+    period: "october 2023",
+  },
+  {
+    title: "dime",
+    url: "https://github.com/rarfell/dimeApp",
+    period: "since october 2023",
+  },
+  {
+    title: "why privacy matters",
+    url: "https://yumi.to/tedx",
+    period: "late 2020",
+  },
+];
 ---
 
 <Layout title="Yumi Izumi">
-  <GradientDiv vertical="center">
-    <div>
-      <p>I'm Yumi Izumi, a developer and student advocating for privacy.</p>
-    </div>
-  </GradientDiv>
+  <h1># hi, i'm Yumi</h1>
+  <p>
+    studying cyber security at <a href="https://psu.edu/">penn state</a>, i
+    advocate for privacy in this digital era, and code for fun
+  </p>
+  <section>
+    <h2 id="projects">## projects</h2>
+    <ul>
+      {
+        projects.map((project) => (
+          <li>
+            <a href={project.url}>
+              <u>{project.title}</u>
+              <span>{project.period}</span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+  <section>
+    <h2 id="writing">## writing</h2>
+    <p>
+      i infrequently write about things i find interesting <a
+        href="https://yumiizumi.com/blog">here</a
+      >
+    </p>
+    <ul>
+      {
+        blogs.map((post) => (
+          <li>
+            <a href={post.slug}>
+              <span>
+                {new Date(post.data.pubDate).toISOString().split("T")[0]}
+              </span>
+              <u>{post.data.title}</u>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+  <section>
+    <h2 id="stack">## stack</h2>
+    <p>
+      some of the software and tools I use daily and love:
+      <a href="https://www.raycast.com/">raycast</a>, <a href="https://arc.net/"
+        >arc</a
+      >, <a href="https://www.apple.com/mac/">macbook</a>, <a
+        href="https://www.apple.com/iphone/">iphone</a
+      >, <a href="https://neovim.io/">nvim</a>, <a
+        href="https://code.visualstudio.com/">vscode</a
+      >, <a href="https://proton.me/">proton suite</a>, <a
+        href="https://discord.com/">discord</a
+      >, <a href="https://hyper.is/">hyper</a>, <a href="https://signal.org/"
+        >signal</a
+      >, <a href="https://github.com/">github</a>, <a
+        href="https://happyhackingkb.com/">hhkb</a
+      >
+    </p>
+  </section>
+  <section id="contact">
+    <h2>## contact</h2>
+    <p>
+      feel free to contact me for random ideas, questions, or just to say hi<br
+      />
+      <a href="https://yumi.to/card">card</a> or email: <span class="neon"
+        >mail (at) yumi.to</span
+      >
+    </p>
+  </section>
+  <footer>
+    <p>
+      minimal data collection with <a href="https://plausible.io/yumiizumi.com"
+        >plausible</a
+      >
+    </p>
+  </footer>
 </Layout>
-<style>
-  div {
-    width: var(--content-width);
-  }
-</style>

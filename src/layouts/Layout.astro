@@ -1,6 +1,4 @@
 ---
-import SkipToContent from "@/components/SkipToContent.astro";
-import Nav from "@/components/Nav.astro";
 import Head from "@/components/Head.astro";
 
 interface Props {
@@ -16,24 +14,54 @@ const { title } = Astro.props;
     <Head title={title} description="Yumi Izumi's Portfolio" isBlog={false} />
   </head>
   <body>
-    <SkipToContent />
-    <Nav />
     <main id="main">
       <slot />
     </main>
     <style lang="scss" is:global>
+      @font-face {
+        font-family: "Krypton";
+        src: url("./assets/Krypton.ttf") format("truetype");
+        font-display: swap;
+      }
+      .krypton {
+        font-family: "Krypton", sans-serif;
+      }
+      @font-face {
+        font-family: "Neon";
+        src: url("./assets/Neon.ttf") format("truetype");
+        font-display: swap;
+      }
+      .neon {
+        font-family: "Neon", sans-serif;
+      }
+      @font-face {
+        font-family: "Radon";
+        src: url("./assets/Radon.ttf") format("truetype");
+        font-display: swap;
+      }
+      .radon {
+        font-family: "Radon", sans-serif;
+      }
       * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
       }
+      :root {
+        --content-width: 700px;
+        --white: #d5d2c5;
+        --black: #1e1e1b;
+        --green: #b0dc96;
+        --blue: #4a75eb;
+      }
       html {
-        font-family: Texgyrecursor, sans-serif;
-        color: #fff;
-        background-color: #000;
-        min-height: 100vh;
+        font-family: "Neon", sans-serif;
+        font-size: 1.2rem;
+        line-height: 1.5;
+        color: var(--white);
+        background-color: var(--black);
+        line-height: 1.7;
         scroll-behavior: smooth;
-        font-size: 18px;
 
         overflow-y: scroll;
         -ms-overflow-style: none;
@@ -41,31 +69,45 @@ const { title } = Astro.props;
         &::-webkit-scrollbar {
           display: none;
         }
-
-        --content-width: 61.8%;
       }
       body {
         display: flex;
         flex-direction: column;
-        min-height: 100vh;
+        align-items: center;
+        min-height: 100svh;
+      }
+      main {
+        max-width: var(--content-width);
+        margin: 2rem 0;
+      }
+      section {
+        margin-top: 1rem;
+      }
+      p {
+        font-size: 1em;
+        text-wrap: balance;
+      }
+      ul {
+        list-style: none;
       }
       a {
         color: inherit;
         text-decoration: none;
+        font-family: "Krypton", sans-serif;
+        &:hover {
+          color: var(--green);
+        }
       }
-      h1 {
-        font-size: 1em;
-        font-weight: normal;
-      }
+      h1,
       h2 {
         font-weight: normal;
-      }
-      p {
-        font-size: 1em;
+        font-family: "Radon", sans-serif;
       }
       @media screen and (max-width: 768px) {
-        html {
+        :root {
           --content-width: 92%;
+        }
+        html {
           font-size: 16px;
         }
       }
