@@ -132,19 +132,16 @@ const stacks: Stack[] = [
   <section>
     <h2 id="writing">## writing</h2>
     <p>
-      i infrequently write about things i find interesting <a
-        href="blog"
-        aria-label="my blog">here</a
+      i infrequently write about things i find interesting at <a
+        href="/blog"
+        aria-label="my blog">my blog</a
       >
     </p>
     <ul>
       {
         blogs.map((post) => (
           <li>
-            <a
-              href={`/blog/${post.slug}`}
-              aria-label={`blog ${post.data.title}`}
-            >
+            <a href={`/blog/${post.slug}`} aria-label={`${post.data.title}`}>
               <span>
                 {new Date(post.data.pubDate).toISOString().split("T")[0]}
               </span>
