@@ -106,8 +106,10 @@ const stacks: Stack[] = [
 <Layout title="Yumi Izumi">
   <h1># hi, i'm Yumi</h1>
   <p>
-    studying cyber security at <a href="https://psu.edu/">penn state</a>, i
-    advocate for privacy in this digital era, and code for fun
+    studying cyber security at <a
+      href="https://psu.edu/"
+      aria-label="Penn State website">penn state</a
+    >, i advocate for privacy in this digital era, and code for fun
   </p>
   <section>
     <h2 id="projects">## projects</h2>
@@ -115,7 +117,7 @@ const stacks: Stack[] = [
       {
         projects.map((project) => (
           <li>
-            <a href={project.url}>
+            <a href={project.url} aria-label={`link to ${project.title}`}>
               <u>{project.title}</u>
               <span>{project.period}</span>
             </a>
@@ -128,14 +130,18 @@ const stacks: Stack[] = [
     <h2 id="writing">## writing</h2>
     <p>
       i infrequently write about things i find interesting <a
-        href="https://yumiizumi.com/blog">here</a
+        href="blog"
+        aria-label="my blog">here</a
       >
     </p>
     <ul>
       {
         blogs.map((post) => (
           <li>
-            <a href={`/blog/${post.slug}`}>
+            <a
+              href={`/blog/${post.slug}`}
+              aria-label={`blog ${post.data.title}`}
+            >
               <span>
                 {new Date(post.data.pubDate).toISOString().split("T")[0]}
               </span>
@@ -153,12 +159,18 @@ const stacks: Stack[] = [
       {
         stacks.splice(0, stacks.length - 1).map((stack) => (
           <>
-            <a href={stack.url}>{stack.title}</a>,
+            <a href={stack.url} aria-label={stack.title}>
+              {stack.title}
+            </a>
+            ,
           </>
         ))
       }
       and
-      <a href={stacks[stacks.length - 1].url}>
+      <a
+        href={stacks[stacks.length - 1].url}
+        aria-label={stacks[stacks.length - 1].title}
+      >
         {stacks[stacks.length - 1].title}
       </a>
     </p>
@@ -168,9 +180,8 @@ const stacks: Stack[] = [
     <p>
       feel free to contact me for random ideas, questions, or just to say hi<br
       />
-      <a href="https://yumi.to/card">card</a> or email: <span class="neon"
-        >mail (at) yumi.to</span
-      >
+      <a href="https://yumi.to/card" aria-label="virtual card">card</a> or email:
+      <span class="neon">mail (at) yumi.to</span>
     </p>
   </section>
   <footer>
