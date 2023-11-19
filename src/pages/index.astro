@@ -41,6 +41,62 @@ const projects: Project[] = [
     period: "late 2020",
   },
 ];
+
+interface Stack {
+  title: string;
+  url: string;
+}
+
+const stacks: Stack[] = [
+  {
+    title: "raycast",
+    url: "https://raycast.com",
+  },
+  {
+    title: "arc",
+    url: "https://arc.net",
+  },
+  {
+    title: "macbook",
+    url: "https://www.apple.com/mac/",
+  },
+  {
+    title: "iphone",
+    url: "https://www.apple.com/iphone/",
+  },
+  {
+    title: "nvim",
+    url: "https://neovim.io/",
+  },
+  {
+    title: "vscode",
+    url: "https://code.visualstudio.com/",
+  },
+  {
+    title: "proton suite",
+    url: "https://proton.me/",
+  },
+  {
+    title: "discord",
+    url: "https://discord.com/",
+  },
+  {
+    title: "hyper",
+    url: "https://hyper.is/",
+  },
+  {
+    title: "signal",
+    url: "https://signal.org/",
+  },
+  {
+    title: "github",
+    url: "https://github.com",
+  },
+  {
+    title: "hhkb",
+    url: "https://happyhackingkb.com/",
+  },
+];
 ---
 
 <Layout title="Yumi Izumi">
@@ -90,19 +146,17 @@ const projects: Project[] = [
     <h2 id="stack">## stack</h2>
     <p>
       some of the software and tools I use daily and love:
-      <a href="https://www.raycast.com/">raycast</a>, <a href="https://arc.net/"
-        >arc</a
-      >, <a href="https://www.apple.com/mac/">macbook</a>, <a
-        href="https://www.apple.com/iphone/">iphone</a
-      >, <a href="https://neovim.io/">nvim</a>, <a
-        href="https://code.visualstudio.com/">vscode</a
-      >, <a href="https://proton.me/">proton suite</a>, <a
-        href="https://discord.com/">discord</a
-      >, <a href="https://hyper.is/">hyper</a>, <a href="https://signal.org/"
-        >signal</a
-      >, <a href="https://github.com/">github</a>, <a
-        href="https://happyhackingkb.com/">hhkb</a
-      >
+      {
+        stacks.splice(0, stacks.length - 1).map((stack) => (
+          <>
+            <a href={stack.url}>{stack.title}</a>,
+          </>
+        ))
+      }
+      and
+      <a href={stacks[stacks.length - 1].url}>
+        {stacks[stacks.length - 1].title}
+      </a>
     </p>
   </section>
   <section id="contact">
