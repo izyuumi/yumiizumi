@@ -1,50 +1,67 @@
 ---
-import CardPageLayout from "@/layouts/CardPageLayout.astro";
 import BusinessCard from "@/components/BusinessCard.astro";
+import Head from "@/components/Head.astro";
 ---
 
-<CardPageLayout title="Business Card - Yumi Izumi">
-  <div id="container">
-    <BusinessCard />
-  </div>
-  <div id="info">
-    <p>Last updated: June 2023</p>
-    <p>
-      <a href="https://yumiizumi.com/">See my portfolio</a>
-    </p>
-  </div>
-</CardPageLayout>
-<style lang="scss">
-  #container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    width: 100%;
-    background-color: #161616;
-  }
-  #info {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: fixed;
-    right: 50%;
-    bottom: 2em;
-    transform: translateX(50%);
-    color: #e2e2e2;
-    p {
-      margin: 5px;
-    }
-    a,
-    a:visited {
-      color: inherit;
-    }
-    a:hover {
-      filter: brightness(0.8);
-    }
-    a:focus {
-      filter: brightness(0.8);
-      outline: none;
-    }
-  }
-</style>
+<html lang="en">
+  <head>
+    <Head
+      title="Yumi Izumi's Virtual Business Card"
+      description="Yumi Izumi's Virtual Business Card"
+      image="https://yumiizumi.com/assets/business-card.png"
+    />
+  </head>
+  <body>
+    <div id="container">
+      <BusinessCard />
+    </div>
+    <div id="info">
+      <p>Last updated: June 2023</p>
+      <p>
+        <a href="https://yumiizumi.com/">See my portfolio</a>
+      </p>
+    </div>
+    <style lang="scss">
+      html {
+        font-family: "Inter", sans-serif;
+        height: 100%;
+        background-color: #161616;
+      }
+      body {
+        height: 100%;
+        margin: 0;
+      }
+      #container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+      }
+      #info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: fixed;
+        right: 50%;
+        bottom: 2em;
+        transform: translateX(50%);
+        color: #e2e2e2;
+        p {
+          margin: 5px;
+        }
+        a,
+        a:visited {
+          color: inherit;
+        }
+        a:hover {
+          filter: brightness(0.8);
+        }
+        a:focus {
+          filter: brightness(0.8);
+          outline: none;
+        }
+      }
+    </style>
+  </body>
+</html>
