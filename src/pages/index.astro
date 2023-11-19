@@ -106,10 +106,8 @@ const stacks: Stack[] = [
 <Layout title="Yumi Izumi">
   <h1># hi, i'm Yumi</h1>
   <p>
-    studying cyber security at <a
-      href="https://psu.edu/"
-      aria-label="Penn State website">penn state</a
-    >, i advocate for privacy in this digital era, and code for fun
+    studying cyber security at <a href="https://psu.edu/">penn state</a>, i
+    advocate for privacy in this digital era, and code for fun
   </p>
   <section>
     <h2 id="projects">## projects</h2>
@@ -117,10 +115,7 @@ const stacks: Stack[] = [
       {
         projects.map((project) => (
           <li>
-            <a
-              href={project.url}
-              aria-label={`${project.title} ${project.period}`}
-            >
+            <a href={project.url}>
               <u>{project.title}</u>
               <span>{project.period}</span>
             </a>
@@ -141,7 +136,7 @@ const stacks: Stack[] = [
       {
         blogs.map((post) => (
           <li>
-            <a href={`/blog/${post.slug}`} aria-label={`${post.data.title}`}>
+            <a href={`/blog/${post.slug}`}>
               <span>
                 {new Date(post.data.pubDate).toISOString().split("T")[0]}
               </span>
@@ -159,18 +154,12 @@ const stacks: Stack[] = [
       {
         stacks.splice(0, stacks.length - 1).map((stack) => (
           <>
-            <a href={stack.url} aria-label={stack.title}>
-              {stack.title}
-            </a>
-            ,
+            <a href={stack.url}>{stack.title}</a>,
           </>
         ))
       }
       and
-      <a
-        href={stacks[stacks.length - 1].url}
-        aria-label={stacks[stacks.length - 1].title}
-      >
+      <a href={stacks[stacks.length - 1].url}>
         {stacks[stacks.length - 1].title}
       </a>
     </p>
