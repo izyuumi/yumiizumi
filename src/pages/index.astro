@@ -7,11 +7,13 @@ const blogs = await getCollection("blog").then((collection) => {
     return new Date(b.data.pubDate) > new Date(a.data.pubDate) ? 1 : -1;
   });
 });
+
 interface Project {
   title: string;
   url: string;
   period: string;
 }
+
 const projects: Project[] = [
   {
     title: "onekiji",
@@ -99,6 +101,74 @@ const stacks: Stack[] = [
     url: "https://happyhackingkb.com/",
   },
 ];
+
+const skills: Stack[] = [
+  {
+    title: "typescript",
+    url: "https://typescriptlang.org",
+  },
+  {
+    title: "php",
+    url: "https://php.net",
+  },
+  {
+    title: "sql",
+    url: "https://sql.org",
+  },
+  {
+    title: "html/css",
+    url: "https://developer.mozilla.org/en-US/docs/Web",
+  },
+  {
+    title: "git",
+    url: "https://git-scm.com/",
+  },
+  {
+    title: "astro",
+    url: "https://astro.build/",
+  },
+  {
+    title: "supabase",
+    url: "https://supabase.io/",
+  },
+  {
+    title: "ionic",
+    url: "https://ionicframework.com/",
+  },
+];
+
+const experiencedSkill: Stack[] = [
+  {
+    title: "rust",
+    url: "https://rust-lang.org",
+  },
+  {
+    title: "swift",
+    url: "https://swift.org",
+  },
+  {
+    title: "c++",
+    url: "https://isocpp.org/",
+  },
+  {
+    title: "python",
+    url: "https://python.org",
+  },
+];
+
+const stackJoin = (stack: Stack[]) => {
+  let res = "";
+
+  for (let i = 0; i < stack.length; i++) {
+    if (i === stack.length - 1) {
+      res += `and <a href="${stack[i].url}">${stack[i].title}</a>`;
+    } else {
+      res += `<a href="${stack[i].url}">${stack[i].title}</a>, `;
+    }
+  }
+
+  return res;
+};
 ---
 
 <Layout title="Yumi Izumi">
@@ -107,8 +177,8 @@ const stacks: Stack[] = [
     studying cyber security at <a href="https://psu.edu/">penn state</a>, i
     advocate for privacy in this digital era, and code for fun
   </p>
-  <section>
-    <h2 id="projects">## projects</h2>
+  <section id="projects">
+    <h2>## projects</h2>
     <ul>
       {
         projects.map((project) => (
@@ -122,8 +192,8 @@ const stacks: Stack[] = [
       }
     </ul>
   </section>
-  <section>
-    <h2 id="writing">## writing</h2>
+  <section id="writing">
+    <h2>## writing</h2>
     <p>
       i infrequently write about things that interests me on <a
         href="/blog"
@@ -145,21 +215,22 @@ const stacks: Stack[] = [
       }
     </ul>
   </section>
-  <section>
-    <h2 id="stack">## stack</h2>
+  <section id="stack">
+    <h2>## stack</h2>
     <p>
       some of the software and tools I use daily and love:
-      {
-        stacks.splice(0, stacks.length - 1).map((stack) => (
-          <>
-            <a href={stack.url}>{stack.title}</a>,
-          </>
-        ))
-      }
-      and
-      <a href={stacks[stacks.length - 1].url}>
-        {stacks[stacks.length - 1].title}
-      </a>
+      <span set:html={stackJoin(stacks)} />
+    </p>
+  </section>
+  <section id="skills">
+    <h2>## skills</h2>
+    <p>
+      i'm confident with
+      <span set:html={stackJoin(skills)} />
+    </p>
+    <p>
+      i have some experience with
+      <span set:html={stackJoin(experiencedSkill)} />
     </p>
   </section>
   <section id="contact">
