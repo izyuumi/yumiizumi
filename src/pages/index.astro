@@ -44,7 +44,7 @@ const projects: Project[] = [
 
 interface Stack {
   title: string;
-  url: string;
+  url?: string;
 }
 
 const stacks: Stack[] = [
@@ -135,6 +135,12 @@ const skills: Stack[] = [
     title: "ionic",
     url: "https://ionicframework.com/",
   },
+  {
+    title: "japanese",
+  },
+  {
+    title: "english",
+  },
 ];
 
 const experiencedSkill: Stack[] = [
@@ -159,11 +165,19 @@ const experiencedSkill: Stack[] = [
 const stackJoin = (stack: Stack[]) => {
   let res = "";
 
+  const toA = (s: Stack) => {
+    if (s.url) {
+      return `<a href="${s.url}">${s.title}</a>`;
+    } else {
+      return s.title;
+    }
+  };
+
   for (let i = 0; i < stack.length; i++) {
     if (i === stack.length - 1) {
-      res += `and <a href="${stack[i].url}">${stack[i].title}</a>`;
+      res += `and ${toA(stack[i])}`;
     } else {
-      res += `<a href="${stack[i].url}">${stack[i].title}</a>, `;
+      res += `${toA(stack[i])}, `;
     }
   }
 
