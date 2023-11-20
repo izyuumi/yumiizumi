@@ -3,11 +3,9 @@ import Layout from "@/layouts/Layout.astro";
 import { getCollection } from "astro:content";
 
 const blogs = await getCollection("blog").then((collection) => {
-  return collection
-    .sort((a, b) => {
-      return new Date(b.data.pubDate) > new Date(a.data.pubDate) ? 1 : -1;
-    })
-    .splice(0, 5);
+  return collection.sort((a, b) => {
+    return new Date(b.data.pubDate) > new Date(a.data.pubDate) ? 1 : -1;
+  });
 });
 interface Project {
   title: string;
@@ -134,7 +132,7 @@ const stacks: Stack[] = [
     </p>
     <ul>
       {
-        blogs.map((post) => (
+        blogs.splice(0, 5).map((post) => (
           <li>
             <a href={`/blog/${post.slug}`}>
               <span>
