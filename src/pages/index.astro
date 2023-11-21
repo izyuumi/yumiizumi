@@ -221,10 +221,10 @@ const stackJoin = (stack: Stack[]) => {
         blogs.map((post) => (
           <li>
             <a href={`/blog/${post.slug}`}>
-              <span>
+              <span transition:name={`date-${post.slug}`}>
                 {new Date(post.data.pubDate).toISOString().split("T")[0]}
               </span>
-              <u>{post.data.title}</u>
+              <u transition:name={`title-${post.slug}`}>{post.data.title}</u>
             </a>
           </li>
         ))
