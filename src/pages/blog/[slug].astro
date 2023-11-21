@@ -30,7 +30,7 @@ const { Content } = await post.render();
           ><strong>Blog</strong></a
         >&nbsp;&#x2F;&nbsp;{data.title}
       </p>
-      <p>
+      <p transition:name={`date-${post.slug}`}>
         <time>
           {
             new Date(data.pubDate).toLocaleDateString("en-US", {
@@ -42,6 +42,9 @@ const { Content } = await post.render();
         </time>
       </p>
     </header>
+    <h1 transition:name={`title-${post.slug}`}>
+      {data.title}
+    </h1>
     <Content />
     {
       data.tags && (

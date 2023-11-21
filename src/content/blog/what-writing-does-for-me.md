@@ -5,8 +5,6 @@ pubDate: 2023-09-29
 tags: [life, writing]
 ---
 
-# What writing does for me.
-
 Writing is an interesting and creative process people do. I recently started writing, and there are few reasons I find it satisfying.
 
 I am not the best at “wordifying” ideas, especially when conversing in person, and I think that writing has allowed me to improve this skill with increased vocabulary and confidence in what I say.

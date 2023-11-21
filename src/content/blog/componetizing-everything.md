@@ -5,8 +5,6 @@ pubDate: 2023-07-11
 tags: [programming]
 ---
 
-# Componetizing everything
-
 Recently, my mind is going insane with trying to componetize everything that goes into it. Train cars, physical ads, shops, stairs, restrooms, and more. I'm not sure why exactly, but I think it's because I've been trying to write clean code that is reusable and typed strongly. The idea of typing everything and creating reusable code is something I have started to put effort in recently.
 
 ## Table of contents

@@ -11,8 +11,10 @@ const { post } = Astro.props;
 <li>
   <a href={`/blog/${post.slug}`}>
     <header>
-      <h2>{post.data.title}</h2>
-      <p>
+      <h2 transition:name={`title-${post.slug}`}>
+        {post.data.title}
+      </h2>
+      <p transition:name={`date-${post.slug}`}>
         <time datetime={new Date(post.data.pubDate).toISOString()}>
           {
             new Date(post.data.pubDate).toLocaleDateString("en-US", {

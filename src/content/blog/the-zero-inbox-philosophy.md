@@ -6,8 +6,6 @@ tags: [life, productivity]
 blogShort: zero-inbox-philosophy
 ---
 
-# The zero-inbox philosophy
-
 Emails today is corrupted. I, as a college student, get at least 10 emails a day, which is not too many, but it is definitely not satisfactory. It floods my inbox and I can lose track of emails I actually have to keep in mind. The zero-inbox philosophy is a practice I started about a year and a half ago in high school, which prevents all of that. I will share how I use this method everyday to never lose the emails that I actually need.
 
 ## What is the zero-inbox philosophy?

@@ -5,8 +5,6 @@ pubDate: 2023-10-01
 tags: [privacy, life, thoughts]
 ---
 
-# How I think about privacy.
-
 I have been advocating for privacy for a while. However, I have not shared much about how I personally define and think about privacy in my daily life.
 
 ## How I define privacy.

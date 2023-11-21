@@ -3,6 +3,7 @@ import "@/styles/color.scss";
 import "@/styles/global.scss";
 import Footer from "@/components/Footer.astro";
 import Head from "@/components/Head.astro";
+import { ViewTransitions } from "astro:transitions";
 
 interface Props {
   title: string;
@@ -25,6 +26,7 @@ const { title, description, slug, isNotBlog = false, image } = Astro.props;
       isBlog={!isNotBlog}
       image={image}
     />
+    <ViewTransitions />
   </head>
   <body>
     <main>

@@ -6,8 +6,6 @@ tags: [programming]
 blogShort: power-of-statically-typing
 ---
 
-# The Power of Statically Typing
-
 There are a few languages I’ve been working on and learning recently because I want to, TypeScript and Rust (occasionally Swift). Why am I talking about these languages? Well, these are languages where I can type my variables and functions, making my coding life so much easier as well as my code safer.
 
 ## What is typing?

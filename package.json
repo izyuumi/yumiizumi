@@ -15,7 +15,7 @@
     "@types/node": "20.8.7",
     "@types/react": "^18.2.15",
     "@types/react-dom": "^18.2.7",
-    "astro": "^2.0.18",
+    "astro": "latest",
     "markdown-it": "^13.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -25,7 +25,8 @@
     "sanitize-html": "^2.11.0",
     "sass": "^1.59.3",
     "satori": "^0.10.1",
-    "sharp": "^0.32.5"
+    "sharp": "^0.32.5",
+    "unist-util-visit": "^5.0.0"
   },
   "devDependencies": {
     "@types/markdown-it": "13.0.4",

@@ -5,8 +5,6 @@ pubDate: 2023-09-24
 tags: [life]
 ---
 
-# Why I stopped procrastinating.
-
 Few years ago, I was really bad at time management. In middle and high school, there were many occasions I had to do an all-nighter to do homework, not because I was busy with other work or commitments, but because I was lazy and just played video games. Today in college, however, I rarely procrastinate. I complete most of my work the day it is released, and at least a week ahead on all the work that is released. I barely do work on the weekends and after 6 pm on any day.  
 In this blog, I will discuss how not procrastinating allows me to be a better version of myself.
 

@@ -5,8 +5,6 @@ pubDate: 2023-08-10
 tags: [books, life]
 ---
 
-# Why I read books.
-
 I have not always been a hard core reader. I love to relax on my sofa, and watch YouTube if I have nothing to do. But, I read at least a book or two every month.
 
 ## How I started
