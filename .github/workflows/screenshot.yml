@@ -4,6 +4,7 @@ on: deployment_status
 
 jobs:
   screenshot:
+    if: github.event.deployment_status.state == 'success'
     name: Screenshot
     runs-on: ubuntu-latest
 
