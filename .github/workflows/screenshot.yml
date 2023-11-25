@@ -1,0 +1,22 @@
+name: Take screenshot of the page
+
+on: 
+  push:
+    branches: [main]
+
+jobs:
+  screenshot:
+    name: Screenshot
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+
+    steps:
+
+    - name: Screenshot
+      uses: swinton/screenshot-website@v1.x
+      with:
+        source: https://yumiizumi.com/
+        destination: screenshot-${{ matrix.os }}.png
+        full-page: true
