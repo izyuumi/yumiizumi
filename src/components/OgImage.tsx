@@ -62,9 +62,9 @@ async function getFontData() {
     })
   ).text();
 
-  const resource = css.match(
+  const resource = RegExp(
     /src: url\((.+)\) format\('(opentype|truetype)'\)/
-  );
+  ).exec(css);
 
   if (!resource) return;
 
