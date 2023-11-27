@@ -18,5 +18,11 @@ const posts = await getCollection("blog").then((collection) => {
   <h1>
     <strong>Yumi's Blog</strong>
   </h1>
+  <p>I occasionally write about random things</p>
   <PostList posts={posts} />
 </BlogLayout>
+<style>
+  p {
+    margin-bottom: 1rem;
+  }
+</style>
