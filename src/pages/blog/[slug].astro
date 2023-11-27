@@ -27,10 +27,10 @@ const { Content } = await post.render();
     <header>
       <p>
         <a href="/blog" aria-label="Go back to blog home"
-          ><strong>Blog</strong></a
+          ><strong>Yumi's Blog</strong></a
         >&nbsp;&#x2F;&nbsp;{data.title}
       </p>
-      <p transition:name={`date-${post.slug}`}>
+      <p>
         <time>
           {
             new Date(data.pubDate).toLocaleDateString("en-US", {
@@ -42,7 +42,7 @@ const { Content } = await post.render();
         </time>
       </p>
     </header>
-    <h1 transition:name={`title-${post.slug}`}>
+    <h1>
       {data.title}
     </h1>
     <Content />
