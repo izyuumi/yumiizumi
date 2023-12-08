@@ -15,7 +15,7 @@ interface Props {
 const { title, description, slug, isNotBlog = false, image } = Astro.props;
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <Head
@@ -123,7 +123,10 @@ const { title, description, slug, isNotBlog = false, image } = Astro.props;
       @media screen and (max-width: 768px) {
         body {
           width: 100%;
-          padding: 0 var(--mobile-margin);
+          padding: 1rem var(--mobile-margin);
+        }
+        #noise {
+          display: none;
         }
       }
     </style>
