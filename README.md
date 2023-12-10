@@ -2,7 +2,7 @@
 
 # My portfolio
 
-This is my portfolio website, built with [Astro](https://astro.build/). Not a single line of JavaScript is shipped to the client, and the website is fully static. Hosting is done on [GitHub Pages](https://pages.github.com/).
+This is my portfolio website, built with [Astro](https://astro.build/). Hosting is done on [GitHub Pages](https://pages.github.com/).
 
 ## Accessibility
 
