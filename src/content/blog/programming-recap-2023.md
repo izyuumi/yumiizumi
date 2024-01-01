@@ -2,6 +2,7 @@
 title: Programming Recap 2023
 description: Looking back at 2023 as a developer
 pubDate: 2023-12-19
+updatedDate: 2024-01-01
 tags: [programming]
 ---
 
@@ -9,7 +10,7 @@ The year 2023 was a pivot point for me as a developer. I will mention some of th
 
 ## Contributions on GitHub
 
-This year, I've made several contributions to open-source projects, 1577 contributions as of December 19, and have an ongoing streak of contributions since October 17.  
+This year, I've made several contributions to open-source projects, 1621 contributions, and have an ongoing streak of contributions since October 17.  
 Some significants include contributions to [Dime](https://github.com/rarfell/dimeApp) (almost 500 stars!), and development of [yumi.to](https://github.com/izyumidev/yumi.to), [xcode-discord-rpc](https://github.com/izyumidev/xcode-discord-rpc), [OnlyNow](https://onlynow.yumi.to), and [OneKiji](https://github.com/onekiji/onekiji).
 
 ## Hello Rust 👋
