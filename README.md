@@ -18,7 +18,7 @@ There is a deduction in accessibility points related to caching, since GitHub Pa
 
 ## Development
 
-Follow the guide on the [Astro website](https://docs.astro.build/en/getting-started/) to get started.
+Follow [Astro documentation](https://docs.astro.build/en/getting-started/) to get started.
 
 ## License
 
