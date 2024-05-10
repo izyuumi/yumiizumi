@@ -1,14 +1,6 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import { getCollection } from "astro:content";
-
-const blogs = await getCollection("blog").then((collection) => {
-  return collection
-    .sort((a, b) => {
-      return new Date(b.data.pubDate) > new Date(a.data.pubDate) ? 1 : -1;
-    })
-    .slice(0, 5);
-});
+import { publicBlogs as blogs } from "@/utils";
 
 interface Project {
   title: string;

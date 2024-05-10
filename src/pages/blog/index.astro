@@ -1,13 +1,7 @@
 ---
 import PostList from "@/components/blog/PostList.astro";
 import BlogLayout from "@/layouts/BlogLayout.astro";
-import { getCollection } from "astro:content";
-
-const posts = await getCollection("blog").then((collection) => {
-  return collection.sort((a, b) => {
-    return new Date(b.data.pubDate) > new Date(a.data.pubDate) ? 1 : -1;
-  });
-});
+import { publicBlogs as posts } from "@/utils";
 ---
 
 <BlogLayout
