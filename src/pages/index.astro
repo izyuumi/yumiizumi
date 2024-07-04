@@ -15,9 +15,9 @@ const projects: Project[] = [
     period: "since january 2024",
   },
   {
-  	title: "html2md-rs",
-  	url: "https://github.com/izyuumi/html2md-rs",
-  	period: "since january 2024",
+    title: "html2md-rs",
+    url: "https://github.com/izyuumi/html2md-rs",
+    period: "since january 2024",
   },
   {
     title: "onekiji",
@@ -113,6 +113,10 @@ const stacks: Stack[] = [
 
 const skills: Stack[] = [
   {
+    title: "rust",
+    url: "https://rust-lang.org",
+  },
+  {
     title: "typescript",
     url: "https://typescriptlang.org",
   },
@@ -141,6 +145,14 @@ const skills: Stack[] = [
     url: "https://supabase.io/",
   },
   {
+    title: "python",
+    url: "https://python.org",
+  },
+  {
+    title: "swift",
+    url: "https://swift.org",
+  },
+  {
     title: "ionic",
     url: "https://ionicframework.com/",
   },
@@ -149,25 +161,6 @@ const skills: Stack[] = [
   },
   {
     title: "english",
-  },
-];
-
-const experiencedSkill: Stack[] = [
-  {
-    title: "rust",
-    url: "https://rust-lang.org",
-  },
-  {
-    title: "swift",
-    url: "https://swift.org",
-  },
-  {
-    title: "c++",
-    url: "https://isocpp.org/",
-  },
-  {
-    title: "python",
-    url: "https://python.org",
   },
 ];
 
@@ -197,8 +190,9 @@ const stackJoin = (stack: Stack[]) => {
 <Layout title="Yumi Izumi">
   <h1># hi, i'm Yumi</h1>
   <p>
-    studying cybersecurity at <a href="https://psu.edu/">penn state</a>,
-    advocating for privacy in this digital era, and coding for fun
+    a rustacean studying cybersecurity at <a href="https://psu.edu/"
+      >penn state</a
+    >, advocating for privacy in this digital era, and coding for fun
   </p>
   <section id="projects">
     <h2>## projects</h2>
@@ -250,10 +244,6 @@ const stackJoin = (stack: Stack[]) => {
     <p>
       i'm confident with
       <span set:html={stackJoin(skills)} />
-    </p>
-    <p>
-      i have some experience with
-      <span set:html={stackJoin(experiencedSkill)} />
     </p>
   </section>
   <section id="contact">
