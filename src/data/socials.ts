@@ -24,7 +24,7 @@ const socials: Social[] = [
   },
   {
     for: "github",
-    link: "https://github.com/izyumidev",
+    link: "https://github.com/izyuumi",
     svg: `
     <svg
       viewBox="0 0 98 96"
@@ -62,7 +62,7 @@ const socials: Social[] = [
   },
   {
     for: "linkedin",
-    link: "https://www.linkedin.com/in/yumi-izumi-b79bb7265/",
+    link: "https://www.linkedin.com/in/yumiizumi/",
     svg: `
     <svg
       xmlns="http://www.w3.org/2000/svg"
