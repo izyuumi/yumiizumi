@@ -1,7 +1,7 @@
 const socials: Social[] = [
   {
     for: "twitter",
-    link: "https://twitter.com/izyumidev",
+    link: "https://x.com/izyuuumi",
     svg: `
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -20,7 +20,7 @@ const socials: Social[] = [
         fill="currentColor"
       />
     </svg>`,
-    ariaLabel: "Visit my Twitter profile",
+    ariaLabel: "Visit my X (Twitter) profile",
   },
   {
     for: "github",
