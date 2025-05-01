@@ -3,6 +3,7 @@ import remarkToc from "remark-toc";
 import rehypeSlug from "rehype-slug";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import react from "@astrojs/react";
+import tailwindcss from "@tailwindcss/vite";
 
 // https://astro.build/config
 export default defineConfig({
@@ -21,6 +22,9 @@ export default defineConfig({
         },
       ],
     ],
+  },
+  vite: {
+    plugins: [tailwindcss()],
   },
   integrations: [react()],
   redirects: {
