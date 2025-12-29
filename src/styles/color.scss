@@ -1,5 +1,7 @@
+@use "sass:color";
+
 @function hexToRgb($value) {
-  @return (red($value), green($value), blue($value));
+  @return (color.channel($value, "red", $space: rgb), color.channel($value, "green", $space: rgb), color.channel($value, "blue", $space: rgb));
 }
 
 $text-color: #f5f5e5;

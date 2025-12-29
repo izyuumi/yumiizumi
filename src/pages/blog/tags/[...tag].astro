@@ -7,10 +7,10 @@ import { getCollection } from "astro:content";
 export async function getStaticPaths() {
   const tags: string[] = await getCollection(
     "blog",
-    ({ data }) => data.tags
+    ({ data }) => data.tags && data.tags.length > 0
   ).then((posts) =>
     posts.reduce((acc, post) => {
-      post.data.tags!.forEach((tag) => {
+      post.data.tags?.forEach((tag) => {
         if (!acc.includes(tag)) acc.push(tag);
       });
       return acc;

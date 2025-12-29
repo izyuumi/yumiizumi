@@ -25,6 +25,12 @@ export default defineConfig({
   },
   vite: {
     plugins: [tailwindcss()],
+    optimizeDeps: {
+      exclude: ["sharp"],
+    },
+    ssr: {
+      noExternal: ["sharp"],
+    },
   },
   integrations: [react()],
   redirects: {

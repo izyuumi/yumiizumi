@@ -5,7 +5,7 @@ import sanitizeHtml from "sanitize-html";
 import MarkdownIt from "markdown-it";
 const parser = new MarkdownIt();
 
-export async function get(context: APIContext) {
+export async function GET(context: APIContext) {
   const posts = await getCollection("blog").then((collection) =>
     collection.sort((a, b) =>
       new Date(b.data.pubDate) > new Date(a.data.pubDate) ? 1 : -1
