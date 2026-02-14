@@ -1,0 +1,28 @@
+---
+interface Props {
+  title: string;
+  badge?: string;
+  meta: string;
+  href?: string;
+  onclick?: string;
+  subtle?: boolean;
+}
+
+const { title, badge, meta, href, onclick, subtle } = Astro.props;
+---
+
+<li class:list={["card", { "card-subtle": subtle }]}>
+  {href ? (
+    <a href={href}>
+      <span class="card-title">{title}</span>
+      {badge && <span class="badge">{badge}</span>}
+      <span class="card-meta">{meta}</span>
+    </a>
+  ) : (
+    <button class="card-button" onclick={onclick}>
+      <span class="card-title">{title}</span>
+      {badge && <span class="badge">{badge}</span>}
+      <span class="card-meta">{meta}</span>
+    </button>
+  )}
+</li>

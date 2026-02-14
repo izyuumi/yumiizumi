@@ -1,177 +1,11 @@
 ---
 import Layout from "@/layouts/Layout.astro";
+import CardItem from "@/components/CardItem.astro";
+import ChipList from "@/components/ChipList.astro";
 import { publicBlogs as blogs } from "@/utils";
-
-interface Project {
-  title: string;
-  url: string;
-  period: string;
-  featured?: boolean;
-  kind?: "research" | "oss" | "talk" | "app";
-}
-
-const projects: Project[] = [
-  {
-    title: "Jailbreaking LLM Safeguards Research",
-    url: "https://docs.google.com/presentation/d/1z4dqKKMfw3dYWaXNm-hmQ5vag2vlJF5-pHJg4wVRCt4/edit?usp=sharing",
-    period: "may through august of 2024",
-    featured: true,
-    kind: "research",
-  },
-  {
-    title: "LAME",
-    url: "https://github.com/izyumidev/LAME",
-    period: "since january 2024",
-    featured: true,
-    kind: "oss",
-  },
-  {
-    title: "html2md-rs",
-    url: "https://github.com/izyuumi/html2md-rs",
-    period: "since january 2024",
-    featured: true,
-    kind: "oss",
-  },
-  {
-    title: "yumi.to",
-    url: "https://yumi.to/_q",
-    period: "october 2023",
-    kind: "app",
-  },
-  {
-    title: "onlynow",
-    url: "https://onlynow.yumi.to/",
-    period: "december 2023",
-    kind: "app",
-  },
-  {
-    title: "xcode-discord-rpc",
-    url: "https://yumi.to/xcode-discord-rpc",
-    period: "october 2023",
-    kind: "oss",
-  },
-  {
-    title: "dime",
-    url: "https://github.com/rarfell/dimeApp",
-    period: "since october 2023",
-    kind: "app",
-  },
-  {
-    title: "why privacy matters",
-    url: "https://yumi.to/tedx",
-    period: "late 2020",
-    kind: "talk",
-  },
-];
-
-interface Stack {
-  title: string;
-  url?: string;
-}
-
-const stacks: Stack[] = [
-  {
-    title: "raycast",
-    url: "https://raycast.com",
-  },
-  {
-    title: "macbook",
-    url: "https://www.apple.com/mac/",
-  },
-  {
-    title: "iphone",
-    url: "https://www.apple.com/iphone/",
-  },
-  {
-    title: "nvim",
-    url: "https://neovim.io/",
-  },
-  {
-    title: "vscode",
-    url: "https://code.visualstudio.com/",
-  },
-  {
-    title: "proton suite",
-    url: "https://proton.me/",
-  },
-  {
-    title: "discord",
-    url: "https://discord.com/",
-  },
-  {
-    title: "ghostty",
-    url: "https://ghostty.org/",
-  },
-  {
-    title: "signal",
-    url: "https://signal.org/",
-  },
-  {
-    title: "github",
-    url: "https://github.com",
-  },
-  {
-    title: "cleanshot x",
-    url: "https://cleanshot.com/",
-  },
-  {
-    title: "hhkb",
-    url: "https://happyhackingkb.com/",
-  },
-];
-
-const skills: Stack[] = [
-  {
-    title: "rust",
-    url: "https://rust-lang.org",
-  },
-  {
-    title: "typescript",
-    url: "https://typescriptlang.org",
-  },
-  {
-    title: "php",
-    url: "https://php.net",
-  },
-  {
-    title: "sql",
-    url: "https://sql.org",
-  },
-  {
-    title: "html/css",
-    url: "https://developer.mozilla.org/en-US/docs/Web",
-  },
-  {
-    title: "git",
-    url: "https://git-scm.com/",
-  },
-  {
-    title: "astro",
-    url: "https://astro.build/",
-  },
-  {
-    title: "supabase",
-    url: "https://supabase.io/",
-  },
-  {
-    title: "python",
-    url: "https://python.org",
-  },
-  {
-    title: "swift",
-    url: "https://swift.org",
-  },
-  {
-    title: "ionic",
-    url: "https://ionicframework.com/",
-  },
-  {
-    title: "japanese",
-  },
-  {
-    title: "english",
-  },
-];
+import projects from "@/data/projects";
+import experiences from "@/data/experiences";
+import { skills, stacks } from "@/data/stack";
 
 const featuredProjects = projects.filter((project) => project.featured);
 const otherProjects = projects.filter((project) => !project.featured);
@@ -182,42 +16,76 @@ const latestPosts = blogs.slice(0, 3);
   <section class="hero section">
     <h1># hi, i&apos;m yumi</h1>
     <p class="lead">
-      i build privacy-minded software, explore systems programming with rust, and
-      ship ideas that feel simple to use.
+      forward-deployed engineer at an ai startup in kyoto, shipping production ai
+      systems for enterprise clients — including japanese government agencies.
+      i build with rust, typescript, and python, and manage self-hosted llm
+      infrastructure on 128 gpu nodes.
     </p>
     <div class="cta-row">
       <a class="button button-primary" href="https://yumi.to/cal">book a chat</a>
-      <a class="button button-secondary" href="#projects">view projects</a>
+      <a class="button button-secondary" href="#experience">view experience</a>
     </div>
     <p class="currently">
-      currently: building open-source tools and researching safer ai workflows.
+      currently: software engineer (forward deployed) at <a class="inline-link" href="https://rutilea.com">rutilea, inc.</a> — leading ai-driven system migration for japanese government agencies.
     </p>
   </section>
+  <section class="section" id="experience">
+    <h2>## experience</h2>
+    <ul class="card-list">
+      {
+        experiences.map((exp) => (
+          <CardItem
+            title={exp.company}
+            badge={exp.role}
+            meta={exp.period}
+            onclick={`document.getElementById('${exp.id}').showModal()`}
+          />
+        ))
+      }
+    </ul>
+  </section>
+  {
+    experiences.map((exp) => (
+      <dialog id={exp.id} class="experience-dialog">
+        <div class="dialog-inner">
+          <h2>{exp.company} — {exp.role}</h2>
+          <span class="card-meta">{exp.location} · {exp.period}</span>
+          <ul class="experience-details">
+            {exp.details.map((detail) => (
+              <li set:html={detail} />
+            ))}
+          </ul>
+          <form method="dialog">
+            <button class="button button-secondary dialog-close" autofocus>close</button>
+          </form>
+        </div>
+      </dialog>
+    ))
+  }
   <section class="section" id="projects">
     <h2>## projects</h2>
     <ul class="card-list">
       {
         featuredProjects.map((project) => (
-          <li class="card">
-            <a href={project.url}>
-              <span class="card-title">{project.title}</span>
-              <span class="badge">{project.kind}</span>
-              <span class="card-meta">{project.period}</span>
-            </a>
-          </li>
+          <CardItem
+            title={project.title}
+            badge={project.kind}
+            meta={project.period}
+            href={project.url}
+          />
         ))
       }
     </ul>
     <ul class="card-list">
       {
         otherProjects.map((project) => (
-          <li class="card card-subtle">
-            <a href={project.url}>
-              <span class="card-title">{project.title}</span>
-              <span class="badge">{project.kind}</span>
-              <span class="card-meta">{project.period}</span>
-            </a>
-          </li>
+          <CardItem
+            title={project.title}
+            badge={project.kind}
+            meta={project.period}
+            href={project.url}
+            subtle
+          />
         ))
       }
     </ul>
@@ -244,40 +112,12 @@ const latestPosts = blogs.slice(0, 3);
   <section class="section" id="skills">
     <h2>## skills</h2>
     <p class="lead">confident with:</p>
-    <ul class="chip-list">
-      {
-        skills.map((skill) => (
-          <li>
-            {skill.url ? (
-              <a class="chip" href={skill.url}>
-                {skill.title}
-              </a>
-            ) : (
-              <span class="chip">{skill.title}</span>
-            )}
-          </li>
-        ))
-      }
-    </ul>
+    <ChipList items={skills} />
   </section>
   <section class="section" id="stack">
     <h2>## stack</h2>
     <p class="lead">daily tools i rely on:</p>
-    <ul class="chip-list">
-      {
-        stacks.map((stack) => (
-          <li>
-            {stack.url ? (
-              <a class="chip" href={stack.url}>
-                {stack.title}
-              </a>
-            ) : (
-              <span class="chip">{stack.title}</span>
-            )}
-          </li>
-        ))
-      }
-    </ul>
+    <ChipList items={stacks} />
   </section>
   <section class="section" id="contact">
     <h2>## contact</h2>

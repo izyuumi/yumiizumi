@@ -14,6 +14,10 @@
   --surface: #252522;
   --border: #3c3a34;
   --focus: #17ccea;
+  --radius-sm: 8px;
+  --radius-md: 10px;
+  --radius-lg: 12px;
+  --radius-pill: 999px;
 }
 html {
   scroll-behavior: smooth;
@@ -23,6 +27,10 @@ html {
   scrollbar-width: none;
   &::-webkit-scrollbar {
     display: none;
+  }
+
+  &:has(dialog[open]) {
+    overflow: hidden;
   }
 }
 
@@ -54,10 +62,13 @@ html {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: 8px;
+  border-radius: var(--radius-sm);
   border: 1px solid var(--border);
   padding: 0.4rem 0.8rem;
   font-size: 0.95em;
+  font-family: inherit;
+  color: var(--white);
+  cursor: pointer;
 }
 
 .button-primary {
@@ -76,20 +87,79 @@ html {
 
 .card {
   border: 1px solid var(--border);
-  border-radius: 10px;
+  border-radius: var(--radius-md);
   background-color: var(--surface);
 }
 
-.card a {
+.card a,
+.card-button {
   display: grid;
   grid-template-columns: 1fr auto;
+  grid-template-rows: auto auto;
   gap: 0.2rem 0.8rem;
   padding: 0.65rem 0.75rem;
   align-items: center;
+
+  .card-title {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .badge {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .card-meta {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+}
+
+.card-button {
+  width: 100%;
+  background: none;
+  border: none;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.card > div {
+  display: grid;
+  gap: 0.2rem;
+  padding: 0.65rem 0.75rem;
 }
 
 .card-subtle {
   background-color: color-mix(in srgb, var(--surface) 50%, transparent);
+}
+
+.experience-details {
+  list-style: none;
+  display: grid;
+  gap: 0.3rem;
+  margin-top: 0.35rem;
+  padding-left: 0;
+
+  li {
+    color: var(--muted);
+    font-size: 0.9em;
+    line-height: 1.5;
+    padding-left: 1em;
+    text-indent: -1em;
+
+    &::before {
+      content: "· ";
+      color: var(--green);
+    }
+
+    strong {
+      color: var(--green);
+      font-weight: 600;
+    }
+  }
 }
 
 .card-title {
@@ -104,7 +174,7 @@ html {
 
 .badge {
   border: 1px solid var(--border);
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
   font-size: 0.78em;
   color: var(--muted);
   padding: 0.1rem 0.5rem;
@@ -121,7 +191,7 @@ html {
   align-items: start;
   gap: 0.25rem 1rem;
   border: 1px solid transparent;
-  border-radius: 8px;
+  border-radius: var(--radius-sm);
   padding: 0.2rem 0.35rem;
 }
 
@@ -164,7 +234,7 @@ html {
 .chip {
   display: inline-flex;
   border: 1px solid var(--border);
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
   padding: 0.16rem 0.58rem;
   color: var(--muted);
   background-color: color-mix(in srgb, var(--surface) 60%, transparent);
@@ -177,6 +247,41 @@ html {
   align-items: center;
 }
 
+.experience-dialog {
+  background: var(--black);
+  color: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 0;
+  max-width: min(var(--content-width), calc(100vw - 2 * var(--mobile-margin)));
+  max-height: calc(100vh - 2 * var(--mobile-margin));
+  overflow-y: auto;
+  width: 100%;
+  margin: auto;
+  position: fixed;
+  inset: 0;
+  height: fit-content;
+
+  &::backdrop {
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(4px);
+  }
+}
+
+.dialog-inner {
+  display: grid;
+  gap: 0.75rem;
+  padding: 1.5rem;
+}
+
+.dialog-close {
+  margin-top: 0.5rem;
+  width: 100%;
+  cursor: pointer;
+  color: var(--white);
+  font-family: inherit;
+}
+
 @media (prefers-reduced-motion: reduce) {
   * {
     transition: none !important;
@@ -185,7 +290,8 @@ html {
 }
 
 @media screen and (max-width: 768px) {
-  .card a {
+  .card a,
+  .card-button {
     grid-template-columns: 1fr;
   }
 

@@ -1,0 +1,25 @@
+---
+import type { ChipItem } from "@/data/stack";
+
+interface Props {
+  items: ChipItem[];
+}
+
+const { items } = Astro.props;
+---
+
+<ul class="chip-list">
+  {
+    items.map((item) => (
+      <li>
+        {item.url ? (
+          <a class="chip" href={item.url}>
+            {item.title}
+          </a>
+        ) : (
+          <span class="chip">{item.title}</span>
+        )}
+      </li>
+    ))
+  }
+</ul>
