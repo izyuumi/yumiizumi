@@ -6,6 +6,8 @@ interface Project {
   title: string;
   url: string;
   period: string;
+  featured?: boolean;
+  kind?: "research" | "oss" | "talk" | "app";
 }
 
 const projects: Project[] = [
@@ -13,41 +15,52 @@ const projects: Project[] = [
     title: "Jailbreaking LLM Safeguards Research",
     url: "https://docs.google.com/presentation/d/1z4dqKKMfw3dYWaXNm-hmQ5vag2vlJF5-pHJg4wVRCt4/edit?usp=sharing",
     period: "may through august of 2024",
+    featured: true,
+    kind: "research",
   },
   {
     title: "LAME",
     url: "https://github.com/izyumidev/LAME",
     period: "since january 2024",
+    featured: true,
+    kind: "oss",
   },
   {
     title: "html2md-rs",
     url: "https://github.com/izyuumi/html2md-rs",
     period: "since january 2024",
+    featured: true,
+    kind: "oss",
   },
   {
     title: "yumi.to",
     url: "https://yumi.to/_q",
     period: "october 2023",
+    kind: "app",
   },
   {
     title: "onlynow",
     url: "https://onlynow.yumi.to/",
     period: "december 2023",
+    kind: "app",
   },
   {
     title: "xcode-discord-rpc",
     url: "https://yumi.to/xcode-discord-rpc",
     period: "october 2023",
+    kind: "oss",
   },
   {
     title: "dime",
     url: "https://github.com/rarfell/dimeApp",
     period: "since october 2023",
+    kind: "app",
   },
   {
     title: "why privacy matters",
     url: "https://yumi.to/tedx",
     period: "late 2020",
+    kind: "talk",
   },
 ];
 
@@ -160,98 +173,121 @@ const skills: Stack[] = [
   },
 ];
 
-const stackJoin = (stack: Stack[]) => {
-  let res = "";
-
-  const toA = (s: Stack) => {
-    if (s.url) {
-      return `<a href="${s.url}">${s.title}</a>`;
-    } else {
-      return s.title;
-    }
-  };
-
-  for (let i = 0; i < stack.length; i++) {
-    if (i === stack.length - 1) {
-      res += `and ${toA(stack[i])}`;
-    } else {
-      res += `${toA(stack[i])}, `;
-    }
-  }
-
-  return res;
-};
+const featuredProjects = projects.filter((project) => project.featured);
+const otherProjects = projects.filter((project) => !project.featured);
+const latestPosts = blogs.slice(0, 3);
 ---
 
 <Layout title="Yumi Izumi">
-  <h1># hi, i'm Yumi</h1>
-  <p>
-    a rustacean advocating for privacy in this digital era, and coding for fun
-  </p>
-  <section id="projects">
+  <section class="hero section">
+    <h1># hi, i&apos;m yumi</h1>
+    <p class="lead">
+      i build privacy-minded software, explore systems programming with rust, and
+      ship ideas that feel simple to use.
+    </p>
+    <div class="cta-row">
+      <a class="button button-primary" href="https://yumi.to/cal">book a chat</a>
+      <a class="button button-secondary" href="#projects">view projects</a>
+    </div>
+    <p class="currently">
+      currently: building open-source tools and researching safer ai workflows.
+    </p>
+  </section>
+  <section class="section" id="projects">
     <h2>## projects</h2>
-    <ul>
+    <ul class="card-list">
       {
-        projects.map((project) => (
-          <li>
+        featuredProjects.map((project) => (
+          <li class="card">
             <a href={project.url}>
-              <u>{project.title}</u>
-              <span>{project.period}</span>
+              <span class="card-title">{project.title}</span>
+              <span class="badge">{project.kind}</span>
+              <span class="card-meta">{project.period}</span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+    <ul class="card-list">
+      {
+        otherProjects.map((project) => (
+          <li class="card card-subtle">
+            <a href={project.url}>
+              <span class="card-title">{project.title}</span>
+              <span class="badge">{project.kind}</span>
+              <span class="card-meta">{project.period}</span>
             </a>
           </li>
         ))
       }
     </ul>
   </section>
-  <section id="writing">
+  <section class="section" id="writing">
     <h2>## writing</h2>
-    <p>
-      i infrequently write about things that interests me on <a
-        href="/blog"
-        aria-label="my blog">my blog</a
-      >
-    </p>
-    <ul>
+    <p class="lead">i write about programming, focus, and digital life.</p>
+    <ul class="writing-list">
       {
-        blogs.map((post) => (
+        latestPosts.map((post) => (
           <li>
             <a href={`/blog/${post.slug}`}>
-              <span>
+              <span class="card-meta">
                 {new Date(post.data.pubDate).toISOString().split("T")[0]}
               </span>
-              <u>{post.data.title}</u>
+              <span class="card-title">{post.data.title}</span>
             </a>
           </li>
         ))
       }
     </ul>
+    <a class="inline-link" href="/blog">see all posts →</a>
   </section>
-  <section id="stack">
-    <h2>## stack</h2>
-    <p>
-      some of the software and tools I use daily and love:
-      <span set:html={stackJoin(stacks)} />
-    </p>
-  </section>
-  <section id="skills">
+  <section class="section" id="skills">
     <h2>## skills</h2>
-    <p>
-      i'm confident with
-      <span set:html={stackJoin(skills)} />
-    </p>
+    <p class="lead">confident with:</p>
+    <ul class="chip-list">
+      {
+        skills.map((skill) => (
+          <li>
+            {skill.url ? (
+              <a class="chip" href={skill.url}>
+                {skill.title}
+              </a>
+            ) : (
+              <span class="chip">{skill.title}</span>
+            )}
+          </li>
+        ))
+      }
+    </ul>
   </section>
-  <section id="contact">
+  <section class="section" id="stack">
+    <h2>## stack</h2>
+    <p class="lead">daily tools i rely on:</p>
+    <ul class="chip-list">
+      {
+        stacks.map((stack) => (
+          <li>
+            {stack.url ? (
+              <a class="chip" href={stack.url}>
+                {stack.title}
+              </a>
+            ) : (
+              <span class="chip">{stack.title}</span>
+            )}
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+  <section class="section" id="contact">
     <h2>## contact</h2>
-    <p>
-      feel free to contact me for random ideas, questions, or just to say hi<br
-      />
-      chat with me at <a
-        href="https://yumi.to/cal"
-        aria-label="Yumi's Cal.com page">yumi.to/cal</a
-      >, find my contact details on
-      <a href="https://yumi.to/card" aria-label="virtual card">my card</a> or email
-      me at
-      <span class="neon">mail (at) yumi.to</span>
+    <p class="lead">
+      open to opportunities, collaboration, or a quick hello.
     </p>
+    <div class="contact-links">
+      <a class="inline-link" href="https://yumi.to/cal" aria-label="Yumi's Cal.com page">book via cal.com</a>
+      <a class="inline-link" href="https://yumi.to/card" aria-label="virtual card">view contact card</a>
+      <span class="chip">mail (at) yumi.to</span>
+    </div>
   </section>
 </Layout>
