@@ -9,13 +9,6 @@ export interface Project {
 
 const projects: Project[] = [
 {
-    title: "LAME",
-    url: "https://github.com/izyumidev/LAME",
-    period: "since january 2024",
-    featured: true,
-    kind: "oss",
-  },
-  {
     title: "html2md-rs",
     url: "https://github.com/izyuumi/html2md-rs",
     period: "since january 2024",
