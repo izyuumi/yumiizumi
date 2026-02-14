@@ -29,22 +29,12 @@ export const skills: ChipItem[] = [
     url: "https://docs.vllm.ai/",
   },
   {
-    title: "prompt engineering",
-  },
-  {
-    title: "agent orchestration",
-  },
-  {
     title: "react / next.js",
     url: "https://nextjs.org",
   },
   {
     title: "tokio",
     url: "https://tokio.rs",
-  },
-  {
-    title: "supabase",
-    url: "https://supabase.io/",
   },
   {
     title: "postgresql",
@@ -56,27 +46,9 @@ export const skills: ChipItem[] = [
   {
     title: "linux administration",
   },
-  {
-    title: "japanese (native)",
-  },
-  {
-    title: "english (native)",
-  },
 ];
 
 export const stacks: ChipItem[] = [
-  {
-    title: "raycast",
-    url: "https://raycast.com",
-  },
-  {
-    title: "macbook",
-    url: "https://www.apple.com/mac/",
-  },
-  {
-    title: "iphone",
-    url: "https://www.apple.com/iphone/",
-  },
   {
     title: "nvim",
     url: "https://neovim.io/",
@@ -86,31 +58,27 @@ export const stacks: ChipItem[] = [
     url: "https://code.visualstudio.com/",
   },
   {
-    title: "proton suite",
-    url: "https://proton.me/",
-  },
-  {
-    title: "discord",
-    url: "https://discord.com/",
-  },
-  {
     title: "ghostty",
     url: "https://ghostty.org/",
-  },
-  {
-    title: "signal",
-    url: "https://signal.org/",
   },
   {
     title: "github",
     url: "https://github.com",
   },
   {
-    title: "cleanshot x",
-    url: "https://cleanshot.com/",
+    title: "macbook",
+    url: "https://www.apple.com/mac/",
   },
   {
     title: "hhkb",
     url: "https://happyhackingkb.com/",
+  },
+  {
+    title: "raycast",
+    url: "https://raycast.com",
+  },
+  {
+    title: "proton suite",
+    url: "https://proton.me/",
   },
 ];
