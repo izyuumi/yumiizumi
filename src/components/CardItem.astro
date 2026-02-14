@@ -10,6 +10,7 @@ interface Props {
 }
 
 const { title, badge, meta, href, onclick, subtle, stars } = Astro.props;
+const starsLabel = stars ? (stars >= 1000 ? `★ ${(stars / 1000).toFixed(1)}k` : `★ ${stars}`) : null;
 ---
 
 <li class:list={["card", { "card-subtle": subtle }]}>
@@ -18,7 +19,7 @@ const { title, badge, meta, href, onclick, subtle, stars } = Astro.props;
       <span class="card-title">{title}</span>
       <span class="card-badges">
         {badge && <span class="badge">{badge}</span>}
-        {stars && <span class="stars-hint">★ {stars}</span>}
+        {starsLabel && <span class="stars-hint">{starsLabel}</span>}
       </span>
       <span class="card-meta">{meta}</span>
     </a>
@@ -27,7 +28,7 @@ const { title, badge, meta, href, onclick, subtle, stars } = Astro.props;
       <span class="card-title">{title}</span>
       <span class="card-badges">
         {badge && <span class="badge">{badge}</span>}
-        {stars && <span class="stars-hint">★ {stars}</span>}
+        {starsLabel && <span class="stars-hint">{starsLabel}</span>}
       </span>
       <span class="card-meta">{meta}</span>
     </button>
