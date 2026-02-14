@@ -8,13 +8,29 @@ export interface Project {
 }
 
 const projects: Project[] = [
-{
+  {
+    title: "xcode-discord-rpc",
+    url: "https://yumi.to/xcode-discord-rpc",
+    period: "october 2023",
+    featured: true,
+    kind: "oss",
+    stars: 73,
+  },
+  {
     title: "html2md-rs",
     url: "https://github.com/izyuumi/html2md-rs",
     period: "since january 2024",
     featured: true,
     kind: "oss",
     stars: 26,
+  },
+  {
+    title: "dime",
+    url: "https://github.com/rarfell/dimeApp",
+    period: "since october 2023",
+    featured: true,
+    kind: "app",
+    stars: 1600,
   },
   {
     title: "yumi.to",
@@ -27,22 +43,6 @@ const projects: Project[] = [
     url: "https://onlynow.yumi.to/",
     period: "december 2023",
     kind: "app",
-  },
-  {
-    title: "xcode-discord-rpc",
-    url: "https://yumi.to/xcode-discord-rpc",
-    period: "october 2023",
-    featured: true,
-    kind: "oss",
-    stars: 73,
-  },
-  {
-    title: "dime",
-    url: "https://github.com/rarfell/dimeApp",
-    period: "since october 2023",
-    featured: true,
-    kind: "app",
-    stars: 1600,
   },
   {
     title: "why privacy matters",
