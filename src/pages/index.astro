@@ -27,6 +27,15 @@ const latestPosts = blogs.slice(0, 3);
       currently at <a class="inline-link" href="https://rutilea.com">rutilea, inc.</a> — leading ai-driven system migration for japanese government agencies, and managing llm infrastructure on 128 gpus.
     </p>
   </section>
+  <section class="section" id="about">
+    <h2>## about</h2>
+    <p class="lead">
+      i graduated early from penn state with a b.s. in cybersecurity, co-founded
+      a startup, and now embed with enterprise clients to ship ai systems. i've
+      researched llm safety, sold gpu contracts at nvidia gtc, and lead
+      system migrations for japanese government agencies.
+    </p>
+  </section>
   <section class="section" id="experience">
     <h2>## experience</h2>
     <ul class="card-list">
@@ -70,6 +79,7 @@ const latestPosts = blogs.slice(0, 3);
             badge={project.kind}
             meta={project.period}
             href={project.url}
+            stars={project.stars}
           />
         ))
       }
@@ -82,6 +92,7 @@ const latestPosts = blogs.slice(0, 3);
             badge={project.kind}
             meta={project.period}
             href={project.url}
+            stars={project.stars}
             subtle
           />
         ))

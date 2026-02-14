@@ -4,6 +4,7 @@ export interface Project {
   period: string;
   featured?: boolean;
   kind?: "research" | "oss" | "talk" | "app";
+  stars?: number;
 }
 
 const projects: Project[] = [
@@ -27,6 +28,7 @@ const projects: Project[] = [
     period: "since january 2024",
     featured: true,
     kind: "oss",
+    stars: 26,
   },
   {
     title: "yumi.to",
@@ -46,6 +48,7 @@ const projects: Project[] = [
     period: "october 2023",
     featured: true,
     kind: "oss",
+    stars: 73,
   },
   {
     title: "dime",
