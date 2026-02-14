@@ -44,6 +44,7 @@ const projects: Project[] = [
     title: "xcode-discord-rpc",
     url: "https://yumi.to/xcode-discord-rpc",
     period: "october 2023",
+    featured: true,
     kind: "oss",
   },
   {
