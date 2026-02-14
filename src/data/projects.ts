@@ -8,14 +8,7 @@ export interface Project {
 }
 
 const projects: Project[] = [
-  {
-    title: "Jailbreaking LLM Safeguards Research",
-    url: "https://docs.google.com/presentation/d/1z4dqKKMfw3dYWaXNm-hmQ5vag2vlJF5-pHJg4wVRCt4/edit?usp=sharing",
-    period: "may through august of 2024",
-    featured: true,
-    kind: "research",
-  },
-  {
+{
     title: "LAME",
     url: "https://github.com/izyumidev/LAME",
     period: "since january 2024",
