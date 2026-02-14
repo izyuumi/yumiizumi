@@ -40,7 +40,9 @@ const projects: Project[] = [
     title: "dime",
     url: "https://github.com/rarfell/dimeApp",
     period: "since october 2023",
+    featured: true,
     kind: "app",
+    stars: 1600,
   },
   {
     title: "why privacy matters",
