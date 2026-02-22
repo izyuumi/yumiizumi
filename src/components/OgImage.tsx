@@ -3,7 +3,11 @@ import sharp from "sharp";
 
 export async function getOgImage(title: string) {
   const fontData = (await getFontData()) as ArrayBuffer;
-  const fontSize = Math.min(100, 1500 / title.length);
+  const fontSize =
+    title.length < 20 ? 80
+    : title.length < 40 ? 64
+    : title.length < 60 ? 52
+    : 42;
   const svg = await satori(
     <main
       style={{
@@ -13,7 +17,7 @@ export async function getOgImage(title: string) {
         width: "800px",
         height: "400px",
         backgroundColor: "#0f0f0f",
-        padding: "20px",
+        padding: "40px",
         fontFamily: "Atkinson Hyperlegible",
         color: "#f5f5e5",
       }}
@@ -21,6 +25,9 @@ export async function getOgImage(title: string) {
       <h1
         style={{
           fontSize: `${fontSize}px`,
+          lineHeight: 1.25,
+          textAlign: "center",
+          margin: 0,
         }}
       >
         {title}
