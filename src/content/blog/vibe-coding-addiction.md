@@ -1,7 +1,7 @@
 ---
 title: "Vibe Coding Addiction: When You Can't Stop Shipping"
 description: How AI agents like Claude Code, Codex, and OpenClaw turned coding into the most addictive feedback loop I've ever experienced — and why I can't stop.
-pubDate: 2025-02-21
+pubDate: 2026-02-21
 tags: [ai, vibe-coding, claude-code, codex, openclaw, automation]
 ---
 
