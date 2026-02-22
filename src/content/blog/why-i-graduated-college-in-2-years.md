@@ -75,6 +75,4 @@ I'm not saying this is the right path for everyone. Some people need more time, 
 
 Probably the best decision I've ever made.
 
----
-
 Two years, 3.85 GPA, and I was shipping production AI before most of my would-be classmates finished junior year.
