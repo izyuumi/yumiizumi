@@ -93,6 +93,10 @@ const { title, description, slug, isNotBlog = false, image } = Astro.props;
           background-color: rgba(var(--text-color-rgb), 0.1);
           padding: 0.1em 0.3em;
         }
+        img {
+          max-width: 100%;
+          height: auto;
+        }
       }
       @media screen and (max-width: 768px) {
         body {
