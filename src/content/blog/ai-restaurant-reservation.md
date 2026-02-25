@@ -5,38 +5,14 @@ pubDate: 2026-02-25
 tags: [ai, automation, openclaw, playwright, python, kyoto]
 ---
 
-There's a yakitori restaurant in Kyoto I really like. Slots open when someone else cancels. No schedule, no predictable window. They just appear, and then they're gone.
+There's a yakitori restaurant in Kyoto I really like. Slots only open when someone cancels. No schedule, no warning. They appear and disappear fast.
 
-I wanted a table for that night. The site had nothing. You can't plan around a cancellation. You just have to be watching.
+I wanted a table for that night. The site had nothing. You can't plan around a cancellation, you just have to be watching. Refreshing a page every few minutes for days wasn't something I was going to do. So I didn't.
 
-Refreshing a page every few minutes for days wasn't something I was going to do. So I didn't.
+I told my AI agent to watch the page every ten minutes and book automatically if anything opened. Five minutes of conversation. No code written by me.
 
-## What I Built
+The script ran over a hundred checks across two days. Every time: nothing. Then at 1:42 PM, the slot appeared. It found it, filled in the form, and failed at the submit button. Instead of giving up silently, it emailed me: "Slot OPEN but reservation failed, act fast."
 
-I told my AI agent to watch the reservation page every ten minutes and book automatically if a slot opened. Five minutes of conversation. No code written by me.
+I opened the site and finished it myself. Under a minute.
 
-The agent wrote a Playwright script in Python. It loads the page, checks if the target slot is selectable, fills in my details, and submits. If anything goes wrong, it emails me instead. A launchd job runs it every ten minutes in the background.
-
-## What Happened
-
-The script ran through the night and into the next day. Over a hundred checks. Every time: nothing.
-
-At 1:42 PM, the slot opened.
-
-It found it, filled in the form, and then failed. It couldn't locate the submit button. Instead of giving up silently, it emailed me: "Slot OPEN but reservation failed, act fast."
-
-I opened the site and finished the booking myself. Under a minute.
-
-## The Interesting Part
-
-The bot got to the door. I turned the handle.
-
-That's not a failure. The tedious part was fully handled. The part that needed real-time judgment got escalated to me at exactly the right moment. If I had been doing this manually, I would have given up after a dozen checks.
-
-## The Upshot
-
-Five minutes of conversation. The bot cost nothing. I got the table.
-
-That's vibe coding applied to actual life. A restaurant, a bot, an email alert, a human to close the last step. All from one short message.
-
-Kyoto is full of places like this. I have an agent now. It can wait.
+The bot got to the door. I turned the handle. Five minutes of setup, zero cost, and I got the table. That's good enough for me.
