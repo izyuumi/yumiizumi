@@ -34,7 +34,7 @@ const { title, description, slug, isNotBlog = false, image } = Astro.props;
     <style lang="scss" is:global>
       html {
         font-family: sans-serif;
-        height: 100vh;
+        min-height: 100svh;
         font-size: large;
         line-height: 1.8;
         color: var(--text-color);
@@ -46,9 +46,10 @@ const { title, description, slug, isNotBlog = false, image } = Astro.props;
       body {
         display: flex;
         flex-direction: column;
-        min-height: 100%;
+        min-height: 100svh;
         width: var(--content-width);
-        padding-top: 60px;
+        padding-top: max(60px, env(safe-area-inset-top));
+        padding-bottom: env(safe-area-inset-bottom);
       }
       main {
         flex: 1;
@@ -57,11 +58,9 @@ const { title, description, slug, isNotBlog = false, image } = Astro.props;
       a:visited {
         color: var(--text-color);
       }
-      a:hover {
-        color: var(--text-hover-color);
-      }
       a:focus {
-        outline: none;
+        outline: 2px solid var(--text-hover-color);
+        outline-offset: 2px;
         color: var(--text-hover-color);
       }
       header {
@@ -104,7 +103,15 @@ const { title, description, slug, isNotBlog = false, image } = Astro.props;
       @media screen and (max-width: 768px) {
         body {
           width: 100%;
-          padding: 1rem var(--mobile-margin);
+          padding: max(1rem, env(safe-area-inset-top))
+            max(var(--mobile-margin), env(safe-area-inset-right))
+            max(1rem, env(safe-area-inset-bottom))
+            max(var(--mobile-margin), env(safe-area-inset-left));
+        }
+      }
+      @media (hover: hover) and (pointer: fine) {
+        a:hover {
+          color: var(--text-hover-color);
         }
       }
     </style>

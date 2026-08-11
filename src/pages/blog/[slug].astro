@@ -76,13 +76,18 @@ const { Content } = await post.render();
       a {
         position: relative;
         text-decoration: none;
-        &:hover {
-          color: var(--text-color);
-          &:before {
-            content: "#";
-            position: absolute;
-            transform: translateX(-125%);
-          }
+      }
+    }
+    @media (hover: hover) and (pointer: fine) {
+      h1 a:hover,
+      h2 a:hover,
+      h3 a:hover {
+        color: var(--text-color);
+
+        &:before {
+          content: "#";
+          position: absolute;
+          transform: translateX(-125%);
         }
       }
     }

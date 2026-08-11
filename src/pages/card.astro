@@ -31,18 +31,26 @@ import Head from "@/components/Head.astro";
     <style lang="scss">
       html {
         font-family: "Inter", sans-serif;
-        height: 100%;
+        min-height: 100svh;
         background-color: #161616;
       }
       body {
-        height: 100%;
+        min-height: 100svh;
         margin: 0;
+        padding:
+          env(safe-area-inset-top)
+          env(safe-area-inset-right)
+          env(safe-area-inset-bottom)
+          env(safe-area-inset-left);
+        box-sizing: border-box;
       }
       #container {
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 100%;
+        min-height: calc(
+          100svh - env(safe-area-inset-top) - env(safe-area-inset-bottom)
+        );
         width: 100%;
       }
       #info {
@@ -51,7 +59,7 @@ import Head from "@/components/Head.astro";
         align-items: center;
         position: fixed;
         right: 50%;
-        bottom: 2em;
+        bottom: max(2em, env(safe-area-inset-bottom));
         transform: translateX(50%);
         color: #e2e2e2;
         p {
@@ -61,9 +69,14 @@ import Head from "@/components/Head.astro";
         a:visited {
           color: inherit;
         }
-        a:hover,
-        a:focus {
-          outline: none;
+        a:focus-visible {
+          outline: 2px solid #5a8eff;
+          outline-offset: 3px;
+          color: #5a8eff;
+        }
+      }
+      @media (hover: hover) and (pointer: fine) {
+        #info a:hover {
           color: #5a8eff;
         }
       }

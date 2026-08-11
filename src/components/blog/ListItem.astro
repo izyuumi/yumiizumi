@@ -37,17 +37,24 @@ const { post } = Astro.props;
     background-color: rgba(var(--text-color-rgb), 0.1);
     border-radius: 4px;
 
-    &:has(a:hover, a:focus) {
+    &:has(a:focus-visible) {
       background-color: rgba(var(--text-color-rgb), 0.2);
     }
   }
   a {
     text-decoration: none;
-    &:hover {
-      color: inherit;
-    }
     &:focus {
-      outline: none;
+      outline: 2px solid var(--text-hover-color);
+      outline-offset: 2px;
+    }
+  }
+  @media (hover: hover) and (pointer: fine) {
+    li:has(a:hover) {
+      background-color: rgba(var(--text-color-rgb), 0.2);
+    }
+
+    a:hover {
+      color: inherit;
     }
   }
 </style>

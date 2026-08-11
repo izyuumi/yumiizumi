@@ -69,6 +69,8 @@ html {
   font-family: inherit;
   color: var(--white);
   cursor: pointer;
+  transition: color 180ms ease, border-color 180ms ease,
+    background-color 180ms ease, transform 180ms ease;
 }
 
 .button-primary {
@@ -124,6 +126,25 @@ html {
   color: inherit;
   text-align: left;
   cursor: pointer;
+}
+
+.button,
+.card a,
+.card-button,
+.writing-list a,
+a.chip {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+
+  &:active {
+    transform: scale(0.985);
+  }
+}
+
+.button,
+.card-button {
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 .card > div {
@@ -208,15 +229,24 @@ html {
   text-wrap: pretty;
 }
 
-.writing-list a:hover,
 .writing-list a:focus-visible {
   border-color: var(--border);
 }
 
-.writing-list a:hover .card-title,
 .writing-list a:focus-visible .card-title {
   text-decoration: underline;
   text-underline-offset: 0.2em;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .writing-list a:hover {
+    border-color: var(--border);
+  }
+
+  .writing-list a:hover .card-title {
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+  }
 }
 
 .inline-link {
@@ -254,7 +284,7 @@ html {
   border-radius: var(--radius-lg);
   padding: 0;
   max-width: min(var(--content-width), calc(100vw - 2 * var(--mobile-margin)));
-  max-height: calc(100vh - 2 * var(--mobile-margin));
+  max-height: calc(100dvh - 2 * var(--mobile-margin));
   overflow-y: auto;
   width: 100%;
   margin: auto;
@@ -283,6 +313,10 @@ html {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
   * {
     transition: none !important;
     animation: none !important;

@@ -56,7 +56,12 @@ export default function OneLink() {
 
   useEffect(() => {
     const card = cardRef.current;
-    if (!card) return;
+    if (
+      !card ||
+      !window.matchMedia("(hover: hover) and (pointer: fine)").matches ||
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    )
+      return;
 
     const handleMouseMove = (e: MouseEvent) => {
       const rect = card.getBoundingClientRect();
@@ -93,7 +98,7 @@ export default function OneLink() {
   }, []);
 
   return (
-    <div className="flex min-h-screen w-full flex-col items-center justify-center bg-slate-50 dark:bg-zinc-900 p-4">
+    <div className="links-page flex w-full flex-col items-center justify-center bg-slate-50 dark:bg-zinc-900">
       <div
         ref={cardRef}
         className="card-container relative w-full max-w-md overflow-hidden rounded-xl bg-white dark:bg-black p-8 shadow-sm transition-transform duration-300"
@@ -129,8 +134,8 @@ export default function OneLink() {
             {socialLinks.map((link, index) => (
               <Button
                 key={link.name}
-                variant="outline"
-                className="animate-slide-up flex h-12 items-center justify-center gap-3 rounded-lg border border-slate-200 dark:border-zinc-100 bg-white dark:bg-black px-4 text-slate-700 dark:text-zinc-200 transition-all hover:border-slate-300 dark:hover:border-zinc-50 hover:bg-slate-50 dark:hover:bg-zinc-800 hover:shadow-sm"
+                variant={null}
+                className="link-button animate-slide-up flex h-12 items-center justify-center gap-3 rounded-lg border border-slate-200 dark:border-zinc-100 bg-white dark:bg-black px-4 text-slate-700 dark:text-zinc-200 transition-all"
                 style={{ animationDelay: `${200 + index * 50}ms` }}
                 asChild
               >

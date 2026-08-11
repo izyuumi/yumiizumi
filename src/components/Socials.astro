@@ -35,8 +35,8 @@ const { size = 32, color = "inherit", background, tabindex } = Astro.props;
     flex-direction: row;
     gap: 1rem;
     position: fixed;
-    bottom: 1rem;
-    right: 1rem;
+    bottom: max(1rem, env(safe-area-inset-bottom));
+    right: max(1rem, env(safe-area-inset-right));
     border-radius: 6px;
     backdrop-filter: blur(2px);
     -webkit-backdrop-filter: blur(2px);
@@ -52,13 +52,14 @@ const { size = 32, color = "inherit", background, tabindex } = Astro.props;
       -webkit-backdrop-filter: blur(5px);
       color: var(--color);
 
-      &:hover {
-        filter: brightness(0.8);
-      }
-
       &:focus-within {
         outline: dashed;
       }
+    }
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .socials a:hover {
+      filter: brightness(0.8);
     }
   }
 </style>

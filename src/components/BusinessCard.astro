@@ -61,6 +61,14 @@ const translation: Record<Language, Translation> = {
     height: 300px;
     width: 560px;
     user-select: none;
+    label {
+      -webkit-tap-highlight-color: transparent;
+      touch-action: manipulation;
+
+      &:active #card-inner {
+        filter: brightness(0.94);
+      }
+    }
     input[type="checkbox"] {
       position: fixed;
       top: -999px;
@@ -142,6 +150,12 @@ const translation: Record<Language, Translation> = {
           }
         }
       }
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    #card #card-inner {
+      transition: none;
     }
   }
 </style>
