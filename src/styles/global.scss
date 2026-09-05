@@ -22,6 +22,13 @@
 html {
   scroll-behavior: smooth;
 
+  overflow-y: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
   &:has(dialog[open]) {
     overflow: hidden;
   }

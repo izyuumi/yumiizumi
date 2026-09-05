@@ -27,11 +27,7 @@ const { title, description, slug, isNotBlog = false, image } = Astro.props;
     />
   </head>
   <body>
-    <header class="blog-header">
-      <a href="/">Yumi Izumi</a>
-      <a href="/blog">Writing</a>
-    </header>
-	<main id="main">
+  	<main>
       <slot />
     </main>
     <Footer />
@@ -67,11 +63,7 @@ const { title, description, slug, isNotBlog = false, image } = Astro.props;
         outline-offset: 2px;
         color: var(--text-hover-color);
       }
-      .blog-header {
-        display: flex;
-        justify-content: space-between;
-        gap: 1rem;
-        margin-bottom: 1.5rem;
+      header {
         a {
           text-decoration: none;
         }

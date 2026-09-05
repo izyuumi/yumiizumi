@@ -6,10 +6,11 @@ interface Props {
   href?: string;
   onclick?: string;
   subtle?: boolean;
-  description?: string;
+  stars?: number;
 }
 
-const { title, badge, meta, href, onclick, subtle, description } = Astro.props;
+const { title, badge, meta, href, onclick, subtle, stars } = Astro.props;
+const starsLabel = stars ? (stars >= 1000 ? `★ ${(stars / 1000).toFixed(1)}k` : `★ ${stars}`) : null;
 ---
 
 <li class:list={["card", { "card-subtle": subtle }]}>
@@ -18,18 +19,18 @@ const { title, badge, meta, href, onclick, subtle, description } = Astro.props;
       <span class="card-title">{title}</span>
       <span class="card-badges">
         {badge && <span class="badge">{badge}</span>}
+        {starsLabel && <span class="stars-hint">{starsLabel}</span>}
       </span>
       <span class="card-meta">{meta}</span>
-      {description && <span class="card-description">{description}</span>}
     </a>
   ) : (
     <button class="card-button" onclick={onclick}>
       <span class="card-title">{title}</span>
       <span class="card-badges">
         {badge && <span class="badge">{badge}</span>}
+        {starsLabel && <span class="stars-hint">{starsLabel}</span>}
       </span>
       <span class="card-meta">{meta}</span>
-      {description && <span class="card-description">{description}</span>}
     </button>
   )}
 </li>
@@ -40,9 +41,9 @@ const { title, badge, meta, href, onclick, subtle, description } = Astro.props;
     gap: 0.4rem;
     align-items: center;
   }
-  .card-description {
-    grid-column: 1 / -1;
+  .stars-hint {
+    font-size: 0.75em;
     color: var(--muted);
-    font-size: 0.9em;
+    opacity: 0.6;
   }
 </style>

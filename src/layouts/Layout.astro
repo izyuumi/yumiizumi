@@ -12,7 +12,7 @@ const { title } = Astro.props;
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <Head title={title} description="Yumi Izumi — forward-deployed engineer in Kyoto, shipping AI systems for enterprise and government." isBlog={false} />
+    <Head title={title} description="Yumi Izumi's Portfolio" isBlog={false} />
     <link
       rel="preload"
       href="/assets/Radon.woff"
@@ -21,7 +21,6 @@ const { title } = Astro.props;
     />
   </head>
   <body>
-    <a class="skip-link" href="#main">skip to content</a>
     <main id="main">
       <slot />
     </main>
@@ -29,7 +28,7 @@ const { title } = Astro.props;
       @font-face {
         font-family: "Radon";
         src: url(/assets/Radon.woff) format("woff");
-        font-display: swap;
+        font-display: auto;
         size-adjust: 0.5;
       }
       html {
@@ -77,18 +76,6 @@ const { title } = Astro.props;
           outline-offset: 2px;
           border-radius: 6px;
         }
-      }
-      .skip-link {
-        position: fixed;
-        top: 0.75rem;
-        left: 0.75rem;
-        z-index: 10;
-        padding: 0.45rem 0.7rem;
-        background: var(--surface);
-        transform: translateY(-200%);
-      }
-      .skip-link:focus {
-        transform: translateY(0);
       }
       h1,
       h2 {
