@@ -94,7 +94,7 @@ button:focus-visible {
   font-size: 13px;
 }
 
-.site-header a {
+.site .site-header a {
   color: inherit;
 }
 
@@ -158,7 +158,7 @@ button:focus-visible {
   text-underline-offset: 4px;
 }
 
-.site nav {
+.site main nav {
   display: flex;
   flex-wrap: wrap;
   gap: 24px;

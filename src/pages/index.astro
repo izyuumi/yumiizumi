@@ -17,4 +17,17 @@ const langLinks = [
   langLinks={langLinks}
 >
   <Home copy={en} />
+  <script is:inline>
+    // The old homepage carried these sections; they now live on /about.
+    // Fixed list, one hop, no-JS visitors still reach them via the "about" link.
+    {
+      const id = location.hash.slice(1);
+      if (
+        ["about", "experience", "projects", "skills", "stack", "contact"].includes(
+          id,
+        )
+      )
+        location.replace("/about#" + id);
+    }
+  </script>
 </SiteLayout>

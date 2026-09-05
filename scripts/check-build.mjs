@@ -16,6 +16,15 @@ const checks = [
   ["about/index.html", "mailto:mail@yumi.to"],
   ["blog/index.html", "Yumi's Blog"],
   ["blog/how-i-think-about-privacy/index.html", "How I define privacy."],
+  // featured post dates follow the page language
+  ["index.html", "October 1, 2023"],
+  ["ja/index.html", "2023年10月1日"],
+  // old homepage fragments keep working
+  ["index.html", 'location.replace("/about#"'],
+  ["index.html", '<h2 id="writing">'],
+  ["about/index.html", 'id="about"'],
+  ["about/index.html", 'id="experience"'],
+  ["about/index.html", 'id="contact"'],
 ];
 
 const failures = checks.filter(([file, needle]) => !read(file).includes(needle));

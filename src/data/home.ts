@@ -1,4 +1,6 @@
 export interface HomeCopy {
+  /** BCP 47 tag used to format the featured post dates. */
+  locale: string;
   title: string;
   description: string;
   heading: string;
@@ -22,6 +24,7 @@ export const featuredPostSlugs = [
 ] as const;
 
 export const en: HomeCopy = {
+  locale: "en-US",
   title: "Yumi Izumi",
   description:
     "Yumi Izumi — forward-deployed engineer working on AI systems, LLM safeguards, and privacy.",
@@ -62,6 +65,7 @@ export const en: HomeCopy = {
 };
 
 export const ja: HomeCopy = {
+  locale: "ja-JP",
   title: "Yumi Izumi",
   description:
     "Yumi Izumi — AIシステム、LLMの安全性、プライバシーに取り組むフォワードデプロイドエンジニア。",

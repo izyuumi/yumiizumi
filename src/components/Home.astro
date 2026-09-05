@@ -9,7 +9,12 @@ interface Props {
 const { copy } = Astro.props;
 
 const posts = await Promise.all(
-  featuredPostSlugs.map((slug) => getEntry("blog", slug)),
+  featuredPostSlugs.map(async (slug) => {
+    const post = await getEntry("blog", slug);
+    if (!post) throw new Error(`Featured post "${slug}" is missing from the blog collection.`);
+    if (post.data.draft) throw new Error(`Featured post "${slug}" is a draft.`);
+    return post;
+  }),
 );
 ---
 
@@ -42,18 +47,18 @@ const posts = await Promise.all(
     posts.map((post) => (
       <article>
         <h3>
-          <a href={`/blog/${post!.slug}`}>{post!.data.title}</a>
+          <a href={`/blog/${post.slug}`}>{post.data.title}</a>
         </h3>
         <p class="meta">
-          <time datetime={new Date(post!.data.pubDate).toISOString()}>
-            {new Date(post!.data.pubDate).toLocaleDateString("en-US", {
+          <time datetime={new Date(post.data.pubDate).toISOString()}>
+            {new Date(post.data.pubDate).toLocaleDateString(copy.locale, {
               year: "numeric",
               month: "long",
               day: "numeric",
             })}
           </time>
         </p>
-        <p>{post!.data.description}</p>
+        <p>{post.data.description}</p>
       </article>
     ))
   }
