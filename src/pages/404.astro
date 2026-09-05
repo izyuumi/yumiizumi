@@ -1,27 +1,15 @@
 ---
-import Layout from "@/layouts/Layout.astro";
+import SiteLayout from "@/layouts/SiteLayout.astro";
 ---
 
-<Layout title="404 Page not found">
-  <h1>404 Uh oh page not found</h1>
-  <ul>
-    <li>
+<SiteLayout title="404 Page not found" description="Page not found">
+  <section class="intro">
+    <h1>404</h1>
+    <p class="lead">That page does not exist.</p>
+    <nav aria-label="Elsewhere">
       <a href="/">home</a>
-    </li>
-    <li>
-      <a href="/blog">blog</a>
-    </li>
-  </ul>
-  <style lang="scss">
-    h1 {
-      font-size: 2rem;
-      font-weight: 600;
-      margin-top: 5rem;
-    }
-    ul {
-      margin-top: 2rem;
-      list-style: none;
-      font-size: 1.5rem;
-    }
-  </style>
-</Layout>
+      <a href="/about">about</a>
+      <a href="/blog">writing</a>
+    </nav>
+  </section>
+</SiteLayout>

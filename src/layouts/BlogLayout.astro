@@ -33,7 +33,7 @@ const { title, description, slug, isNotBlog = false, image } = Astro.props;
     <Footer />
     <style lang="scss" is:global>
       html {
-        font-family: sans-serif;
+        font-family: system-ui, -apple-system, sans-serif;
         min-height: 100svh;
         font-size: large;
         line-height: 1.8;
@@ -89,7 +89,7 @@ const { title, description, slug, isNotBlog = false, image } = Astro.props;
           margin-left: 1em;
         }
         code {
-          background-color: rgba(var(--text-color-rgb), 0.1);
+          background-color: color-mix(in oklab, var(--ink) 10%, transparent);
           padding: 0.1em 0.3em;
         }
         img {

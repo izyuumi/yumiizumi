@@ -1,7 +1,7 @@
 ---
 import SiteLayout from "@/layouts/SiteLayout.astro";
 import Home from "@/components/Home.astro";
-import { en } from "@/data/home";
+import { ja } from "@/data/home";
 
 const langLinks = [
   { href: "/", label: "English", hrefLang: "en" },
@@ -10,11 +10,11 @@ const langLinks = [
 ---
 
 <SiteLayout
-  title={en.title}
-  description={en.description}
-  lang="en"
-  themeLabels={en.theme}
+  title={ja.title}
+  description={ja.description}
+  lang="ja"
+  themeLabels={ja.theme}
   langLinks={langLinks}
 >
-  <Home copy={en} />
+  <Home copy={ja} />
 </SiteLayout>

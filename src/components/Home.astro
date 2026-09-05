@@ -1,0 +1,75 @@
+---
+import { getEntry } from "astro:content";
+import { featuredPostSlugs, type HomeCopy } from "@/data/home";
+
+interface Props {
+  copy: HomeCopy;
+}
+
+const { copy } = Astro.props;
+
+const posts = await Promise.all(
+  featuredPostSlugs.map((slug) => getEntry("blog", slug)),
+);
+---
+
+<section class="intro">
+  <h1>{copy.heading}</h1>
+  <p class="lead">{copy.lead}</p>
+  <p>{copy.body}</p>
+  <nav aria-label={copy.moreHeading}>
+    {copy.actions.map((action) => <a href={action.href}>{action.label}</a>)}
+  </nav>
+</section>
+
+<section aria-labelledby="work">
+  <h2 id="work">{copy.workHeading}</h2>
+  {
+    copy.work.map((item) => (
+      <article>
+        <h3>
+          {item.href ? <a href={item.href}>{item.title}</a> : item.title}
+        </h3>
+        <p>{item.body}</p>
+      </article>
+    ))
+  }
+</section>
+
+<section aria-labelledby="writing">
+  <h2 id="writing">{copy.writingHeading}</h2>
+  {
+    posts.map((post) => (
+      <article>
+        <h3>
+          <a href={`/blog/${post!.slug}`}>{post!.data.title}</a>
+        </h3>
+        <p class="meta">
+          <time datetime={new Date(post!.data.pubDate).toISOString()}>
+            {new Date(post!.data.pubDate).toLocaleDateString("en-US", {
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+            })}
+          </time>
+        </p>
+        <p>{post!.data.description}</p>
+      </article>
+    ))
+  }
+  <p><a href="/blog">{copy.writingAll}</a>{copy.writingNote && <span> · {copy.writingNote}</span>}</p>
+</section>
+
+<section aria-labelledby="elsewhere">
+  <h2 id="elsewhere">{copy.moreHeading}</h2>
+  <ul class="inline-list">
+    {
+      copy.more.map((item) => (
+        <li>
+          <a href={item.href}>{item.label}</a>
+          {item.note && <span> ({item.note})</span>}
+        </li>
+      ))
+    }
+  </ul>
+</section>

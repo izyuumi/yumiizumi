@@ -8,16 +8,16 @@ interface Props {
 const { items } = Astro.props;
 ---
 
-<ul class="chip-list">
+<ul class="inline-list">
   {
     items.map((item) => (
       <li>
         {item.url ? (
-          <a class="chip" href={item.url}>
+          <a href={item.url}>
             {item.title}
           </a>
         ) : (
-          <span class="chip">{item.title}</span>
+          <span>{item.title}</span>
         )}
       </li>
     ))

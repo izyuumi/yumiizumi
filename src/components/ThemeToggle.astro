@@ -1,0 +1,75 @@
+---
+interface Props {
+  labels?: { group: string; system: string; light: string; dark: string };
+}
+
+const {
+  labels = {
+    group: "Theme",
+    system: "System",
+    light: "Light",
+    dark: "Dark",
+  },
+} = Astro.props;
+
+const options = [
+  { value: "system", label: labels.system },
+  { value: "light", label: labels.light },
+  { value: "dark", label: labels.dark },
+];
+---
+
+<div class="theme-control" role="group" aria-label={labels.group}>
+  <span class="theme-label" aria-hidden="true">{labels.group}</span>
+  {
+    options.map((option) => (
+      <button type="button" data-theme-option={option.value} aria-pressed="false">
+        {option.label}
+      </button>
+    ))
+  }
+</div>
+
+<script>
+  const buttons = document.querySelectorAll<HTMLButtonElement>(
+    "[data-theme-option]",
+  );
+
+  const read = () => {
+    try {
+      const theme = localStorage.getItem("theme");
+      return theme === "light" || theme === "dark" ? theme : "system";
+    } catch {
+      return "system";
+    }
+  };
+
+  const apply = (theme: string) => {
+    if (theme === "system") {
+      delete document.documentElement.dataset.theme;
+    } else {
+      document.documentElement.dataset.theme = theme;
+    }
+    buttons.forEach((button) => {
+      button.setAttribute(
+        "aria-pressed",
+        String(button.dataset.themeOption === theme),
+      );
+    });
+  };
+
+  buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const theme = button.dataset.themeOption!;
+      try {
+        if (theme === "system") localStorage.removeItem("theme");
+        else localStorage.setItem("theme", theme);
+      } catch {
+        // storage unavailable: the choice still applies to this page
+      }
+      apply(theme);
+    });
+  });
+
+  apply(read());
+</script>

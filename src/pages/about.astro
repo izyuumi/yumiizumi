@@ -1,0 +1,91 @@
+---
+import SiteLayout from "@/layouts/SiteLayout.astro";
+import ChipList from "@/components/ChipList.astro";
+import experiences from "@/data/experiences";
+import projects from "@/data/projects";
+import { skills, stacks } from "@/data/stack";
+
+const starsLabel = (stars?: number) =>
+  stars ? (stars >= 1000 ? `★ ${(stars / 1000).toFixed(1)}k` : `★ ${stars}`) : null;
+---
+
+<SiteLayout
+  title="About — Yumi Izumi"
+  description="Yumi Izumi's experience, projects, skills, and contact details."
+>
+  <section class="intro">
+    <h1>About</h1>
+    <p class="lead">
+      I graduated early from Penn State with a B.S. in cybersecurity,
+      co-founded a startup, and now embed with enterprise clients to ship AI
+      systems.
+    </p>
+    <p>
+      I've researched LLM safety, sold GPU contracts at NVIDIA GTC, and lead
+      system migrations for Japanese government agencies.
+    </p>
+    <nav aria-label="Elsewhere">
+      <a href="/">home</a>
+      <a href="/blog">writing</a>
+      <a href="https://yumi.to/cal">get in touch</a>
+    </nav>
+  </section>
+
+  <section aria-labelledby="experience">
+    <h2 id="experience">experience</h2>
+    {
+      experiences.map((exp) => (
+        <article>
+          <h3>
+            {exp.company} — {exp.role}
+          </h3>
+          <p class="meta">
+            {exp.location} · {exp.period}
+          </p>
+          <ul class="detail-list">
+            {exp.details.map((detail) => (
+              <li set:html={detail} />
+            ))}
+          </ul>
+        </article>
+      ))
+    }
+  </section>
+
+  <section aria-labelledby="projects">
+    <h2 id="projects">projects</h2>
+    <ul class="detail-list">
+      {
+        projects.map((project) => (
+          <li>
+            <a href={project.url}>{project.title}</a>
+            {" — "}
+            {project.kind && <span>{project.kind}, </span>}
+            <span>{project.period}</span>
+            {starsLabel(project.stars) && <span> · {starsLabel(project.stars)}</span>}
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <section aria-labelledby="skills">
+    <h2 id="skills">skills</h2>
+    <ChipList items={skills} />
+  </section>
+
+  <section aria-labelledby="stack">
+    <h2 id="stack">stack</h2>
+    <ChipList items={stacks} />
+  </section>
+
+  <section aria-labelledby="contact">
+    <h2 id="contact">contact</h2>
+    <p>Open to opportunities, collaboration, or a quick hello.</p>
+    <ul class="inline-list">
+      <li><a href="https://yumi.to/cal">book via cal.com</a></li>
+      <li><a href="/card">contact card</a></li>
+      <li><a href="mailto:mail@yumi.to">mail@yumi.to</a></li>
+    </ul>
+  </section>
+</SiteLayout>

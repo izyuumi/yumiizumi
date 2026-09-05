@@ -28,7 +28,28 @@ if (slug) {
   name="viewport"
   content="width=device-width,initial-scale=1,viewport-fit=cover"
 />
-<meta name="theme-color" content="#1e1e1b" />
+<meta
+  name="theme-color"
+  content="#f6f1e7"
+  media="(prefers-color-scheme: light)"
+/>
+<meta
+  name="theme-color"
+  content="#2b2926"
+  media="(prefers-color-scheme: dark)"
+/>
+
+<!-- Apply a remembered theme before first paint -->
+<script is:inline>
+  try {
+    const theme = localStorage.getItem("theme");
+    if (theme === "light" || theme === "dark") {
+      document.documentElement.dataset.theme = theme;
+    }
+  } catch (e) {
+    // storage unavailable: fall back to the OS preference
+  }
+</script>
 <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
 <meta name="generator" content={Astro.generator} />
 

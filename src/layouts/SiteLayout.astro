@@ -1,0 +1,60 @@
+---
+import Head from "@/components/Head.astro";
+import ThemeToggle from "@/components/ThemeToggle.astro";
+import "@/styles/global.scss";
+
+interface Props {
+  title: string;
+  description: string;
+  lang?: "en" | "ja";
+  themeLabels?: { group: string; system: string; light: string; dark: string };
+  langLinks?: { href: string; label: string; hrefLang: string }[];
+}
+
+const {
+  title,
+  description,
+  lang = "en",
+  themeLabels,
+  langLinks = [],
+} = Astro.props;
+
+const normalize = (value: string) => value.replace(/\/+$/, "") || "/";
+const path = normalize(Astro.url.pathname);
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <Head title={title} description={description} isBlog={false} />
+  </head>
+  <body>
+    <div class="site">
+      <header class="site-header">
+        <a class="name" href={lang === "ja" ? "/ja" : "/"}>Yumi Izumi</a>
+        {
+          langLinks.length > 0 && (
+            <nav class="langs" aria-label={lang === "ja" ? "言語" : "Language"}>
+              {langLinks.map((link) =>
+                normalize(link.href) === path ? (
+                  <span aria-current="true">{link.label}</span>
+                ) : (
+                  <a href={link.href} hreflang={link.hrefLang} lang={link.hrefLang}>
+                    {link.label}
+                  </a>
+                ),
+              )}
+            </nav>
+          )
+        }
+      </header>
+      <main id="main">
+        <slot />
+      </main>
+      <footer class="site-footer">
+        <slot name="footer" />
+        <ThemeToggle labels={themeLabels} />
+      </footer>
+    </div>
+  </body>
+</html>
