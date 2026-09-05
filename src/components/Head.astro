@@ -49,7 +49,7 @@ if (slug) {
 <!-- <meta name="article:published_time" content={Astro.date} /> -->
 
 <!-- Open Graph / Facebook -->
-<meta property="og:type" content="article" />
+<meta property="og:type" content={isBlog ? "article" : "website"} />
 <meta property="og:url" content={Astro.url} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />

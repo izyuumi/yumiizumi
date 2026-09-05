@@ -4,6 +4,7 @@ export interface Experience {
   role: string;
   location: string;
   period: string;
+  summary: string;
   details: string[];
 }
 
@@ -14,10 +15,11 @@ const experiences: Experience[] = [
     role: "software engineer (forward deployed)",
     location: "kyoto, japan",
     period: "jan 2025 – present",
+    summary: "3 engineers analyzed half of a 6-codebase migration portfolio in 3 months",
     details: [
       "lead engineer on system migration for the <strong>japanese national police agency</strong> — analyzing 6 codebases (one 4m lines, originally 700 engineers)",
       "pioneered ai-agent-driven migration using <strong>claude code</strong> and <strong>codex</strong> — 3 engineers analyzed half the portfolio in 3 months",
-      "manage <strong>128-node h100/h200 gpu cluster</strong> running self-hosted llms via vllm and litellm",
+      "manage <strong>128-gpu h100/h200 cluster</strong> running self-hosted llms via vllm and litellm",
       "sold <strong>80+ gpu node contracts</strong> at nvidia gtc 2025",
       "built a real-time <strong>political sentiment platform</strong> — knowledge graph over live x data with postgres, next.js, and three.js",
       "as intern (may–aug 2024): built a production <strong>automated call center backend in rust</strong> powered by gpt-4o, claude 3.5, llama 3, and gemma 2",
@@ -29,6 +31,7 @@ const experiences: Experience[] = [
     role: "cybervsr research assistant",
     location: "remote",
     period: "may 2024 – aug 2024",
+    summary: "jailbroke gpt-4o, gpt-3.5 turbo, llama 2, and llama 3 while researching safeguards",
     details: [
       "conducted 3-month research on <strong>llm safeguarding and jailbreaking</strong> under dr. j. yang",
       "successfully jailbroken <strong>gpt-4o, gpt-3.5 turbo, llama 2, and llama 3</strong> using prompting techniques (dan variants, godmode)",
@@ -41,6 +44,7 @@ const experiences: Experience[] = [
     role: "co-founder & cto",
     location: "university park, pa",
     period: "mar 2023 – mar 2024",
+    summary: "led 11 engineers building a second-hand clothing marketplace",
     details: [
       "led <strong>11 engineers</strong> building a full-stack mobile app for second-hand clothing trades",
       "built with ionic/react/typescript, supabase/postgresql, and deno",

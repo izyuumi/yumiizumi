@@ -45,6 +45,7 @@ const latestPosts = blogs.slice(0, 3);
             title={exp.company}
             badge={exp.role}
             meta={exp.period}
+            description={exp.summary}
             onclick={`document.getElementById('${exp.id}').showModal()`}
           />
         ))
@@ -53,9 +54,9 @@ const latestPosts = blogs.slice(0, 3);
   </section>
   {
     experiences.map((exp) => (
-      <dialog id={exp.id} class="experience-dialog">
+      <dialog id={exp.id} class="experience-dialog" aria-labelledby={`${exp.id}-title`}>
         <div class="dialog-inner">
-          <h2>{exp.company} — {exp.role}</h2>
+          <h2 id={`${exp.id}-title`}>{exp.company} — {exp.role}</h2>
           <span class="card-meta">{exp.location} · {exp.period}</span>
           <ul class="experience-details">
             {exp.details.map((detail) => (
@@ -77,9 +78,9 @@ const latestPosts = blogs.slice(0, 3);
           <CardItem
             title={project.title}
             badge={project.kind}
-            meta={project.period}
+            meta={`${project.role} · ${project.period}`}
+            description={project.description}
             href={project.url}
-            stars={project.stars}
           />
         ))
       }
@@ -90,9 +91,9 @@ const latestPosts = blogs.slice(0, 3);
           <CardItem
             title={project.title}
             badge={project.kind}
-            meta={project.period}
+            meta={`${project.role} · ${project.period}`}
+            description={project.description}
             href={project.url}
-            stars={project.stars}
             subtle
           />
         ))
@@ -136,7 +137,7 @@ const latestPosts = blogs.slice(0, 3);
     <div class="contact-links">
       <a class="inline-link" href="https://yumi.to/cal" aria-label="Yumi's Cal.com page">book via cal.com</a>
       <a class="inline-link" href="https://yumi.to/card" aria-label="virtual card">view contact card</a>
-      <span>mail (at) yumi.to</span>
+      <a class="inline-link" href="mailto:mail@yumi.to">mail@yumi.to</a>
     </div>
   </section>
 </Layout>

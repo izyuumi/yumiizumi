@@ -6,11 +6,10 @@ interface Props {
   href?: string;
   onclick?: string;
   subtle?: boolean;
-  stars?: number;
+  description?: string;
 }
 
-const { title, badge, meta, href, onclick, subtle, stars } = Astro.props;
-const starsLabel = stars ? (stars >= 1000 ? `★ ${(stars / 1000).toFixed(1)}k` : `★ ${stars}`) : null;
+const { title, badge, meta, href, onclick, subtle, description } = Astro.props;
 ---
 
 <li class:list={["card", { "card-subtle": subtle }]}>
@@ -19,18 +18,18 @@ const starsLabel = stars ? (stars >= 1000 ? `★ ${(stars / 1000).toFixed(1)}k` 
       <span class="card-title">{title}</span>
       <span class="card-badges">
         {badge && <span class="badge">{badge}</span>}
-        {starsLabel && <span class="stars-hint">{starsLabel}</span>}
       </span>
       <span class="card-meta">{meta}</span>
+      {description && <span class="card-description">{description}</span>}
     </a>
   ) : (
     <button class="card-button" onclick={onclick}>
       <span class="card-title">{title}</span>
       <span class="card-badges">
         {badge && <span class="badge">{badge}</span>}
-        {starsLabel && <span class="stars-hint">{starsLabel}</span>}
       </span>
       <span class="card-meta">{meta}</span>
+      {description && <span class="card-description">{description}</span>}
     </button>
   )}
 </li>
@@ -41,9 +40,9 @@ const starsLabel = stars ? (stars >= 1000 ? `★ ${(stars / 1000).toFixed(1)}k` 
     gap: 0.4rem;
     align-items: center;
   }
-  .stars-hint {
-    font-size: 0.75em;
+  .card-description {
+    grid-column: 1 / -1;
     color: var(--muted);
-    opacity: 0.6;
+    font-size: 0.9em;
   }
 </style>

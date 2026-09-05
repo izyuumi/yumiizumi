@@ -4,7 +4,8 @@ export interface Project {
   period: string;
   featured?: boolean;
   kind?: "research" | "oss" | "talk" | "app";
-  stars?: number;
+  role: string;
+  description: string;
 }
 
 const projects: Project[] = [
@@ -14,7 +15,8 @@ const projects: Project[] = [
     period: "october 2023",
     featured: true,
     kind: "oss",
-    stars: 73,
+    role: "creator",
+    description: "show xcode activity as discord rich presence",
   },
   {
     title: "html2md-rs",
@@ -22,7 +24,8 @@ const projects: Project[] = [
     period: "since january 2024",
     featured: true,
     kind: "oss",
-    stars: 26,
+    role: "creator",
+    description: "convert html into markdown with rust",
   },
   {
     title: "dime",
@@ -30,25 +33,32 @@ const projects: Project[] = [
     period: "since october 2023",
     featured: true,
     kind: "app",
-    stars: 1600,
+    role: "contributor",
+    description: "open-source personal finance app for ios",
   },
   {
     title: "yumi.to",
     url: "https://yumi.to/_q",
     period: "october 2023",
     kind: "app",
+    role: "creator",
+    description: "personal url shortener and link hub",
   },
   {
     title: "onlynow",
     url: "https://onlynow.yumi.to/",
     period: "december 2023",
     kind: "app",
+    role: "creator",
+    description: "a focused view of what matters now",
   },
   {
     title: "why privacy matters",
     url: "https://yumi.to/tedx",
     period: "late 2020",
     kind: "talk",
+    role: "speaker",
+    description: "tedx talk on why digital privacy matters",
   },
 ];
 
